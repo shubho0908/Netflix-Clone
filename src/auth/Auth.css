@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  background: rgb(0, 0, 0, 0.5) url("../img/BG.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-blend-mode: darken;
+
+}
+
+body::before{
+    box-shadow: -1px 1px 67px 16px rgba(0, 0, 0, 0.36) inset;
+}
+
+.navbar {
+    display: flex;
+    justify-content: left;
+
+}
+
+.Netflix-logo {
+  width: 168px;
+  margin-top: 23px;
+  margin-left: 58px;
+}
