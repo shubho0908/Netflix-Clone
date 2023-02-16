@@ -1,7 +1,9 @@
 import { React, useState } from "react";
 import "./Auth.css";
+import '../App.css'
 // IMG Files
 import Logo from "../img/logo.png";
+import { Link } from "react-router-dom";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -37,6 +39,7 @@ const Signin = () => {
 
   return (
     <>
+      <div className="App">
       <div className="navbar">
         <div className="logo">
           <img className="Netflix-logo" src={Logo} alt="" />
@@ -89,12 +92,13 @@ const Signin = () => {
             </div>
             <div className="new-to-netflix">
               <p>New to Netflix?</p>
-              <a href="" style={{ textDecoration: "none" }}>
+              <Link to="/signup" style={{ textDecoration: "none" }}>
                 <p className="signup-now">Sign up now.</p>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
