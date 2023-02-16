@@ -95,6 +95,11 @@ input[type="text"] {
   outline: none;
 }
 
+input[type="email"] {
+  border: none;
+  outline: none;
+}
+
 input[type="password"] {
   border: none;
   outline: none;
@@ -277,6 +282,18 @@ input.check {
   background-color: black !important;
 }
 
+.section-data2,.section-title2, .section-desc2, .inside2 {
+  background-color: black !important;
+}
+
+.section-data3,.section-title3, .section-desc3, .inside3 {
+  background-color: black !important;
+}
+
+.section-data4,.section-title4, .section-desc4, .inside4 {
+  background-color: black !important;
+}
+
 
 .below-section1 {
   color: white;
@@ -287,31 +304,40 @@ input.check {
 }
 
 .below-section2,
-.below-section3 {
+.below-section3,.below-section4 {
+  color: white;
   height: 500px;
   background-color: black !important;
   border-top: 8px solid rgb(48, 48, 48);
 }
 
-.section-data1{
+.section-data1 ,.section-data2, .section-data3,.section-data4{
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.inside1{
-max-width: 30%;
 
+.inside1,.inside2, .inside3,.inside4{
+max-width: 30%;
 }
 
-.section-title{
+.section-data4{
+  margin-top: 70px;
+}
+
+.inside4{
+  margin-left: 50px;
+}
+
+.section-title, .section-title2,.section-title3,.section-title4{
 font-size: 50px;
 text-align: left;
 font-family: sans-serif;
 font-weight: bold;
 }
 
-.section-desc{
+.section-desc, .section-desc2,.section-desc3,.section-desc4{
   font-family: sans-serif;
   margin-top: 25px;
   font-size: 28px;
@@ -320,4 +346,8 @@ font-weight: bold;
 
 .tv{
   margin-left: 25px;
+}
+
+.children{
+  width: 480px;
 }
