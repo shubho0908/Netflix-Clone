@@ -15,6 +15,15 @@ const Signup = () => {
             <button className="signin-btn"><Link className="signin-link" to="/">Sign In</Link></button>
           </div>
         </div>
+        <div className="mid-content">
+          <p className="content-title"></p>
+          <p className="content-center"></p>
+          <p className="membership"></p>
+          <div className="get-started">
+            <input type="email" className="enter-details" />
+            <button className="start-btn">Get Started</button>
+          </div>
+        </div>
       </div>
     </>
   );
