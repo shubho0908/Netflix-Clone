@@ -6,13 +6,21 @@
   background-attachment: fixed;
   background-size: cover;
   background-blend-mode: darken;
+}
 
+.error-message {
+  color: darkorange;
+  font-family: sans-serif;
+  font-size: 13px;
+  text-align: left;
+  margin-left: 72px;
+  margin-top: 8px;
+  max-width: 65%;
 }
 
 .navbar {
-    display: flex;
-    justify-content: left;
-
+  display: flex;
+  justify-content: left;
 }
 
 .Netflix-logo {
@@ -21,60 +29,126 @@
   margin-left: 58px;
 }
 
-.main-page{
-    display: flex;
-    justify-content: center;
+.main-page {
+  display: flex;
+  justify-content: center;
 }
 
-.container{
-    display: flex;
-    width: 450px;
-    height: 400px;
-    color: white;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.89);
-    justify-content: center;
-    align-content: center;
+.container {
+  display: flex;
+  width: 450px;
+  height: 630px;
+  color: white;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.82);
+  border-radius: 7px;
+  justify-content: center;
+  align-content: center;
 }
 
-.signin-page:not(.signin-button){
-
-    background-color: rgba(0, 0, 0, 0.89);
+.signin-page:not(.signin-button) {
+  background-color: rgba(0, 0, 0, 0.82);
 }
 
-.signin-head{
-    background-color: rgba(0, 0, 0, 0.89);
-    text-align: center;
-    font-size: 32px;
-    font-family: sans-serif;
-    width: 290px;
+.signin-head {
+  background-color: rgba(0, 0, 0, 0.82);
+  text-align: center;
+  font-size: 32px;
+  font-family: sans-serif;
+  width: 290px;
 }
 
-.email,.password{
-    background-color: rgba(0, 0, 0, 0.89);
-
+.email,
+.password,
+.remember,
+.need-help,
+.help-section,
+.error-message,
+.new-to-netflix,
+.new-to-netflix > a,
+.new-to-netflix > p,
+.signup-now {
+  background-color: rgba(0, 0, 0, 0.82);
 }
 
-.email-inp, .password-inp{
-    height: 38px;
-    border: none;
-    font-size: 16px;
-    color: white;
-    width: 300px;
-    padding: 8px;
-    border-radius: 4px;
-    background: #333;
-    margin-top: 30px;
+.email-inp,
+.password-inp {
+  height: 38px;
+  border: none;
+  font-size: 16px;
+  color: white;
+  width: 300px;
+  padding: 8px;
+  border-radius: 4px;
+  background: #333 !important;
+  margin-top: 30px;
 }
 
-.signin-button{
-    width: 310px;
-    border: none;
-    padding: 16px;
-    margin-top: 30px;
-    font-size: 18px;
-    font-family: sans-serif;
-    border-radius: 3px;
-    color: white;
-    background-color: #e50914 !important;
+input[type="text"] {
+  border: none;
+  outline: none;
+}
+
+input[type="password"] {
+  border: none;
+  outline: none;
+}
+
+.signin-button {
+  width: 310px;
+  border: none;
+  padding: 16px;
+  margin-top: 30px;
+  font-size: 18px;
+  font-family: sans-serif;
+  border-radius: 3px;
+  color: white;
+  background-color: #e50914 !important;
+}
+
+.help-section {
+  margin-top: 25px;
+  font-family: sans-serif;
+  font-size: 13px;
+  color: #b3b3b3;
+  display: flex;
+  justify-content: space-around;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+}
+
+input.check {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
+
+.new-to-netflix {
+  display: flex;
+  font-family: sans-serif;
+  justify-content: left;
+  margin-left: 69px;
+  margin-top: 68px;
+  font-size: 18px;
+}
+
+.new-to-netflix > p {
+  color: #737373;
+}
+
+.signup-now {
+  color: white !important;
+  margin-left: 6px;
+}
+
+
+/* Media Queries */
+
+@media (max-width: 905px) {
+    *{
+        background: black !important;
+    }
 }
