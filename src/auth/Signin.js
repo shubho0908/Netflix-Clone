@@ -46,7 +46,7 @@ const Signin = () => {
         </div>
       </div>
       <div className="main-page">
-        <div className="container">
+        <div className="container1">
           <div className="signin-page">
             <h2 className="signin-head">Sign In</h2>
             <div className="input-fields">

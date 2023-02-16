@@ -1,10 +1,20 @@
 /* SIGNIN CSS  */
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
-*:not(.signin-button, .signin-btn, .signin-link, .start-btn) {
+*:not(
+    .signin-button,
+    .signin-btn,
+    .signin-link,
+    .start-btn,
+    .acc1,
+    .acc1-data,
+    .acc1-icon,
+    .acc1-item,
+    .break
+  ) {
   margin: 0;
   padding: 0;
   background: rgb(0, 0, 0, 0.5) url("../img/BG.jpg");
@@ -40,7 +50,7 @@ html{
   justify-content: center;
 }
 
-.container {
+.container1 {
   display: flex;
   width: 450px;
   height: 630px;
@@ -165,7 +175,7 @@ input.check {
   .password-inp {
     width: 90vw;
   }
-  .container {
+  .container1 {
     width: auto;
     height: 540px;
   }
@@ -278,22 +288,33 @@ input.check {
   background-color: #e50914 !important;
 }
 
-.section-data1,.section-title, .section-desc, .inside1 {
+.section-data1,
+.section-title,
+.section-desc,
+.inside1 {
   background-color: black !important;
 }
 
-.section-data2,.section-title2, .section-desc2, .inside2 {
+.section-data2,
+.section-title2,
+.section-desc2,
+.inside2 {
   background-color: black !important;
 }
 
-.section-data3,.section-title3, .section-desc3, .inside3 {
+.section-data3,
+.section-title3,
+.section-desc3,
+.inside3 {
   background-color: black !important;
 }
 
-.section-data4,.section-title4, .section-desc4, .inside4 {
+.section-data4,
+.section-title4,
+.section-desc4,
+.inside4 {
   background-color: black !important;
 }
-
 
 .below-section1 {
   color: white;
@@ -304,50 +325,124 @@ input.check {
 }
 
 .below-section2,
-.below-section3,.below-section4 {
+.below-section3,
+.below-section4 {
   color: white;
   height: 500px;
   background-color: black !important;
   border-top: 8px solid rgb(48, 48, 48);
 }
+.below-section5 {
+  color: white;
+  height: 650px;
+  background-color: black !important;
+  border-top: 8px solid rgb(48, 48, 48);
+}
 
-.section-data1 ,.section-data2, .section-data3,.section-data4{
+.section-data1,
+.section-data2,
+.section-data3,
+.section-data4 {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-
-.inside1,.inside2, .inside3,.inside4{
-max-width: 30%;
+.inside1,
+.inside2,
+.inside3,
+.inside4 {
+  max-width: 30%;
 }
 
-.section-data4{
+.section-data4 {
   margin-top: 70px;
 }
 
-.inside4{
+.inside4 {
   margin-left: 50px;
 }
 
-.section-title, .section-title2,.section-title3,.section-title4{
-font-size: 50px;
-text-align: left;
-font-family: sans-serif;
-font-weight: bold;
+.section-title,
+.section-title2,
+.section-title3,
+.section-title4 {
+  font-size: 50px;
+  text-align: left;
+  font-family: sans-serif;
+  font-weight: bold;
 }
 
-.section-desc, .section-desc2,.section-desc3,.section-desc4{
+.section-desc,
+.section-desc2,
+.section-desc3,
+.section-desc4 {
   font-family: sans-serif;
   margin-top: 25px;
   font-size: 28px;
   text-align: left;
 }
 
-.tv{
+.tv {
   margin-left: 25px;
 }
 
-.children{
+.children {
   width: 480px;
+}
+
+.FAQ,
+.accordions {
+  background-color: black !important;
+  margin-top: 50px;
+}
+.accordions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.FAQ {
+  font-size: 45px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.FAQ-section {
+  margin-top: 70px;
+  background-color: black !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.acc1 {
+  font-size: 28px;
+  display: flex;
+  padding: 30px;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  font-family: sans-serif;
+  width: 800px;
+  border-radius: 5px;
+  background-color: #303030 !important;
+}
+
+.acc1-icon {
+  background-color: #303030 !important;
+  font-size: 40px;
+}
+
+.break {
+  margin-top: 30px;
+  font-size: 22px;
+}
+
+.acc1-item {
+  width: 856px;
+  text-align: left;
+  font-size: 22px;
+  margin-top: 5px;
 }
