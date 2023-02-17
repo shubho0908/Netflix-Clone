@@ -14,7 +14,7 @@ const Signin = () => {
 
   const handleEmailBlur = (event) => {
     if (event.target.value === "") {
-      setEmailError("Please enter a valid email address or phone number.");
+      setEmailError("Please enter a valid email address.");
       document.querySelector(".email-inp").style.borderBottom =
         "2px solid darkorange";
     } else {
