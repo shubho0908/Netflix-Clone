@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Logo from "../img/logo.png";
 import TV from "../img/tv.gif";
 import Mobile from "../img/mobile.gif";
@@ -8,16 +8,41 @@ import { Link } from "react-router-dom";
 import "./Auth.css";
 
 const Signup = () => {
+  const showData = () => {
+    if (document.querySelector(".acc1-item").style.display === "none") {
+      document.querySelector(".acc1-item").style.display = "block";
+    } else {
+      document.querySelector(".acc1-item").style.display = "none";
+    }
+  };
+
+  const showData2 = () => {
+    if (document.querySelector(".acc2-item").style.display === "none") {
+      document.querySelector(".acc2-item").style.display = "block";
+    } else {
+      document.querySelector(".acc2-item").style.display = "none";
+    }
+  };
+
+  const showData3 = () => {
+    if (document.querySelector(".acc3-item").style.display === "none") {
+      document.querySelector(".acc3-item").style.display = "block";
+    } else {
+      document.querySelector(".acc3-item").style.display = "none";
+    }
+  };
+
   return (
     <>
       <div className="App">
+        <div className="bg-data">
         <div className="navbar-2">
-          <div className="logo">
-            <img className="Netflix-logo" src={Logo} alt="" />
+          <div className="logo2">
+            <img className="Netflix-logo2" src={Logo} alt="" />
           </div>
-          <div className="signin">
-            <button className="signin-btn">
-              <Link className="signin-link" to="/">
+          <div className="signin2">
+            <button className="signin-btn2">
+              <Link className="signin-link2" to="/">
                 Sign In
               </Link>
             </button>
@@ -92,15 +117,15 @@ const Signup = () => {
           <div className="FAQ-section">
             <p className="FAQ">Frequently Asked Questions</p>
             <div className="accordions">
-              <div className="acc1">
+              <div onClick={showData} className="acc1">
                 <p className="acc1-data">What is Netflix?</p>
                 <p className="acc1-icon">
                   <svg
+                    className="right-arrow"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
+                    width="34"
+                    height="34"
                     fill="currentColor"
-                    class="bi bi-arrow-right"
                     viewBox="0 0 16 16"
                   >
                     <path
@@ -110,7 +135,7 @@ const Signup = () => {
                   </svg>
                 </p>
               </div>
-              <div className="acc1-item">
+              <div style={{ display: "none" }} className="acc1-item">
                 Netflix is a streaming service that offers a wide variety of
                 award-winning TV shows, movies, anime, documentaries and more -
                 on thousands of internet-connected devices.
@@ -121,8 +146,74 @@ const Signup = () => {
                   added every week!
                 </div>
               </div>
+              <div onClick={showData2} className="acc2 second">
+                <p className="acc2-data">How much does Netflix cost?</p>
+                <p className="acc2-icon">
+                  <svg
+                    className="right-arrow"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="34"
+                    height="34"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                    />
+                  </svg>
+                </p>
+              </div>
+              <div style={{ display: "none" }} className="acc2-item">
+                Watch Netflix on your smartphone, tablet, Smart TV, laptop, or
+                streaming device, all for one fixed monthly fee. Plans range
+                from ₹ 149 to ₹ 649 a month. No extra costs, no contracts.
+              </div>
+              <div onClick={showData3} className="acc3 second">
+                <p className="acc3-data">Is Netflix good for kids?</p>
+                <p className="acc3-icon">
+                  <svg
+                    className="right-arrow"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="34"
+                    height="34"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                    />
+                  </svg>
+                </p>
+              </div>
+              <div style={{ display: "none" }} className="acc3-item">
+                The Netflix Kids experience is included in your membership to
+                give parents control while kids enjoy family-friendly TV shows
+                and films in their own space.
+                <div className="break">
+                  Kids profiles come with PIN-protected parental controls that
+                  let you restrict the maturity rating of content kids can watch
+                  and block specific titles you don't want kids to see.
+                </div>
+              </div>
+              <div className="bottom-data">
+              <p className="membership new">
+                Ready to watch? Enter your email to create or restart your
+                membership.
+              </p>
+              <div className="get-started new">
+                <input
+                  type="email"
+                  className="enter-details"
+                  placeholder="Email address"
+                />
+                <button className="start-btn new">Get Started</button>
+              </div>
+              </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </>

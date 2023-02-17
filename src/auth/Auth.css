@@ -7,12 +7,23 @@ html {
 *:not(
     .signin-button,
     .signin-btn,
+    .signin-btn2,
     .signin-link,
+    .signin-link2,
     .start-btn,
     .acc1,
     .acc1-data,
     .acc1-icon,
     .acc1-item,
+    .acc2,
+    .acc2-data,
+    .acc2-icon,
+    .acc2-item,
+    .acc3,
+    .acc3-data,
+    .acc3-icon,
+    .acc3-item,
+    .right-arrow,
     .break
   ) {
   margin: 0;
@@ -39,7 +50,7 @@ html {
   justify-content: left;
 }
 
-.Netflix-logo {
+.Netflix-logo, .Netflix-logo2 {
   width: 168px;
   margin-top: 23px;
   margin-left: 58px;
@@ -62,7 +73,7 @@ html {
   align-content: center;
 }
 
-.signin-page:not(.signin-button, .signin-btn) {
+.signin-page:not(.signin-button, .signin-btn,.signin-btn2) {
   background-color: rgba(0, 0, 0, 0.82);
 }
 
@@ -168,12 +179,18 @@ input.check {
 /* Media Queries */
 
 @media (max-width: 740px) {
-  * {
+  *:not(.navbar2, .Netflix-logo2, .logo2,.bg-data,.signin2, .signin-btn2,.signin-link2,.mid-content,.content-title,.content-center,.membership,.get-started,.acc1-data,.acc2-data,.acc3-data) {
     background: black !important;
   }
+
+  .navbar-2{
+    background-color: #ffffff00 !important;
+  }
+
   .email-inp,
   .password-inp {
     width: 90vw;
+    background: #333 !important;
   }
   .container1 {
     width: auto;
@@ -195,6 +212,7 @@ input.check {
   }
   .signin-button {
     width: 92vw;
+    background-color: #e50914 !important;
   }
   .error-message {
     margin-left: 10px;
@@ -209,12 +227,12 @@ input.check {
   justify-content: space-between;
 }
 
-.signin-link {
+.signin-link,.signin-link2 {
   color: white;
   text-decoration: none;
 }
 
-.signin-btn {
+.signin-btn,.signin-btn2 {
   width: 95px;
   border: none;
   padding: 8px;
@@ -332,6 +350,12 @@ input.check {
   background-color: black !important;
   border-top: 8px solid rgb(48, 48, 48);
 }
+
+.below-section4{
+  height: 580px !important;
+
+}
+
 .below-section5 {
   color: white;
   height: 650px;
@@ -417,20 +441,25 @@ input.check {
   align-items: center;
 }
 
-.acc1 {
-  font-size: 28px;
+.right-arrow {
+  background-color: #303030 !important;
+}
+
+.acc1, .acc2, .acc3 {
+  cursor: pointer;
+  font-size: 26px;
   display: flex;
-  padding: 30px;
+  padding: 24px;
   align-items: center;
   justify-content: space-between;
   height: 30px;
   font-family: sans-serif;
-  width: 800px;
+  width: 740px;
   border-radius: 5px;
   background-color: #303030 !important;
 }
 
-.acc1-icon {
+.acc1-icon, .acc2-icon,.acc3-icon {
   background-color: #303030 !important;
   font-size: 40px;
 }
@@ -440,9 +469,128 @@ input.check {
   font-size: 22px;
 }
 
-.acc1-item {
-  width: 856px;
+.second{
+  margin-top: 12px;
+}
+
+.acc1-item,.acc2-item, .acc3-item {
+  width: 728px;
   text-align: left;
   font-size: 22px;
+  font-family: sans-serif;
+  border-radius: 5px;
   margin-top: 5px;
+  padding: 30px;
+  background-color: #303030 !important;
+  
+}
+
+.new,.bottom-data{
+  background-color: black;
+}
+
+.bottom-data{
+  margin-top: 40px;
+  margin-bottom:80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.acc1-item, .acc2-item ,.acc3-item{
+  position: relative;
+  animation: fadein .35s;
+}
+
+@keyframes fadein {
+  0%{
+    opacity: 0;
+    bottom: 30px;
+
+  }
+  100%{
+    opacity: 1;
+    bottom: 0px;
+
+  }
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 940px) {
+  .below-section1,.below-section2,.below-section3,.below-section4,.below-section5{
+    height: 615px;
+  }
+  .section-data1,
+.section-data2,
+.section-data3,
+.section-data4,.section-data5{
+  flex-direction: column;
+  
+  }
+
+.device{
+  position: relative;
+  top: 60px;
+  width: 440px;
+}
+
+.children{
+  position: relative;
+  top: 15px;
+}
+
+.section-desc4{
+  max-width: 86%;
+}
+
+  .section-data2,.section-data4{
+    flex-direction: column-reverse;
+    
+  }
+
+  .inside4{
+    margin-left: 0px;
+    position: relative;
+    top: 0px !important;
+  }
+  
+  .inside1, .inside2, .inside3, .inside4{
+    position: relative;
+    top: 80px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-desc,
+.section-desc2,
+.section-desc3,
+.section-desc4{
+  text-align: center;
+  z-index: 1;
+  font-size: 18px;
+}
+
+  .section-title,
+.section-title2,
+.section-title3,
+.section-title4{
+  font-size: 36px;
+  z-index: 1;
+}
+}
+
+@media (max-width: 825px) {
+  .acc1,.acc2,.acc3{
+    width: 600px;
+  }
+  .enter-details{
+    width: 380px;
+  }
+  .start-btn{
+    font-size: 22px;
+    width: 155px;
+  }
 }
