@@ -207,6 +207,7 @@ input.check {
       .acc1-data,
       .acc2-data,
       .acc3-data,
+      .email-valid,
       .break
     ) {
     background: black !important;
@@ -343,6 +344,7 @@ input.check {
   background-color: #e50914 !important;
   transition: all .3s;
 }
+
 
 .start-link{
   background-color: #e5091400 !important;

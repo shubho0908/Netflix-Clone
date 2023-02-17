@@ -14,6 +14,8 @@ const auth = getAuth(app);
 
 const Signup = () => {
   const [email, setEmail] = useState("");
+
+  
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -24,18 +26,14 @@ const Signup = () => {
       document.querySelector(".enter-details").style.borderBottom =
         "2px solid darkorange";
       document.querySelector(".enter-details").style.height = "43px";
-    }
-    else if(event.target.value.includes("@")){
+    } else if (event.target.value.includes("@")) {
       setEmailError("");
-      document.querySelector(".enter-details").style.borderBottom =
-      "0px";
+      document.querySelector(".enter-details").style.borderBottom = "0px";
       document.querySelector(".enter-details").style.height = "43px";
-    }
-    else {
+    } else {
       setEmailError("");
     }
   };
-
 
   const [emailError, setEmailError] = useState("");
 
@@ -101,8 +99,11 @@ const Signup = () => {
                   required
                 />
               </div>
-              <button className="start-btn" >
-                <Link className="start-link" to={email.length === 0 || emailError.length >= 5? "" : "/"}>
+              <button className="start-btn">
+                <Link
+                  className="start-link"
+                  to={email.length === 0 || emailError.length >= 5 ? "" : "/"}
+                >
                   Get Started
                 </Link>
               </button>
@@ -258,9 +259,26 @@ const Signup = () => {
                       type="email"
                       className="enter-details"
                       placeholder="Email address"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                      value={email}
+                      onChange={handleEmailChange}
+                      onBlur={handleEmailBlur}
+                      required
                     />
-                    <button className="start-btn new">Get Started</button>
+                    <button className="start-btn new">
+                      <Link
+                        className="start-link"
+                        to={
+                          email.length === 0 || emailError.length >= 5
+                            ? ""
+                            : "/"
+                        }
+                      >
+                        Get Started
+                      </Link>
+                    </button>
                   </div>
+                  {emailError && <div className="error-message2">{emailError}</div>}
                 </div>
               </div>
             </div>
