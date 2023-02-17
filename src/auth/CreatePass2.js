@@ -106,19 +106,8 @@ const CreatePass2 = () => {
                   <div className="error-message2">{passwordError}</div>
                 )}
               </div>
-              <button onClick={CreateUser} className="next2">
-                <Link
-                  className="next-btn2"
-                  to={
-                    email.length === 0 ||
-                    (emailError.length >= 5 && password.length === 0) ||
-                    passwordError.length >= 4
-                      ? ""
-                      : "/main"
-                  }
-                >
-                  Next
-                </Link>
+              <button style={{color:"white"}} onClick={CreateUser} className="next2">
+                Next
               </button>
             </div>
           </div>

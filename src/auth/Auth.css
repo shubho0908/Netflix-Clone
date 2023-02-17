@@ -94,9 +94,11 @@ html {
   width: 168px;
   margin-top: 23px;
   margin-left: 58px;
+  cursor: pointer;
 }
 .Netflix-logo3 {
   width: 168px;
+  cursor: pointer;
   margin-top: 6px;
   margin-left: 58px;
 }
@@ -1086,4 +1088,85 @@ width: 420px;
     font-size: 23px;
     width: 284px;
   }
+}
+
+@media (max-width: 600px) {
+
+  .center-content{
+    max-width: 60%;
+  }
+  .steps2{
+    width: 150px !important;
+  }
+  
+}
+
+@media (max-width: 600px) {
+
+  .center-content{
+    max-width: 35%;
+  }
+  
+}
+
+@media (max-width: 460px) {
+
+  .center-content{
+    max-width: 45%;
+  }
+
+  .steps2{
+    font-size: 12px;
+  }
+
+  .mid-head2{
+    font-size: 27px;
+  }
+
+  .mid-desc2{
+    font-size: 14px;
+  }
+
+  .final-email, .final-password{
+    width: 326px;
+  }
+  .next2{
+    width: 344px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 415px) {
+
+  .mid-head2{
+    width: 290px;
+  }
+
+  .mid-desc2{
+    width: 290px;
+  }
+  
+  .final-email, .final-password{
+    width: 258px;
+  }
+  .next2{
+    width: 278px;
+  }
+}
+
+@media (max-width: 330px) {
+  .mid-head2{
+    width: 240px;
+    font-size: 24px;
+  }
+  .mid-desc2{
+    width: 235px;
+  }
+  .final-email, .final-password{
+    width: 200px;
+  }
+  .next2{
+    width: 218px;
+  }
+
 }

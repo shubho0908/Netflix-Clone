@@ -99,7 +99,7 @@ const Signin = () => {
               </div>
             </div>
             <button onClick={LogIn} type="submit" className="signin-button">
-              <Link to="/main" className="signin-submit">Sign In</Link>
+              Sign In
             </button>
             <div className="help-section">
               <div className="remember">
