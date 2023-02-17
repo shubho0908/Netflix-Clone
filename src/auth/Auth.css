@@ -1,15 +1,19 @@
 /* SIGNIN CSS  */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 html {
   scroll-behavior: smooth;
 }
 
 *:not(
-  b,
-  .final-email,
-  .final-password,
+    b,
+    .container,
+    h3,
+    .btn,
+    .mssg,
+    .final-email,
+    .final-password,
     .signin-button,
     .signin-btn,
     .signin-btn2,
@@ -63,6 +67,16 @@ html {
   background-attachment: fixed;
   background-size: cover;
   background-blend-mode: darken;
+}
+
+.container,
+h3,
+.btn {
+  background-color: white;
+}
+
+h3 {
+  margin: 0px;
 }
 
 .error-message {
@@ -174,6 +188,7 @@ input[type="password"] {
 }
 
 .signin-button {
+  cursor: pointer;
   width: 310px;
   border: none;
   padding: 16px;
@@ -183,6 +198,11 @@ input[type="password"] {
   border-radius: 3px;
   color: white;
   background-color: #e50914 !important;
+  transition: all 0.3s;
+}
+
+.signin-button:hover {
+  background-color: #a60911 !important;
 }
 
 .help-section {
@@ -218,7 +238,7 @@ input.check {
   color: #737373;
 }
 
-.signin-submit{
+.signin-submit {
   color: white !important;
   text-decoration: none !important;
 }
@@ -228,11 +248,21 @@ input.check {
   margin-left: 6px;
 }
 
+.mssg {
+  color: #b70000;
+  position: relative;
+  background-color: white;
+  top: 20px;
+  font-family: sans-serif;
+  font-weight: 500;
+}
+
 /* Media Queries */
 
 @media (max-width: 740px) {
   *:not(
       .navbar2,
+      .mssg,
       .Netflix-logo2,
       .Netflix-logo3,
       .final-email,
@@ -252,7 +282,9 @@ input.check {
       .middle-content2,
       .content-innerData,
       .content-innerData2,
-      .steps,.steps2,b,
+      .steps,
+      .steps2,
+      b,
       .content-center,
       .navbar-3,
       .mid-head,
@@ -275,7 +307,6 @@ input.check {
     ) {
     background: black !important;
   }
-
 
   .navbar-2 {
     background-color: #ffffff00 !important;
@@ -330,6 +361,7 @@ input.check {
 
 .signin-btn,
 .signin-btn2 {
+  cursor: pointer;
   width: 95px;
   border: none;
   padding: 8px;
@@ -931,7 +963,7 @@ input.check {
   border-bottom: 1px solid #e6e6e6;
   height: 106px;
 }
-.signin-txt{
+.signin-txt {
   color: #333;
   font-size: 19px;
   font-weight: bold;
@@ -939,23 +971,26 @@ input.check {
   font-family: sans-serif;
 }
 
-.bg-image{
-  width:260px;
+.bg-image {
+  width: 260px;
 }
 
-.steps,.steps2{
+.steps,
+.steps2 {
   font-size: 14px;
-  font-family: 'Poppins', sans-serif;
-margin-top: 25px;
-margin-bottom: 0;
+  font-family: "Poppins", sans-serif;
+  margin-top: 25px;
+  margin-bottom: 0;
   font-weight: 500;
 }
 
-.middle-content,.middle-content2{
+.middle-content,
+.middle-content2 {
   margin-top: 110px;
 }
 
-.mid-head,.mid-head2{
+.mid-head,
+.mid-head2 {
   margin: 0;
   font-size: 32px;
   max-width: 380px;
@@ -964,7 +999,7 @@ margin-bottom: 0;
   color: #333;
 }
 
-.mid-desc{
+.mid-desc {
   margin-top: 15px;
   font-size: 18px;
   font-weight: 500;
@@ -973,13 +1008,16 @@ margin-bottom: 0;
   color: #333;
 }
 
-.content-innerData,.content-innerData2{
+.content-innerData,
+.content-innerData2 {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.next,.next2{
+.next,
+.next2 {
+  cursor: pointer;
   background-color: #e50914;
   border: none;
   padding: 18px;
@@ -987,33 +1025,41 @@ margin-bottom: 0;
   font-size: 28px;
   border-radius: 4px;
   width: 340px;
+  transition: all 0.35s;
 }
 
-.next2{
-  width:412px;
+.next:hover,
+.next2:hover {
+  background-color: #ac0e16;
+}
+
+.next2 {
+  width: 412px;
   margin-top: 25px;
 }
 
-.next-btn,.next-btn2{
+.next-btn,
+.next-btn2 {
   color: white;
   text-decoration: none;
 }
 
-.signin-link3{
+.signin-link3 {
   color: #333;
   text-decoration: none;
 }
 
-.middle-content,.middle-content2{
-  animation: fadeein .4s linear;
+.middle-content,
+.middle-content2 {
+  animation: fadeein 0.4s linear;
 }
 
 @keyframes fadeein {
-  0%{
+  0% {
     margin-left: 100px;
     opacity: 0;
   }
-  100%{
+  100% {
     margin-left: 0px;
     opacity: 1;
   }
@@ -1021,23 +1067,23 @@ margin-bottom: 0;
 
 /* PASSWORD PAGE2  */
 
-.middle-content2{
+.middle-content2 {
   margin-top: 15px;
   max-width: 50%;
   text-align: left;
 }
 
-.content-innerData2{
+.content-innerData2 {
   align-items: initial;
 }
 
-.center-content{
+.center-content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.mid-desc2{
+.mid-desc2 {
   margin-top: 15px;
   font-size: 18px;
   font-weight: 500;
@@ -1047,11 +1093,12 @@ margin-bottom: 0;
   line-height: 1.8;
 }
 
-.mid-head2{
-width: 420px;
+.mid-head2 {
+  width: 420px;
 }
 
-.final-email, .final-password{
+.final-email,
+.final-password {
   padding: 8px;
   width: 393px;
   height: 48px;
@@ -1062,7 +1109,7 @@ width: 420px;
 }
 
 @media (max-width: 500px) {
-  .Netflix-logo3{
+  .Netflix-logo3 {
     width: 120px;
     margin-top: 4px;
     margin-left: 29px;
@@ -1070,20 +1117,20 @@ width: 420px;
 }
 
 @media (max-width: 370px) {
-  .bg-image{
+  .bg-image {
     width: 215px;
   }
-  .steps{
+  .steps {
     font-size: 12px;
   }
-  .mid-head{
+  .mid-head {
     font-size: 25px;
     max-width: 90%;
   }
-  .mid-desc{
+  .mid-desc {
     font-size: 16px;
   }
-  .next{
+  .next {
     padding: 16px;
     font-size: 23px;
     width: 284px;
@@ -1091,82 +1138,78 @@ width: 420px;
 }
 
 @media (max-width: 600px) {
-
-  .center-content{
+  .center-content {
     max-width: 60%;
   }
-  .steps2{
+  .steps2 {
     width: 150px !important;
   }
-  
 }
 
 @media (max-width: 600px) {
-
-  .center-content{
+  .center-content {
     max-width: 35%;
   }
-  
 }
 
 @media (max-width: 460px) {
-
-  .center-content{
+  .center-content {
     max-width: 45%;
   }
 
-  .steps2{
+  .steps2 {
     font-size: 12px;
   }
 
-  .mid-head2{
+  .mid-head2 {
     font-size: 27px;
   }
 
-  .mid-desc2{
+  .mid-desc2 {
     font-size: 14px;
   }
 
-  .final-email, .final-password{
+  .final-email,
+  .final-password {
     width: 326px;
   }
-  .next2{
+  .next2 {
     width: 344px;
     font-size: 20px;
   }
 }
 
 @media (max-width: 415px) {
-
-  .mid-head2{
+  .mid-head2 {
     width: 290px;
   }
 
-  .mid-desc2{
+  .mid-desc2 {
     width: 290px;
   }
-  
-  .final-email, .final-password{
+
+  .final-email,
+  .final-password {
     width: 258px;
   }
-  .next2{
+  .next2 {
     width: 278px;
   }
 }
 
 @media (max-width: 330px) {
-  .mid-head2{
+  .mid-head2 {
     width: 240px;
     font-size: 24px;
   }
-  .mid-desc2{
+  .mid-desc2 {
     width: 235px;
   }
-  .final-email, .final-password{
+  .final-email,
+  .final-password {
     width: 200px;
   }
-  .next2{
+  .next2 {
     width: 218px;
   }
-
 }

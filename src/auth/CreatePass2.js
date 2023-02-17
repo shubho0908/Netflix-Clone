@@ -12,7 +12,9 @@ const CreatePass2 = () => {
       .then(() => {
         console.log("Account Created Successfully");
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error.message);
+        alert("Email Already Resgistered, Please Sign In");
       });
   };
 
@@ -106,7 +108,11 @@ const CreatePass2 = () => {
                   <div className="error-message2">{passwordError}</div>
                 )}
               </div>
-              <button style={{color:"white"}} onClick={CreateUser} className="next2">
+              <button
+                style={{ color: "white" }}
+                onClick={CreateUser}
+                className="next2"
+              >
                 Next
               </button>
             </div>

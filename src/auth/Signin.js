@@ -18,6 +18,7 @@ const Signin = () => {
       console.log("LoggedIn");
     }).catch((error)=>{
       console.log(error);
+      alert("Wrong password or user doesn't exists.")
     })
   }
 

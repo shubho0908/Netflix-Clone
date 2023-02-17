@@ -4,7 +4,7 @@ const Main = () => {
   return (
 <>
 <div className="App">
-    <h1>Welcome</h1>
+    <div className="bg-back2"></div>
 </div>
 </>
   )
