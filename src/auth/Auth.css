@@ -737,6 +737,7 @@ input.check {
 }
 .section-title, .section-title2, .section-title3, .section-title4{
   font-size: 30px;
+  max-width: 92%;
 }
 .section-desc, .section-desc2, .section-desc3, .section-desc4{
   font-size: 15px;
