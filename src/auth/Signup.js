@@ -105,7 +105,7 @@ const Signup = () => {
           <div className="section-data4">
             <img src={children} alt="" className="children" />
             <div className="inside4">
-              <p className="section-title4">Create profiles for children.</p>
+              <p style={{width:"92%", textAlign:"center"}} className="section-title4">Create profiles for children.</p>
               <p className="section-desc4">
                 Send children on adventures with their favourite characters in a
                 space made just for them—free with your membership.
@@ -198,7 +198,7 @@ const Signup = () => {
                 </div>
               </div>
               <div className="bottom-data">
-              <p className="membership new">
+              <p className="membership new new-mem">
                 Ready to watch? Enter your email to create or restart your
                 membership.
               </p>
