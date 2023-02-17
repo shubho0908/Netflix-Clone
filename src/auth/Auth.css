@@ -8,6 +8,8 @@ html {
 
 *:not(
   b,
+  .final-email,
+  .final-password,
     .signin-button,
     .signin-btn,
     .signin-btn2,
@@ -30,18 +32,26 @@ html {
     .acc3-item,
     .right-arrow,
     .Netflix-logo3,
+    .center-content,
     .signin-txt,
     .signin-link3,
     .bg-image,
     .middle-content,
+    .middle-content2,
     .content-innerData,
+    .content-innerData2,
     .navbar-3,
     .mid-head,
+    .mid-head2,
     .mid-desc,
+    .mid-desc2,
     .next,
     .next-btn,
+    .next2,
+    .next-btn2,
     .logo3,
     .steps,
+    .steps2,
     .break,
     .bg-back2
   ) {
@@ -55,7 +65,7 @@ html {
 }
 
 .error-message {
-  color: darkorange;
+  color: #b15010;
   font-family: sans-serif;
   font-size: 13px;
   text-align: left;
@@ -65,7 +75,7 @@ html {
 }
 
 .error-message2 {
-  color: darkorange;
+  color: #b15010;
   font-family: sans-serif;
   font-size: 15px;
   text-align: left;
@@ -217,6 +227,8 @@ input.check {
       .navbar2,
       .Netflix-logo2,
       .Netflix-logo3,
+      .final-email,
+      .final-password,
       .logo2,
       .logo3,
       .bg-data,
@@ -228,16 +240,23 @@ input.check {
       .signin-link3,
       .content-title,
       .middle-content,
+      .middle-content2,
       .content-innerData,
-      .steps,b,
+      .content-innerData2,
+      .steps,.steps2,b,
       .content-center,
       .navbar-3,
       .mid-head,
+      .mid-head2,
       .mid-desc,
+      .mid-desc2,
       .signin-txt,
       .next,
+      .next2,
       .next-btn,
+      .next-btn2,
       .membership,
+      .center-content,
       .get-started,
       .acc1-data,
       .acc2-data,
@@ -913,7 +932,7 @@ input.check {
   width:260px;
 }
 
-.steps{
+.steps,.steps2{
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
 margin-top: 25px;
@@ -921,14 +940,15 @@ margin-bottom: 0;
   font-weight: 500;
 }
 
-.middle-content{
+.middle-content,.middle-content2{
   margin-top: 110px;
 }
 
-.mid-head{
+.mid-head,.mid-head2{
   margin: 0;
   font-size: 32px;
   max-width: 380px;
+  font-family: sans-serif;
   font-weight: bold;
   color: #333;
 }
@@ -942,13 +962,13 @@ margin-bottom: 0;
   color: #333;
 }
 
-.content-innerData{
+.content-innerData,.content-innerData2{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.next{
+.next,.next2{
   background-color: #e50914;
   border: none;
   padding: 18px;
@@ -958,7 +978,12 @@ margin-bottom: 0;
   width: 340px;
 }
 
-.next-btn{
+.next2{
+  width:412px;
+  margin-top: 25px;
+}
+
+.next-btn,.next-btn2{
   color: white;
   text-decoration: none;
 }
@@ -968,7 +993,7 @@ margin-bottom: 0;
   text-decoration: none;
 }
 
-.middle-content{
+.middle-content,.middle-content2{
   animation: fadeein .4s linear;
 }
 
@@ -981,4 +1006,46 @@ margin-bottom: 0;
     margin-left: 0px;
     opacity: 1;
   }
+}
+
+/* PASSWORD PAGE2  */
+
+.middle-content2{
+  margin-top: 15px;
+  max-width: 50%;
+  text-align: left;
+}
+
+.content-innerData2{
+  align-items: initial;
+}
+
+.center-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mid-desc2{
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  font-family: sans-serif;
+  width: 325px;
+  line-height: 1.8;
+}
+
+.mid-head2{
+width: 420px;
+}
+
+.final-email, .final-password{
+  padding: 8px;
+  width: 393px;
+  height: 48px;
+  font-family: sans-serif;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid #8c8c8c !important;
 }
