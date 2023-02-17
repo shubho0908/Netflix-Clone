@@ -5,13 +5,7 @@ import Mobile from "../img/mobile.gif";
 import device from "../img/device.gif";
 import children from "../img/children.png";
 import { Link } from "react-router-dom";
-import { app } from "../Firebase";
-import CreatePass from "./CreatePass";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
 import "./Auth.css";
-
-const auth = getAuth(app);
 
 const Signup = () => {
   const [email, setEmail] = useState("");

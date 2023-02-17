@@ -27,6 +27,7 @@ html {
     .acc2-icon,
     .acc2-item,
     .acc3,
+    .signin-submit,
     .acc3-data,
     .acc3-icon,
     .acc3-item,
@@ -215,6 +216,11 @@ input.check {
   color: #737373;
 }
 
+.signin-submit{
+  color: white !important;
+  text-decoration: none !important;
+}
+
 .signup-now {
   color: white !important;
   margin-left: 6px;
@@ -228,6 +234,7 @@ input.check {
       .Netflix-logo2,
       .Netflix-logo3,
       .final-email,
+      .signin-submit,
       .final-password,
       .logo2,
       .logo3,
@@ -267,6 +274,7 @@ input.check {
     background: black !important;
   }
 
+
   .navbar-2 {
     background-color: #ffffff00 !important;
   }
@@ -282,6 +290,7 @@ input.check {
   }
   .Netflix-logo {
     margin-left: 23px;
+    width: 140px;
   }
   .signin-head {
     text-align: left;
@@ -1048,4 +1057,33 @@ width: 420px;
   font-size: 16px;
   border-radius: 3px;
   border: 1px solid #8c8c8c !important;
+}
+
+@media (max-width: 500px) {
+  .Netflix-logo3{
+    width: 120px;
+    margin-top: 4px;
+    margin-left: 29px;
+  }
+}
+
+@media (max-width: 370px) {
+  .bg-image{
+    width: 215px;
+  }
+  .steps{
+    font-size: 12px;
+  }
+  .mid-head{
+    font-size: 25px;
+    max-width: 90%;
+  }
+  .mid-desc{
+    font-size: 16px;
+  }
+  .next{
+    padding: 16px;
+    font-size: 23px;
+    width: 284px;
+  }
 }

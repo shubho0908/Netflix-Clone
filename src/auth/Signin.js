@@ -4,12 +4,29 @@ import '../App.css'
 // IMG Files
 import Logo from "../img/logo.png";
 import { Link } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { app } from "../Firebase";
+
+const auth = getAuth(app);
 
 const Signin = () => {
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const LogIn = ()=>{
+    signInWithEmailAndPassword(auth, email, password).then(()=>{
+      console.log("LoggedIn");
+    }).catch((error)=>{
+      console.log(error);
+    })
+  }
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
   };
 
   const handleEmailBlur = (event) => {
@@ -71,6 +88,8 @@ const Signin = () => {
                   type="password"
                   placeholder="Password"
                   pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                  value={password}
+                  onChange={handlePasswordChange}
                   onBlur={handlePasswordBlur}
                   required
                 />
@@ -79,8 +98,8 @@ const Signin = () => {
                 )}
               </div>
             </div>
-            <button type="submit" className="signin-button">
-              Sign In
+            <button onClick={LogIn} type="submit" className="signin-button">
+              <Link to="/main" className="signin-submit">Sign In</Link>
             </button>
             <div className="help-section">
               <div className="remember">

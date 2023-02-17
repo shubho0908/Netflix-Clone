@@ -1,13 +1,24 @@
-import {React,useState} from "react";
+import { React, useState } from "react";
 import Logo from "../img/logo.png";
 import { Link } from "react-router-dom";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { app } from "../Firebase";
+
+const auth = getAuth(app);
 
 const CreatePass2 = () => {
+  const CreateUser = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        console.log("Account Created Successfully");
+      })
+      .catch(() => {
+      });
+  };
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -21,7 +32,7 @@ const CreatePass2 = () => {
       setEmailError("");
     }
   };
-  
+
   const handlePassChange = (event) => {
     setPassword(event.target.value);
   };
@@ -30,13 +41,12 @@ const CreatePass2 = () => {
     if (event.target.value === "") {
       setPasswordError("Password is required");
     } else {
-        setPasswordError("");
+      setPasswordError("");
     }
   };
 
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-
 
   return (
     <>
@@ -72,27 +82,43 @@ const CreatePass2 = () => {
                   type="email"
                   className="final-email"
                   placeholder="  Email"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   value={email}
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   onChange={handleEmailChange}
                   onBlur={handleEmailBlur}
                   required
                 />
-                {emailError && <div className="error-message2">{emailError}</div>}
+                {emailError && (
+                  <div className="error-message2">{emailError}</div>
+                )}
                 <input
                   style={{ marginTop: "12px" }}
                   type="password"
                   className="final-password"
+                  value={password}
                   placeholder="  Add a password"
                   pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
                   onChange={handlePassChange}
                   onBlur={handlePassBlur}
                   required
                 />
-                {passwordError && <div className="error-message2">{passwordError}</div>}
+                {passwordError && (
+                  <div className="error-message2">{passwordError}</div>
+                )}
               </div>
-              <button className="next2">
-                <Link className="next-btn2">Next</Link>
+              <button onClick={CreateUser} className="next2">
+                <Link
+                  className="next-btn2"
+                  to={
+                    email.length === 0 ||
+                    (emailError.length >= 5 && password.length === 0) ||
+                    passwordError.length >= 4
+                      ? ""
+                      : "/main"
+                  }
+                >
+                  Next
+                </Link>
               </button>
             </div>
           </div>
