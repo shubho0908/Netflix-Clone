@@ -6,6 +6,7 @@ import device from "../img/device.gif";
 import children from "../img/children.png";
 import { Link } from "react-router-dom";
 import { app } from "../Firebase";
+import CreatePass from "./CreatePass";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 import "./Auth.css";
@@ -102,7 +103,7 @@ const Signup = () => {
               <button className="start-btn">
                 <Link
                   className="start-link"
-                  to={email.length === 0 || emailError.length >= 5 ? "" : "/"}
+                  to={email.length === 0 || emailError.length >= 5 ? "" : "/createpassword"}
                 >
                   Get Started
                 </Link>
@@ -271,7 +272,7 @@ const Signup = () => {
                         to={
                           email.length === 0 || emailError.length >= 5
                             ? ""
-                            : "/"
+                            : "/createpassword"
                         }
                       >
                         Get Started

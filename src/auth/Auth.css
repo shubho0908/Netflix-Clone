@@ -1,10 +1,13 @@
 /* SIGNIN CSS  */
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 html {
   scroll-behavior: smooth;
 }
 
 *:not(
+  b,
     .signin-button,
     .signin-btn,
     .signin-btn2,
@@ -26,7 +29,21 @@ html {
     .acc3-icon,
     .acc3-item,
     .right-arrow,
-    .break
+    .Netflix-logo3,
+    .signin-txt,
+    .signin-link3,
+    .bg-image,
+    .middle-content,
+    .content-innerData,
+    .navbar-3,
+    .mid-head,
+    .mid-desc,
+    .next,
+    .next-btn,
+    .logo3,
+    .steps,
+    .break,
+    .bg-back2
   ) {
   margin: 0;
   padding: 0;
@@ -47,7 +64,7 @@ html {
   max-width: 65%;
 }
 
-.error-message2{
+.error-message2 {
   color: darkorange;
   font-family: sans-serif;
   font-size: 15px;
@@ -65,6 +82,11 @@ html {
 .Netflix-logo2 {
   width: 168px;
   margin-top: 23px;
+  margin-left: 58px;
+}
+.Netflix-logo3 {
+  width: 168px;
+  margin-top: 6px;
   margin-left: 58px;
 }
 
@@ -194,14 +216,27 @@ input.check {
   *:not(
       .navbar2,
       .Netflix-logo2,
+      .Netflix-logo3,
       .logo2,
+      .logo3,
       .bg-data,
       .signin2,
       .signin-btn2,
       .signin-link2,
       .mid-content,
+      .bg-back2,
+      .signin-link3,
       .content-title,
+      .middle-content,
+      .content-innerData,
+      .steps,b,
       .content-center,
+      .navbar-3,
+      .mid-head,
+      .mid-desc,
+      .signin-txt,
+      .next,
+      .next-btn,
       .membership,
       .get-started,
       .acc1-data,
@@ -276,10 +311,10 @@ input.check {
   color: white;
   box-shadow: 0px 1px 1px rgba(50, 50, 50, 0.75);
   background-color: #e50914 !important;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
-.signin-btn2:hover{
+.signin-btn2:hover {
   background-color: #b3040d !important;
 }
 
@@ -342,19 +377,17 @@ input.check {
   color: white;
   box-shadow: 0px 1px 1px rgba(50, 50, 50, 0.75);
   background-color: #e50914 !important;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
-
-.start-link{
+.start-link {
   background-color: #e5091400 !important;
   color: white;
   text-decoration: none;
 }
 
-.start-btn:hover{
+.start-btn:hover {
   background-color: #b3040d !important;
-
 }
 
 .section-data1,
@@ -599,7 +632,7 @@ input.check {
     position: relative;
     top: 15px;
   }
-  .tv{
+  .tv {
     margin-left: 0px;
   }
 
@@ -738,7 +771,7 @@ input.check {
   .membership {
     font-size: 18px;
   }
-  .tv{
+  .tv {
     width: 380px;
     position: relative;
     top: 50px;
@@ -746,18 +779,21 @@ input.check {
 }
 
 @media (max-width: 512px) {
-  .acc1, .acc2, .acc3{
+  .acc1,
+  .acc2,
+  .acc3 {
     font-size: 19px;
     width: 350px;
   }
-  .acc1-item, .acc2-item, .acc3-item {
+  .acc1-item,
+  .acc2-item,
+  .acc3-item {
     width: 336px;
     font-size: 18px;
-}
-.break{
-  font-size: 18px;
-}
-
+  }
+  .break {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 485px) {
@@ -765,61 +801,184 @@ input.check {
     position: relative;
     top: 34px;
     width: 380px;
-}
-.section-title, .section-title2, .section-title3, .section-title4{
-  font-size: 30px;
-  max-width: 92%;
-}
-.section-desc, .section-desc2, .section-desc3, .section-desc4{
-  font-size: 15px;
-}
-.device {
-  top: 75px;
-  width: 410px;
-}
-  
+  }
+  .section-title,
+  .section-title2,
+  .section-title3,
+  .section-title4 {
+    font-size: 30px;
+    max-width: 92%;
+  }
+  .section-desc,
+  .section-desc2,
+  .section-desc3,
+  .section-desc4 {
+    font-size: 15px;
+  }
+  .device {
+    top: 75px;
+    width: 410px;
+  }
 }
 
 @media (max-width: 415px) {
-  .acc1-item, .acc2-item, .acc3-item{
+  .acc1-item,
+  .acc2-item,
+  .acc3-item {
     width: 263px;
   }
-  .acc1, .acc2, .acc3{
+  .acc1,
+  .acc2,
+  .acc3 {
     width: 276px;
   }
-  .acc1-data,.acc2-data,.acc3-data{
+  .acc1-data,
+  .acc2-data,
+  .acc3-data {
     text-align: left;
   }
-  .start-btn{
+  .start-btn {
     width: 78px;
   }
-  .enter-details{
+  .enter-details {
     width: 180px;
   }
-  .FAQ{
+  .FAQ {
     font-size: 32px;
     margin-top: 22px;
   }
-  .below-section1, .below-section2, .below-section3, .below-section4, .below-section5{
+  .below-section1,
+  .below-section2,
+  .below-section3,
+  .below-section4,
+  .below-section5 {
     height: 525px;
   }
-  .tv, .mobile,.device,.children{
+  .tv,
+  .mobile,
+  .device,
+  .children {
     width: 290px;
   }
-  .inside1, .inside2, .inside3, .inside4{
+  .inside1,
+  .inside2,
+  .inside3,
+  .inside4 {
     top: 60px;
   }
-  .section-title, .section-title2, .section-title3, .section-title4{
+  .section-title,
+  .section-title2,
+  .section-title3,
+  .section-title4 {
     text-align: center;
   }
 }
 
 @media (max-width: 360px) {
-  .acc1, .acc2, .acc3{
+  .acc1,
+  .acc2,
+  .acc3 {
     width: 228px;
   }
-  .acc1-item, .acc2-item, .acc3-item{
+  .acc1-item,
+  .acc2-item,
+  .acc3-item {
     width: 214px;
   }
-  
+}
+
+/* Account Creation Page  */
+
+.bg-back2 {
+  height: 100vh;
+  background-color: white;
+}
+
+.navbar-3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e6e6e6;
+  height: 106px;
+}
+.signin-txt{
+  color: #333;
+  font-size: 19px;
+  font-weight: bold;
+  margin-right: 50px;
+  font-family: sans-serif;
+}
+
+.bg-image{
+  width:260px;
+}
+
+.steps{
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+margin-top: 25px;
+margin-bottom: 0;
+  font-weight: 500;
+}
+
+.middle-content{
+  margin-top: 110px;
+}
+
+.mid-head{
+  margin: 0;
+  font-size: 32px;
+  max-width: 380px;
+  font-weight: bold;
+  color: #333;
+}
+
+.mid-desc{
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: sans-serif;
+  max-width: 290px;
+  color: #333;
+}
+
+.content-innerData{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.next{
+  background-color: #e50914;
+  border: none;
+  padding: 18px;
+  margin-top: 8px;
+  font-size: 28px;
+  border-radius: 4px;
+  width: 340px;
+}
+
+.next-btn{
+  color: white;
+  text-decoration: none;
+}
+
+.signin-link3{
+  color: #333;
+  text-decoration: none;
+}
+
+.middle-content{
+  animation: fadeein .4s linear;
+}
+
+@keyframes fadeein {
+  0%{
+    margin-left: 100px;
+    opacity: 0;
+  }
+  100%{
+    margin-left: 0px;
+    opacity: 1;
+  }
 }
