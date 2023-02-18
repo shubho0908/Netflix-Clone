@@ -97,7 +97,7 @@ const Signup = () => {
               <button className="start-btn">
                 <Link
                   className="start-link"
-                  to={email.length === 0 || emailError.length >= 5 ? "" : "/createpassword"}
+                  to={email.length === 0 || emailError.length >= 5 ? "" : "/welcome"}
                 >
                   Get Started
                 </Link>
@@ -266,7 +266,7 @@ const Signup = () => {
                         to={
                           email.length === 0 || emailError.length >= 5
                             ? ""
-                            : "/createpassword"
+                            : "/welcome"
                         }
                       >
                         Get Started

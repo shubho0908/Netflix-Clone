@@ -5,9 +5,11 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app } from "../Firebase";
 import swal from "sweetalert";
 
+
 const auth = getAuth(app);
 
 const CreatePass2 = () => {
+
   const CreateUser = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
