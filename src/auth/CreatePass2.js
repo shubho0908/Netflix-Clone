@@ -11,11 +11,8 @@ const CreatePass2 = () => {
   const CreateUser = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-        console.log("Account Created Successfully");
       })
       .catch((error) => {
-        console.log(error.message);
-        // alert("Email Already Resgistered, Please Sign In");
         swal({
           title: "Error!",
           text: "Email Already Resgistered, Please Sign In",
