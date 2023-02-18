@@ -6,9 +6,13 @@
     .swal-modal,
     .watching,
     .poster,
+    .navbar-4,
     .in-data,
+    .main-logo,
     .bg-main-data,
+    .play-icon,
     .avatar-name,
+    .play1,
     .movie-logo,
     .avatar,
     .browse-page,
@@ -288,8 +292,12 @@ input.check {
   *:not(
       .bg-main-data,
       .swal-modal,
+      .navbar-4,
+      .play-icon,
+      .main-logo,
       .movie-logo,
       .swal-icon,
+      .play1,
       .poster,
       .browse,
       .browse-page,
@@ -1033,10 +1041,11 @@ input.check {
   color: white;
 }
 
-.app2{
+.app2:not(.App){
   overflow-y: hidden;
   overflow-x: hidden;
 }
+
 
 .bg-back3 {
   display: flex;
@@ -1346,4 +1355,25 @@ input.check {
 .poster{
   max-height: 100%;
   max-width: 100%;
+}
+
+.play1{
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 1.45vw;
+  padding: 12px;
+  width: 9.8vw;
+  position: relative;
+  bottom: 20vw;
+  border-radius: 4px;
+  left: -39.10vw;
+  border: none;
+}
+
+.main-logo{
+  width: 100px;
+}
+
+.navbar-4{
+  background: none;
 }
