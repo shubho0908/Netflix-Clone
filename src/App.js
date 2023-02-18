@@ -8,6 +8,8 @@ import Main from './Component/Main';
 import { useState, useEffect } from 'react';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { app } from "./Firebase";
+import swal from 'sweetalert';
+
 
 
 const auth = getAuth(app);
@@ -54,7 +56,11 @@ function App() {
         <button className="btn btn-danger"
           onClick={() => {
             signOut(auth);
-            alert("Successfully Logged Out");
+            swal({
+              title: "Successfully Logged Out!",
+              icon: "success",
+              button: "Ok!",
+            });
           }}
         >
           Log Out

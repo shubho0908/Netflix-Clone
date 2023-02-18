@@ -3,6 +3,7 @@ import BGimg from "../img/pass-bg.PNG";
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 const CreatePass = () => {
   return (
     <>

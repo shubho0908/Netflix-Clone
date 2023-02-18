@@ -3,6 +3,7 @@ import Logo from "../img/logo.png";
 import { Link } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app } from "../Firebase";
+import swal from "sweetalert";
 
 const auth = getAuth(app);
 
@@ -14,7 +15,13 @@ const CreatePass2 = () => {
       })
       .catch((error) => {
         console.log(error.message);
-        alert("Email Already Resgistered, Please Sign In");
+        // alert("Email Already Resgistered, Please Sign In");
+        swal({
+          title: "Error!",
+          text: "Email Already Resgistered, Please Sign In",
+          icon: "warning",
+          button: "Ok!",
+        });
       });
   };
 

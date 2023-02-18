@@ -6,6 +6,8 @@ import Logo from "../img/logo.png";
 import { Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "../Firebase";
+import swal from 'sweetalert';
+
 
 const auth = getAuth(app);
 
@@ -15,10 +17,13 @@ const Signin = () => {
 
   const LogIn = ()=>{
     signInWithEmailAndPassword(auth, email, password).then(()=>{
-      console.log("LoggedIn");
-    }).catch((error)=>{
-      console.log(error);
-      alert("Wrong password or user doesn't exists.")
+    }).catch(()=>{
+      swal({
+        title: "Error!",
+        text: "Wrong password or user doesn't exists.",
+        icon: "warning",
+        button: "Ok!",
+      });
     })
   }
 
