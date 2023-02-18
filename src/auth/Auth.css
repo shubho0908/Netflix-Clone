@@ -2,18 +2,16 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-html {
-  scroll-behavior: smooth;
- overflow-y: hidden;
- overflow-x: hidden;
-}
-
 *:not(
     .swal-modal,
     .watching,
+    .poster,
     .in-data,
+    .bg-main-data,
     .avatar-name,
+    .movie-logo,
     .avatar,
+    .browse-page,
     .swal-icon,
     .swal-icon--success__ring,
     .swal-icon--success__hide-corners,
@@ -288,9 +286,13 @@ input.check {
 
 @media (max-width: 740px) {
   *:not(
+      .bg-main-data,
       .swal-modal,
+      .movie-logo,
       .swal-icon,
+      .poster,
       .browse,
+      .browse-page,
       .in-data,
       .avatar-name,
       .watching,
@@ -1012,7 +1014,6 @@ input.check {
   color: white;
   font-family: sans-serif;
   font-size: 60px;
-  overflow: hidden;
   z-index: 1;
 }
 
@@ -1032,39 +1033,44 @@ input.check {
   color: white;
 }
 
+.app2{
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
 .bg-back3 {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #141414;
-  animation: comeup .4s;
+  animation: comeup 0.4s;
+
 }
 
 @keyframes comeup {
-  0%{
+  0% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
 
-.in-data{
-  animation: zoomout .4s;
+.in-data {
+  animation: zoomout 0.4s;
 }
 
 @keyframes comeup {
-  0%{
+  0% {
     opacity: 0;
     transform: scale(1.12);
   }
-  100%{
+  100% {
     transform: scale(1);
     opacity: 1;
   }
 }
-
 
 .avatar-name {
   color: rgba(255, 255, 255, 0.519);
@@ -1329,4 +1335,15 @@ input.check {
   .next2 {
     width: 218px;
   }
+}
+
+/* BROWSE PAGE   */
+
+.browse-page {
+  background-color: #141414;
+}
+
+.poster{
+  max-height: 100%;
+  max-width: 100%;
 }

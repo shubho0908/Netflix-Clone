@@ -8,11 +8,13 @@ const Main = (props) => {
     const Browse = document.querySelector(".browse");
     insideData.style.display = "none";
     Browse.style.display = "block";
+    document.html.style.overflowX = "scroll"
+    document.body.style.overflowY = "scroll"
   };
 
   return (
     <>
-      <div className="App">
+      <div className="App app2">
         <div className="bg-back2 bg-back3">
           <div className="in-data">
             <p style={{ margin: 0 }} className="watching">
