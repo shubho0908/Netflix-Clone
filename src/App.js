@@ -8,6 +8,7 @@ import Main from "./Component/Main";
 import { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { app } from "./Firebase";
+import Browsepage from "./Component/Browsepage";
 
 const auth = getAuth(app);
 
@@ -34,7 +35,8 @@ function App() {
             <Route exact path="/" element={<Signin />} />
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/welcome" element={<CreatePass />} />
-            <Route exact path="/browse" element={<CreatePass2 />} />
+            <Route exact path="/welcome-2" element={<CreatePass2 />} />
+            <Route exact path="/browse" element={<Browsepage />} />
           </Routes>
         </BrowserRouter>
       </div>

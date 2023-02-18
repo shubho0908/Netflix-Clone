@@ -1,26 +1,33 @@
-import React from 'react'
-import avatar from '../img/avatar.png'
+import React from "react";
+import avatar from "../img/avatar.png";
+import Browsepage from "./Browsepage";
 
 const Main = (props) => {
-
-  const NewContent=()=>{
-    const inData = document.querySelector('.in-data')
-    inData.style.display = "none"
-  }
+  const Redirect = () => {
+    const insideData = document.querySelector(".bg-back3");
+    const Browse = document.querySelector(".browse");
+    insideData.style.display = "none";
+    Browse.style.display = "block";
+  };
 
   return (
-<>
-<div className="App">
-    <div className="bg-back2 bg-back3">
-      <div className="in-data">
-      <p style={{margin:0}} className="watching">Who's watching?</p>
-      <img onClick={NewContent} src={avatar} alt="" className="avatar" />
-      <p className="avatar-name">{props.name}</p>
+    <>
+      <div className="App">
+        <div className="bg-back2 bg-back3">
+          <div className="in-data">
+            <p style={{ margin: 0 }} className="watching">
+              Who's watching?
+            </p>
+            <img onClick={Redirect} src={avatar} alt="" className="avatar" />
+            <p className="avatar-name">{props.name}</p>
+          </div>
+        </div>
+        <div style={{ display: "none" }} className="browse">
+          <Browsepage />
+        </div>
       </div>
-    </div>
-</div>
-</>
-  )
-}
+    </>
+  );
+};
 
-export default Main
+export default Main;

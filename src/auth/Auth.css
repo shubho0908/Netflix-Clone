@@ -35,6 +35,7 @@ html {
     .swal-button__loader,
     b,
     .container,
+    .browse,
     h3,
     .btn,
     .mssg,
@@ -289,6 +290,7 @@ input.check {
   *:not(
       .swal-modal,
       .swal-icon,
+      .browse,
       .in-data,
       .avatar-name,
       .watching,

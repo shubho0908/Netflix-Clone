@@ -22,7 +22,7 @@ const CreatePass = () => {
             <p className="mid-head">Finish setting up your account</p>
             <p className="mid-desc">Netflix is personalised for you. Create a password to watch on any device at any time.</p>
             </div>
-            <button className="next"><Link className="next-btn" to="/browse">Next</Link></button>
+            <button className="next"><Link className="next-btn" to="/welcome-2">Next</Link></button>
           </div>
         </div>
       </div>
