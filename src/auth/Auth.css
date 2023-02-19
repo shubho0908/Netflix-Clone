@@ -6,8 +6,17 @@
     .swal-modal,
     .watching,
     .poster,
+    .movies-name,
     .navbar-4,
+    .search-white,
+    .left-scroll,
+    .left-btn,
+    .right-scroll,
+    .right-btn,
     .in-data,
+    .movies-section,
+    .newboy,
+    .movie-category1,
     .category-lists,
     li,
     .right-content,
@@ -299,7 +308,19 @@ input.check {
   *:not(
       .bg-main-data,
       .swal-modal,
+      .signin-button,
+      .start-link,
+      .email-inp,.password-inp,
       .navbar-4,
+      .search-white,
+      .right-scroll,
+      .right-btn,
+      .left-scroll,
+    .left-btn,
+      .newboy,
+      .movies-section,
+      .movies-name,
+      .movie-category1
       .play-icon,
       .right-content,
       .search-icon,
@@ -379,14 +400,18 @@ input.check {
       .acc2-data,
       .acc3-data,
       .email-valid,
-      .break
+      .break,
+      .navbar-2,
+      .acc1,.acc2,.acc3,.acc1-item,.acc2-item,.acc3-item,
+      .right-arrow,.acc1-icon,.acc2-icon,.acc3-icon,
+      .enter-details,.start-btn
     ) {
     background: black !important;
   }
 
-  .navbar-2 {
+  /* .navbar-2 {
     background-color: #ffffff00 !important;
-  }
+  } */
 
   .email-inp,
   .password-inp {
@@ -1360,10 +1385,6 @@ input.check {
 
 /* BROWSE PAGE   */
 
-.browse-page {
-  background-color: #141414;
-}
-
 .poster {
   position: relative;
   bottom: 10px;
@@ -1376,18 +1397,18 @@ input.check {
   font-family: sans-serif;
   font-weight: 600;
   font-size: 1.45vw;
-  padding: 12px;
+  padding: 0.7vw;
   width: 9.8vw;
   position: relative;
   bottom: 20vw;
-  border-radius: 4px;
+  border-radius: .2vw;
   left: -39.1vw;
   border: none;
 }
 
 .main-logo {
-  width: 5.5vw;
-  margin-left: 2vw;
+  width: 4.8vw;
+  margin-left: 2.5vw;
 }
 
 .navbar-4 {
@@ -1395,7 +1416,7 @@ input.check {
   background: none;
   width: 98.5vw;
   z-index: 1;
-  padding: 1vw;
+  padding: .8vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1405,35 +1426,86 @@ input.check {
   color: white;
   list-style: none;
   display: flex;
-  margin-right: 61vw;
+  margin-right: 63vw;
 }
 
 .category-lists > li {
-  margin-left: 2.7vw;
+  margin-left: 1.82vw;
   font-size: 0.72vw;
   font-family: sans-serif;
 }
 
 .right-content {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: right;
-  margin-right: 3.6vw;
+  right: 3vw;
 }
 
 .account-img {
   width: 1.8vw;
-  border-radius: 2px;
+  border-radius: .15vw;
 }
-
-.search-img {
-  filter: invert(1);
-  width: 1.7vw;
-  margin-right: 2vw;
-}
-
 .nav-css{
   background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgb(13, 13, 13) 100%);
-  transition: all 3s;
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgb(19, 19, 19) 100%);
+}
+
+.movies-section{
+  position: relative;
+  bottom:10vw;
+  height: 100%;
+  margin: 0;
+  box-shadow: 6vw 2vw 5vw 10vw rgba(0,0,0,0.75);
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 3%, rgba(20,20,20,1) 100%);
+}
+
+.movie-category1{
+  display: flex;
+  width: 100%;
+  position: relative;
+  bottom: 3.2vw;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.movie-category1::-webkit-scrollbar{
+  width: 0;
+}
+
+.newboy>img{
+  border-radius: .3vw;
+  margin-left: 0.25vw;
+  margin-right: 0.25vw;
+  width: 16vw;
+}
+
+.left-btn{
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: .2vw;
+  left: .5vw;
+  width: 2.5vw;
+  z-index: 50;
+}
+
+.right-btn{
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: .7vw;
+  right: .5vw;
+  width: 1.6vw;
+  z-index: 50;
+}
+
+.search-white{
+  filter: invert(1);
+  width: 1.2vw;
+  height: 100%;
+  margin-right: 2vw;
 }
