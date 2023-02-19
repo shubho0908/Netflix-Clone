@@ -10,6 +10,11 @@
     .in-data,
     .category-lists,
     li,
+    .right-content,
+    .search-icon,
+    .search-img,
+    .account,
+    .account-img,
     .main-logo,
     .bg-main-data,
     .play-icon,
@@ -296,6 +301,11 @@ input.check {
       .swal-modal,
       .navbar-4,
       .play-icon,
+      .right-content,
+      .search-icon,
+      .search-img,
+      .account,
+      .account-img,
       .category-lists,
       li,
       .main-logo,
@@ -1045,11 +1055,10 @@ input.check {
   color: white;
 }
 
-.app2:not(.App){
+.app2:not(.App) {
   overflow-y: hidden;
   overflow-x: hidden;
 }
-
 
 .bg-back3 {
   display: flex;
@@ -1058,7 +1067,6 @@ input.check {
   justify-content: center;
   background-color: #141414;
   animation: comeup 0.4s;
-
 }
 
 @keyframes comeup {
@@ -1074,7 +1082,7 @@ input.check {
   animation: zoomout 0.4s;
 }
 
-@keyframes comeup {
+@keyframes zoomout {
   0% {
     opacity: 0;
     transform: scale(1.12);
@@ -1356,15 +1364,15 @@ input.check {
   background-color: #141414;
 }
 
-.poster{
+.poster {
   position: relative;
-  bottom: 72px;
+  bottom: 10px;
   max-height: 100%;
   max-width: 100%;
   z-index: 0;
 }
 
-.play1{
+.play1 {
   font-family: sans-serif;
   font-weight: 600;
   font-size: 1.45vw;
@@ -1373,31 +1381,59 @@ input.check {
   position: relative;
   bottom: 20vw;
   border-radius: 4px;
-  left: -39.10vw;
+  left: -39.1vw;
   border: none;
 }
 
-.main-logo{
-  width: 6vw;
-  
+.main-logo {
+  width: 5.5vw;
+  margin-left: 2vw;
 }
 
-.navbar-4{
+.navbar-4 {
   position: fixed;
   background: none;
+  width: 98.5vw;
   z-index: 1;
-  padding: 1.3vw;
+  padding: 1vw;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.category-lists{
+.category-lists {
   color: white;
-    list-style: none;
-    display: flex;
+  list-style: none;
+  display: flex;
+  margin-right: 61vw;
 }
 
-.category-lists>li{
-  margin-left: 4vw;
-  font-size: 1vw;
+.category-lists > li {
+  margin-left: 2.7vw;
+  font-size: 0.72vw;
+  font-family: sans-serif;
+}
+
+.right-content {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-right: 3.6vw;
+}
+
+.account-img {
+  width: 1.8vw;
+  border-radius: 2px;
+}
+
+.search-img {
+  filter: invert(1);
+  width: 1.7vw;
+  margin-right: 2vw;
+}
+
+.nav-css{
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgb(13, 13, 13) 100%);
+  transition: all 3s;
 }
