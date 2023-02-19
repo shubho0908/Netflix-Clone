@@ -243,7 +243,6 @@ input[type="password"] {
   border-radius: 3px;
   color: white;
   background-color: #e50914 !important;
-  transition: all 0.3s;
 }
 
 .signin-button:hover {
