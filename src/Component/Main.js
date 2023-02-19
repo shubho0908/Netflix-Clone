@@ -8,8 +8,6 @@ const Main = (props) => {
     const Browse = document.querySelector(".browse");
     insideData.style.display = "none";
     Browse.style.display = "block";
-    document.html.style.overflowX = "scroll"
-    document.body.style.overflowY = "scroll"
   };
 
   return (

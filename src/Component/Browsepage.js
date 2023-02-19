@@ -13,6 +13,12 @@ const Browsepage = () => {
         <div className="browse-page">
           <div className="navbar-4">
             <img src={Logo} className="main-logo" />
+            <div className="category-lists">
+              <li>Home</li>
+              <li>TV Shows</li>
+              <li>Trending</li>
+              <li></li>
+            </div>
           </div>
           <div className="bg-main-data">
             <img src={Poster} alt="" className="poster" />

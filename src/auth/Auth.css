@@ -8,6 +8,8 @@
     .poster,
     .navbar-4,
     .in-data,
+    .category-lists,
+    li,
     .main-logo,
     .bg-main-data,
     .play-icon,
@@ -294,6 +296,8 @@ input.check {
       .swal-modal,
       .navbar-4,
       .play-icon,
+      .category-lists,
+      li,
       .main-logo,
       .movie-logo,
       .swal-icon,
@@ -1353,8 +1357,11 @@ input.check {
 }
 
 .poster{
+  position: relative;
+  bottom: 72px;
   max-height: 100%;
   max-width: 100%;
+  z-index: 0;
 }
 
 .play1{
@@ -1371,9 +1378,26 @@ input.check {
 }
 
 .main-logo{
-  width: 100px;
+  width: 6vw;
+  
 }
 
 .navbar-4{
+  position: fixed;
   background: none;
+  z-index: 1;
+  padding: 1.3vw;
+  display: flex;
+  align-items: center;
+}
+
+.category-lists{
+  color: white;
+    list-style: none;
+    display: flex;
+}
+
+.category-lists>li{
+  margin-left: 4vw;
+  font-size: 1vw;
 }
