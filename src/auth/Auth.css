@@ -9,14 +9,21 @@
     .movies-name,
     .navbar-4,
     .search-white,
+    .c-title,
     .left-scroll,
+    .left-scroll2,
     .left-btn,
+    .left-btn2,
     .right-scroll,
+    .right-scroll2,
     .right-btn,
+    .right-btn2,
     .in-data,
     .movies-section,
-    .newboy,
+    .now-playing,
+    .trending-movies,
     .movie-category1,
+    .movie-category2,
     .category-lists,
     li,
     .right-content,
@@ -103,7 +110,13 @@
     .steps,
     .steps2,
     .break,
-    .bg-back2
+    .bg-back2,
+    .movie-all-data,
+    .movie-title,
+    .two-buttons,
+    .extra-data,
+    .match,
+    .rating,.HD,.movie-desc
   ) {
   margin: 0;
   padding: 0;
@@ -310,16 +323,23 @@ input.check {
       .signin-button,
       .start-link,
       .email-inp,.password-inp,
+      .c-title,
       .navbar-4,
       .search-white,
       .right-scroll,
+      .right-scroll2,
       .right-btn,
+      .right-btn2,
       .left-scroll,
+      .left-scroll2,
     .left-btn,
-      .newboy,
+    .left-btn2,
+      .now-playing,
+      .trending-movies,
       .movies-section,
       .movies-name,
-      .movie-category1
+      .movie-category1,
+      .movie-category2,
       .play-icon,
       .right-content,
       .search-icon,
@@ -403,7 +423,13 @@ input.check {
       .navbar-2,
       .acc1,.acc2,.acc3,.acc1-item,.acc2-item,.acc3-item,
       .right-arrow,.acc1-icon,.acc2-icon,.acc3-icon,
-      .enter-details,.start-btn
+      .enter-details,.start-btn,
+      .movie-all-data,
+    .movie-title,
+    .two-buttons,
+    .extra-data,
+    .match,
+    .rating,.HD,.movie-desc
     ) {
     background: black !important;
   }
@@ -1465,7 +1491,19 @@ input.check {
   display: flex;
   width: 100%;
   position: relative;
-  bottom: 3.2vw;
+  bottom: 12.2vw;
+  padding-left: 3.2vw;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.movie-category2{
+  display: flex;
+  width: 100%;
+  position: relative;
+  padding-left: 3.2vw;
+  bottom: 27.5vw;
   overflow-y: hidden;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -1475,28 +1513,77 @@ input.check {
   width: 0;
 }
 
-.newboy>img{
+.movie-category2::-webkit-scrollbar{
+  width: 0;
+}
+
+.now-playing>img, .trending-movies>img{
   border-radius: .3vw;
   margin-left: 0.25vw;
   margin-right: 0.25vw;
+  margin-top: 5.25vw;
+  margin-bottom: 5.25vw;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
   width: 16vw;
+}
+
+.now-playing{
+  transition: all .3s ease-in-out;
+}
+
+.trending-movies{
+  transition: all .3s ease-in-out;
+}
+
+
+.now-playing:hover ,.trending-movies:hover {
+  position: relative;
+  z-index: 40;
+  transform: scale(1.4);
+}
+
+.now-playing:hover .movie-all-data,.trending-movies:hover .movie-all-data{
+opacity: 1;
+  visibility: visible;
 }
 
 .left-btn{
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: .2vw;
+  top: -.7vw;
   left: .5vw;
   width: 2.5vw;
   z-index: 50;
+}
+
+.left-btn2{
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: 15.5vw;
+  left: .5vw;
+  width: 2.5vw;
+  z-index: 50;
+
 }
 
 .right-btn{
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: .7vw;
+  top: 0vw;
+  right: .5vw;
+  width: 1.6vw;
+  z-index: 50;
+}
+
+.right-btn2{
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: 16.2vw;
   right: .5vw;
   width: 1.6vw;
   z-index: 50;
@@ -1507,4 +1594,71 @@ input.check {
   width: 1.2vw;
   height: 100%;
   margin-right: 2vw;
+}
+
+
+.app4{
+  overflow-x: hidden;
+}
+
+.c-title{
+  position: relative;
+  z-index: 10;
+  color: white;
+  width: 10vw;
+}
+
+.category-title1{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 1.4vw;
+  text-align: left;
+  bottom: 6.5vw;
+  left: 3.5vw;
+}
+
+.movie-title{
+  color: white;
+}
+
+.movie-all-data{
+  position: relative;
+  bottom: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  background-color: #141414;
+  border-bottom-right-radius: .3vw;
+  border-bottom-left-radius: .3vw;
+  padding: .4vw;
+  bottom: 6vw;
+  opacity: 0;
+  transition: all .35s;
+  transform: scale(0.969);
+  visibility: hidden;
+
+}
+
+.extra-data{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.match{
+  color: green;
+}
+
+.rating, .HD{
+  color: white;
+  padding: .2vw;
+  font-size: 1vw;
+  height: 100%;
+
+  border: 1px solid white;
+}
+
+.movie-desc{
+  color: white;
+  text-align: left;
 }

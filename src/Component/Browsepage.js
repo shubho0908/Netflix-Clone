@@ -4,14 +4,15 @@ import { app } from "../Firebase";
 import Poster from "../img/movie/bg-poster.png";
 import avatar from "../img/avatar.png";
 import Logo from "../img/logo.png";
-import Search from '../img/search.png'
-import left from '../img/left.png'
-import right from '../img/right.png'
+import Search from "../img/search.png";
+import left from "../img/left.png";
+import right from "../img/right.png";
 
 const auth = getAuth(app);
 
 const Browsepage = () => {
   const [movies, setMovies] = useState([]);
+  const [Trending, setTrending] = useState([]);
 
   const changeBG = () => {
     const navbar = document.querySelector(".navbar-4");
@@ -35,13 +36,22 @@ const Browsepage = () => {
       setMovies(new_data.results);
       console.log(movies);
     };
+    const TrendingMovies = async () => {
+      const url =
+        "https://api.themoviedb.org/3/trending/movie/day?api_key=0bee82696d9f2ec6851e2a729cf4c379";
+      const data = await fetch(url);
+      const new_data = await data.json();
+      setTrending(new_data.results);
+      console.log(Trending);
+    };
 
     FetchData();
+    TrendingMovies();
   }, []);
 
   return (
     <>
-      <div className="App">
+      <div className="App app4">
         <div className="navbar-4 nav-css">
           <img src={Logo} className="main-logo" />
           <div className="category-lists">
@@ -65,25 +75,34 @@ const Browsepage = () => {
           <button className="play1">&#9654; Play</button>
         </div>
         <div className="movies-section">
-            <div className="left-scroll">
-              <img onClick={()=>{
-                const carousel = document.querySelector('.movie-category1')
-                carousel.scrollLeft -= 1200
-
-              }} src={left} alt="" className="left-btn" />
-            </div>
-            <div  className="right-scroll">
-            <img onClick={()=>{
-                const carousel = document.querySelector('.movie-category1')
-                carousel.scrollLeft += 1200
-
-              }} src={right} alt="" className="right-btn" />
-            </div>
+          <div className="left-scroll">
+            <img
+              onClick={() => {
+                const carousel = document.querySelector(".movie-category1");
+                carousel.scrollLeft -= 1200;
+              }}
+              src={left}
+              alt=""
+              className="left-btn"
+            />
+          </div>
+          <div className="right-scroll">
+            <img
+              onClick={() => {
+                const carousel = document.querySelector(".movie-category1");
+                carousel.scrollLeft += 1200;
+              }}
+              src={right}
+              alt=""
+              className="right-btn"
+            />
+          </div>
+          <p className="category-title1 c-title">Now Playing</p>
           <div className="movie-category1">
             {movies.map((items) => {
               return (
                 <>
-                  <div className="newboy">
+                  <div className="now-playing">
                     <img
                       src={
                         "https://image.tmdb.org/t/p/w500" + items.backdrop_path
@@ -91,13 +110,68 @@ const Browsepage = () => {
                       alt=""
                       className="poster-2"
                     />
+                    <div className="movie-all-data">
+                      <div className="movie-title">{items.title}</div>
+                      <div className="two-buttons"></div>
+                      <div className="extra-data">
+                        <p className="match">{(Math.round(items.vote_average)/10)*100}% match</p>
+                        <p className="rating">{items.adult === false ? "U/A 13+" : "A"}</p>
+                        <p className="HD">HD</p>
+                      </div>
+                        <p className="movie-desc">{items.overview.slice(0, 60)+"..."}</p>
+                    </div>
                   </div>
                 </>
               );
             })}
-            
           </div>
-          <div className="movie-category2"></div>
+          <div className="left-scroll2">
+            <img
+              onClick={() => {
+                const carousel = document.querySelector(".movie-category2");
+                carousel.scrollLeft -= 1200;
+              }}
+              src={left}
+              alt=""
+              className="left-btn2"
+            />
+          </div>
+          <div className="right-scroll2">
+            <img
+              onClick={() => {
+                const carousel = document.querySelector(".movie-category2");
+                carousel.scrollLeft += 1200;
+              }}
+              src={right}
+              alt=""
+              className="right-btn2"
+            />
+          </div>
+          <div className="movie-category2">
+            {Trending.map((items) => {
+              return (
+                <div className="trending-movies">
+                  <img
+                    src={
+                      "https://image.tmdb.org/t/p/w500" + items.backdrop_path
+                    }
+                    alt=""
+                    className="poster-3"
+                  />
+                  <div className="movie-all-data">
+                      <div className="movie-title">{items.title}</div>
+                      <div className="two-buttons"></div>
+                      <div className="extra-data">
+                        <p className="match">{(Math.round(items.vote_average)/10)*100}% match</p>
+                        <p className="rating">{items.adult === false ? "U/A 13+" : "A"}</p>
+                        <p className="HD">HD</p>
+                      </div>
+                        <p className="movie-desc">{items.overview.slice(0, 60)+"..."}</p>
+                    </div>
+                </div>
+              );
+            })}
+          </div>
           <div className="movie-category3"></div>
           <div className="movie-category4"></div>
         </div>
