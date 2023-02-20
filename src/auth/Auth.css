@@ -12,18 +12,27 @@
     .c-title,
     .left-scroll,
     .left-scroll2,
+    .left-scroll3,
+    .left-scroll4,
     .left-btn,
     .left-btn2,
+    .left-btn3,
+    .left-btn4,
     .right-scroll,
     .right-scroll2,
+    .right-scroll3,
     .right-btn,
     .right-btn2,
+    .right-btn3,
+    .right-btn4,
     .in-data,
     .movies-section,
     .now-playing,
     .trending-movies,
     .movie-category1,
     .movie-category2,
+    .movie-category3,
+    .movie-category4,
     .category-lists,
     li,
     .right-content,
@@ -113,6 +122,8 @@
     .bg-back2,
     .movie-all-data,
     .movie-title,
+    .top-movies,
+    .anime1-movies,
     .two-buttons,
     .extra-data,
     .match,
@@ -320,6 +331,8 @@ input.check {
   *:not(
       .bg-main-data,
       .swal-modal,
+      .top-movies,
+      .anime1-movies,
       .signin-button,
       .start-link,
       .email-inp,.password-inp,
@@ -328,18 +341,27 @@ input.check {
       .search-white,
       .right-scroll,
       .right-scroll2,
+      .right-scroll3,
       .right-btn,
       .right-btn2,
+      .right-btn3,
+      .right-btn4,
       .left-scroll,
       .left-scroll2,
+      .left-scroll3,
+      .left-scroll4,
     .left-btn,
     .left-btn2,
+    .left-btn3,
+    .left-btn4,
       .now-playing,
       .trending-movies,
       .movies-section,
       .movies-name,
       .movie-category1,
       .movie-category2,
+      .movie-category3,
+      .movie-category4,
       .play-icon,
       .right-content,
       .search-icon,
@@ -1412,7 +1434,7 @@ input.check {
 
 .poster {
   position: relative;
-  bottom: 10px;
+  bottom: 3vw;
   max-height: 100%;
   max-width: 100%;
   z-index: 0;
@@ -1425,7 +1447,7 @@ input.check {
   padding: 0.7vw;
   width: 9.8vw;
   position: relative;
-  bottom: 20vw;
+  bottom: 23vw;
   border-radius: .2vw;
   left: -39.1vw;
   border: none;
@@ -1479,7 +1501,7 @@ input.check {
 
 .movies-section{
   position: relative;
-  bottom:10vw;
+  bottom:8vw;
   height: 100%;
   margin: 0;
   box-shadow: 6vw 2vw 5vw 10vw rgba(0,0,0,0.75);
@@ -1491,7 +1513,7 @@ input.check {
   display: flex;
   width: 100%;
   position: relative;
-  bottom: 12.2vw;
+  bottom: 14.2vw;
   padding-left: 3.2vw;
   overflow-y: hidden;
   overflow-x: auto;
@@ -1503,7 +1525,29 @@ input.check {
   width: 100%;
   position: relative;
   padding-left: 3.2vw;
-  bottom: 27vw;
+  bottom: 26.5vw;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.movie-category3{
+  display: flex;
+  width: 100%;
+  position: relative;
+  padding-left: 3.2vw;
+  bottom: 38.5vw;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.movie-category4{
+  display: flex;
+  width: 100%;
+  position: relative;
+  padding-left: 3.2vw;
+  bottom: 51.5vw;
   overflow-y: hidden;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -1517,33 +1561,38 @@ input.check {
   width: 0;
 }
 
-.now-playing>img, .trending-movies>img{
+.movie-category3::-webkit-scrollbar{
+  width: 0;
+}
+
+.movie-category4::-webkit-scrollbar{
+  width: 0;
+}
+
+.now-playing>img, .trending-movies>img,.top-movies>img, .anime1-movies>img{
   border-radius: .3vw;
   margin-left: 0.25vw;
   margin-right: 0.25vw;
-  margin-top: 5.25vw;
-  margin-bottom: 5.25vw;
+  margin-top: 3.55vw;
+  margin-bottom: 2.25vw;
   cursor: pointer;
   transition: all .3s ease-in-out;
   width: 16vw;
 }
 
-.now-playing{
+.now-playing,.top-movies,.trending-movies,.anime1-movies{
+  cursor: pointer;
   transition: all .3s ease-in-out;
 }
 
-.trending-movies{
-  transition: all .3s ease-in-out;
-}
 
-
-.now-playing:hover ,.trending-movies:hover {
+.now-playing:hover ,.trending-movies:hover,.top-movies:hover, .anime1-movies:hover {
   position: relative;
   z-index: 40;
-  transform: scale(1.4);
+  transform: scale(1.3);
 }
 
-.now-playing:hover .movie-all-data,.trending-movies:hover .movie-all-data{
+.now-playing:hover .movie-all-data,.trending-movies:hover .movie-all-data,.top-movies:hover .movie-all-data, .anime1-movies:hover .movie-all-data{
 opacity: 1;
   visibility: visible;
 }
@@ -1552,7 +1601,7 @@ opacity: 1;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: -.7vw;
+  top: -4.2vw;
   left: .5vw;
   width: 2.5vw;
   z-index: 50;
@@ -1562,7 +1611,29 @@ opacity: 1;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: 17.5vw;
+  top: 13vw;
+  left: .5vw;
+  width: 2.5vw;
+  z-index: 50;
+
+}
+
+.left-btn3{
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: 30.5vw;
+  left: .5vw;
+  width: 2.5vw;
+  z-index: 50;
+
+}
+
+.left-btn4{
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: 48.5vw;
   left: .5vw;
   width: 2.5vw;
   z-index: 50;
@@ -1573,7 +1644,7 @@ opacity: 1;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: 0vw;
+  top: -3.7vw;
   right: .5vw;
   width: 1.6vw;
   z-index: 50;
@@ -1583,7 +1654,27 @@ opacity: 1;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: 18.2vw;
+  top: 13.8vw;
+  right: .5vw;
+  width: 1.6vw;
+  z-index: 50;
+}
+
+.right-btn3{
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: 31.4vw;
+  right: .5vw;
+  width: 1.6vw;
+  z-index: 50;
+}
+
+.right-btn4{
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: 49vw;
   right: .5vw;
   width: 1.6vw;
   z-index: 50;
@@ -1599,13 +1690,14 @@ opacity: 1;
 
 .app4{
   overflow-x: hidden;
+background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
 }
 
 .c-title{
   position: relative;
   z-index: 10;
   color: white;
-  width: 10vw;
+  width: 25vw;
 }
 
 .category-title1{
@@ -1613,7 +1705,7 @@ opacity: 1;
   font-weight: 600;
   font-size: 1.4vw;
   text-align: left;
-  bottom: 6.5vw;
+  bottom: 10vw;
   left: 3.5vw;
 }
 
@@ -1622,7 +1714,34 @@ opacity: 1;
   font-weight: 600;
   font-size: 1.4vw;
   text-align: left;
-  bottom: 21.5vw;
+  bottom: 22.5vw;
+  left: 3.5vw;
+}
+
+.category-title3{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 1.4vw;
+  text-align: left;
+  bottom: 34.5vw;
+  left: 3.5vw;
+}
+
+.category-title4{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 1.4vw;
+  text-align: left;
+  bottom: 47.5vw;
+  left: 3.5vw;
+}
+
+.category-title5{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 1.4vw;
+  text-align: left;
+  bottom: 47.5vw;
   left: 3.5vw;
 }
 
@@ -1635,7 +1754,6 @@ opacity: 1;
 
 .movie-all-data{
   position: relative;
-  bottom: 5vw;
   display: flex;
   flex-direction: column;
   align-items:flex-start;
@@ -1644,9 +1762,9 @@ opacity: 1;
   border-bottom-left-radius: .3vw;
   font-size: .68vw;
   padding: .4vw;
-  bottom: 6vw;
+  bottom: 4.7vw;
   opacity: 0;
-  transition: all .35s;
+  transition: all .28s;
   transform: scale(0.969);
   visibility: hidden;
 
