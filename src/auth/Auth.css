@@ -116,7 +116,7 @@
     .two-buttons,
     .extra-data,
     .match,
-    .rating,.HD,.movie-desc
+    .rating,.HD,.movie-desc,.circle-play,.add-list
   ) {
   margin: 0;
   padding: 0;
@@ -429,7 +429,7 @@ input.check {
     .two-buttons,
     .extra-data,
     .match,
-    .rating,.HD,.movie-desc
+    .rating,.HD,.movie-desc,.circle-play,.add-list
     ) {
     background: black !important;
   }
@@ -1503,7 +1503,7 @@ input.check {
   width: 100%;
   position: relative;
   padding-left: 3.2vw;
-  bottom: 27.5vw;
+  bottom: 27vw;
   overflow-y: hidden;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -1562,7 +1562,7 @@ opacity: 1;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: 15.5vw;
+  top: 17.5vw;
   left: .5vw;
   width: 2.5vw;
   z-index: 50;
@@ -1583,7 +1583,7 @@ opacity: 1;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: 16.2vw;
+  top: 18.2vw;
   right: .5vw;
   width: 1.6vw;
   z-index: 50;
@@ -1617,7 +1617,19 @@ opacity: 1;
   left: 3.5vw;
 }
 
+.category-title2{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 1.4vw;
+  text-align: left;
+  bottom: 21.5vw;
+  left: 3.5vw;
+}
+
 .movie-title{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  font-size:.8vw;
   color: white;
 }
 
@@ -1630,6 +1642,7 @@ opacity: 1;
   background-color: #141414;
   border-bottom-right-radius: .3vw;
   border-bottom-left-radius: .3vw;
+  font-size: .68vw;
   padding: .4vw;
   bottom: 6vw;
   opacity: 0;
@@ -1646,13 +1659,31 @@ opacity: 1;
 }
 
 .match{
-  color: green;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  color: rgb(6, 157, 6);
 }
 
-.rating, .HD{
+.rating{
   color: white;
   padding: .2vw;
-  font-size: 1vw;
+  font-size: .6vw;
+  border-radius: .2vw;
+  margin-left: .7vw;
+  margin-right: .3vw;
+  height: 100%;
+  
+  border: 1px solid white;
+}
+
+.HD{
+  width: 1.3vw;
+  color: white;
+  padding: .2vw;
+  font-size: .6vw;
+  border-radius: .2vw;
+  margin-left: .3vw;
+  margin-right: .3vw;
   height: 100%;
 
   border: 1px solid white;
@@ -1661,4 +1692,6 @@ opacity: 1;
 .movie-desc{
   color: white;
   text-align: left;
+  margin-top: 0;
 }
+

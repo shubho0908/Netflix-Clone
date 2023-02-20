@@ -112,7 +112,10 @@ const Browsepage = () => {
                     />
                     <div className="movie-all-data">
                       <div className="movie-title">{items.title}</div>
-                      <div className="two-buttons"></div>
+                      <div className="two-buttons">
+                      <button className="circle-play"></button>
+                        <button className="add-list"></button>
+                      </div>
                       <div className="extra-data">
                         <p className="match">{(Math.round(items.vote_average)/10)*100}% match</p>
                         <p className="rating">{items.adult === false ? "U/A 13+" : "A"}</p>
@@ -147,6 +150,7 @@ const Browsepage = () => {
               className="right-btn2"
             />
           </div>
+          <p className="category-title2 c-title">Popular</p>
           <div className="movie-category2">
             {Trending.map((items) => {
               return (
@@ -160,10 +164,13 @@ const Browsepage = () => {
                   />
                   <div className="movie-all-data">
                       <div className="movie-title">{items.title}</div>
-                      <div className="two-buttons"></div>
+                      <div className="two-buttons">
+                        <button className="circle-play"></button>
+                        <button className="add-list"></button>
+                      </div>
                       <div className="extra-data">
                         <p className="match">{(Math.round(items.vote_average)/10)*100}% match</p>
-                        <p className="rating">{items.adult === false ? "U/A 13+" : "A"}</p>
+                        <p className="rating">{items.adult === false ? "U/A 16+" : "A"}</p>
                         <p className="HD">HD</p>
                       </div>
                         <p className="movie-desc">{items.overview.slice(0, 60)+"..."}</p>
