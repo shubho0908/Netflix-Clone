@@ -1,18 +1,31 @@
 import { React, useEffect, useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { app } from "../Firebase";
+import { AddToList } from "../action/AddList";
 import Poster from "../img/movie/bg-poster.png";
 import avatar from "../img/avatar.png";
 import Logo from "../img/logo.png";
 import Search from "../img/search.png";
 import left from "../img/left.png";
 import right from "../img/right.png";
+import play from "../img/play.png";
+import add from "../img/add.png";
+import added from "../img/added.png";
+import { useSelector, useDispatch } from "react-redux";
 
 const auth = getAuth(app);
 
 const Browsepage = () => {
+  const Lists = useSelector((state) => state.AddList.Lists);
+  const dispatch = useDispatch();
+
+  const AddBtnClicked = (data) => {
+    dispatch(AddToList(data));
+  };
+
   const [movies, setMovies] = useState([]);
   const [Trending, setTrending] = useState([]);
+  const [Added, setAdded] = useState(false);
 
   const changeBG = () => {
     const navbar = document.querySelector(".navbar-4");
@@ -102,7 +115,7 @@ const Browsepage = () => {
             {movies.map((items) => {
               return (
                 <>
-                  <div className="now-playing">
+                  <div className="now-playing" key={items.id}>
                     <img
                       src={
                         "https://image.tmdb.org/t/p/w500" + items.backdrop_path
@@ -113,15 +126,34 @@ const Browsepage = () => {
                     <div className="movie-all-data">
                       <div className="movie-title">{items.title}</div>
                       <div className="two-buttons">
-                      <button className="circle-play"></button>
-                        <button className="add-list"></button>
+                        <img src={play} alt="" className="circle-play" />
+                        <img
+                          onClick={() => {
+                            AddBtnClicked(items);
+                          }}
+                          src={
+                            Lists.filter((ele) => ele.id === items.id).length >
+                            0
+                              ? added
+                              : add
+                          }
+                          alt=""
+                          className="add-list"
+                          id={`addlist${items.id}`}
+                        />
                       </div>
                       <div className="extra-data">
-                        <p className="match">{(Math.round(items.vote_average)/10)*100}% match</p>
-                        <p className="rating">{items.adult === false ? "U/A 13+" : "A"}</p>
+                        <p className="match">
+                          {(Math.round(items.vote_average) / 10) * 100}% match
+                        </p>
+                        <p className="rating">
+                          {items.adult === false ? "U/A 13+" : "A"}
+                        </p>
                         <p className="HD">HD</p>
                       </div>
-                        <p className="movie-desc">{items.overview.slice(0, 60)+"..."}</p>
+                      <p className="movie-desc">
+                        {items.overview.slice(0, 60) + "..."}
+                      </p>
                     </div>
                   </div>
                 </>
@@ -163,18 +195,24 @@ const Browsepage = () => {
                     className="poster-3"
                   />
                   <div className="movie-all-data">
-                      <div className="movie-title">{items.title}</div>
-                      <div className="two-buttons">
-                        <button className="circle-play"></button>
-                        <button className="add-list"></button>
-                      </div>
-                      <div className="extra-data">
-                        <p className="match">{(Math.round(items.vote_average)/10)*100}% match</p>
-                        <p className="rating">{items.adult === false ? "U/A 16+" : "A"}</p>
-                        <p className="HD">HD</p>
-                      </div>
-                        <p className="movie-desc">{items.overview.slice(0, 60)+"..."}</p>
+                    <div className="movie-title">{items.title}</div>
+                    <div className="two-buttons">
+                      <button className="circle-play"></button>
+                      <button className="add-list"></button>
                     </div>
+                    <div className="extra-data">
+                      <p className="match">
+                        {(Math.round(items.vote_average) / 10) * 100}% match
+                      </p>
+                      <p className="rating">
+                        {items.adult === false ? "U/A 16+" : "A"}
+                      </p>
+                      <p className="HD">HD</p>
+                    </div>
+                    <p className="movie-desc">
+                      {items.overview.slice(0, 60) + "..."}
+                    </p>
+                  </div>
                 </div>
               );
             })}

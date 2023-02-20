@@ -1695,3 +1695,17 @@ opacity: 1;
   margin-top: 0;
 }
 
+.two-buttons{
+  display: flex;
+  cursor: pointer;
+}
+
+.circle-play, .add-list{
+  margin-top: .4vw;
+  width: 1.8vw;
+}
+
+.add-list{
+  margin-left: .4vw;
+
+}
