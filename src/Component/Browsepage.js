@@ -20,6 +20,8 @@ const Browsepage = () => {
   const [Added, setAdded] = useState(false);
   const [Anime1, setAnime1] = useState([]);
   const [TV, setTV] = useState([]);
+  const [search, setSearch] = useState("");
+  const [searchData, setSearchData] = useState([]);
 
   const changeBG = () => {
     const navbar = document.querySelector(".navbar-4");
@@ -34,12 +36,26 @@ const Browsepage = () => {
 
   window.addEventListener("scroll", changeBG);
 
+  const SearchChange = () => {
+    document.querySelector(".search-white").style.opacity = "0";
+    document.querySelector(".search-bar").style.opacity = "1";
+  };
 
-  const SearchChange=()=>{
-    document.querySelector('.search-white').style.opacity = "0"
-    document.querySelector('.search-bar').style.opacity = "1"
-  }
+  const OnSearch = async (e) => {
+    const searchValue = e.target.value;
+    document.body.style.background = "#141414";
+    setSearch(searchValue);
+    if (searchValue.trim() === "") {
+      setSearchData([]);
+    } else {
+      const url = `https://api.themoviedb.org/3/search/tv?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=1&query=${searchValue}&include_adult=false`;
+      const response = await fetch(url);
+      const data = await response.json();
+      setSearchData(data.results);
+    }
+  };
 
+  console.log(searchData);
 
   useEffect(() => {
     const FetchData = async () => {
@@ -82,7 +98,7 @@ const Browsepage = () => {
     TrendingMovies();
     TopRated();
     ClassicAnime();
-    TVshows()
+    TVshows();
   }, []);
 
   return (
@@ -91,15 +107,21 @@ const Browsepage = () => {
         <div className="navbar-4 nav-css">
           <img src={Logo} className="main-logo" />
           <div className="category-lists">
-            <li style={{ fontWeight: 600,width: "4.5vw" }}>Home</li>
+            <li style={{ fontWeight: 600, width: "4.5vw" }}>Home</li>
             <li style={{ width: "4.5vw" }}>My List</li>
             <li style={{ width: "4.5vw" }}>Movies</li>
             <li style={{ width: "4.5vw" }}>TV Shows</li>
           </div>
           <div className="right-content">
             <div onClick={SearchChange} className="search-icon">
-              <img  src={Search} alt="" className="search-white" />
-              <input type="text" className="search-bar" placeholder="Search Movies, TV Shows.."/>
+              <img src={Search} alt="" className="search-white" />
+              <input
+                onChange={OnSearch}
+                type="text"
+                value={search}
+                className="search-bar"
+                placeholder="Search Movies, TV Shows.."
+              />
             </div>
             <div className="account">
               <img className="account-img" src={avatar} alt="" />
@@ -111,40 +133,104 @@ const Browsepage = () => {
           <button className="play1">&#9654; Play</button>
         </div>
         <div className="movies-section">
-          <div className="left-scroll">
-            <img
-              onClick={() => {
-                const carousel = document.querySelector(".movie-category1");
-                carousel.scrollLeft -= 1200;
-              }}
-              src={left}
-              alt=""
-              className="left-btn"
-            />
-          </div>
-          <div className="right-scroll">
-            <img
-              onClick={() => {
-                const carousel = document.querySelector(".movie-category1");
-                carousel.scrollLeft += 1200;
-              }}
-              src={right}
-              alt=""
-              className="right-btn"
-            />
-          </div>
-          <p className="category-title1 c-title">Now Playing</p>
-          <div className="movie-category1">
-            {movies.map((items) => {
-              return (
-                <>
-                  <div className="now-playing" key={items.id}>
+          <div className="all-dataa">
+            <div className="left-scroll">
+              <img
+                onClick={() => {
+                  const carousel = document.querySelector(".movie-category1");
+                  carousel.scrollLeft -= 1200;
+                }}
+                src={left}
+                alt=""
+                className="left-btn"
+              />
+            </div>
+            <div className="right-scroll">
+              <img
+                onClick={() => {
+                  const carousel = document.querySelector(".movie-category1");
+                  carousel.scrollLeft += 1200;
+                }}
+                src={right}
+                alt=""
+                className="right-btn"
+              />
+            </div>
+            <p className="category-title1 c-title">Now Playing</p>
+            <div className="movie-category1">
+              {movies.map((items) => {
+                return (
+                  <>
+                    <div className="now-playing" key={items.id}>
+                      <img
+                        src={
+                          "https://image.tmdb.org/t/p/w500" +
+                          items.backdrop_path
+                        }
+                        alt=""
+                        className="poster-2"
+                      />
+                      <div className="movie-all-data">
+                        <div className="movie-title">{items.title}</div>
+                        <div className="two-buttons">
+                          <img src={play} alt="" className="circle-play" />
+                          <img
+                            onClick={() => setAdded(!Added)}
+                            src={Added ? added : add}
+                            className="add-list"
+                          />
+                        </div>
+                        <div className="extra-data">
+                          <p className="match">
+                            {(Math.round(items.vote_average) / 10) * 100}% match
+                          </p>
+                          <p className="rating">
+                            {items.adult === false ? "U/A 13+" : "A"}
+                          </p>
+                          <p className="HD">HD</p>
+                        </div>
+                        <p className="movie-desc">
+                          {items.overview.slice(0, 80) + "..."}
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
+            </div>
+            <div className="left-scroll2">
+              <img
+                onClick={() => {
+                  const carousel = document.querySelector(".movie-category2");
+                  carousel.scrollLeft -= 1200;
+                }}
+                src={left}
+                alt=""
+                className="left-btn2"
+              />
+            </div>
+            <div className="right-scroll2">
+              <img
+                onClick={() => {
+                  const carousel = document.querySelector(".movie-category2");
+                  carousel.scrollLeft += 1200;
+                }}
+                src={right}
+                alt=""
+                className="right-btn2"
+              />
+            </div>
+            <p className="category-title2 c-title">Popular</p>
+            <div className="movie-category2">
+              {Trending.map((items) => {
+                return (
+                  <div className="trending-movies">
                     <img
                       src={
                         "https://image.tmdb.org/t/p/w500" + items.backdrop_path
                       }
                       alt=""
-                      className="poster-2"
+                      className="poster-3"
                     />
                     <div className="movie-all-data">
                       <div className="movie-title">{items.title}</div>
@@ -153,6 +239,7 @@ const Browsepage = () => {
                         <img
                           onClick={() => setAdded(!Added)}
                           src={Added ? added : add}
+                          alt=""
                           className="add-list"
                         />
                       </div>
@@ -170,269 +257,224 @@ const Browsepage = () => {
                       </p>
                     </div>
                   </div>
-                </>
-              );
-            })}
-          </div>
-          <div className="left-scroll2">
-            <img
-              onClick={() => {
-                const carousel = document.querySelector(".movie-category2");
-                carousel.scrollLeft -= 1200;
-              }}
-              src={left}
-              alt=""
-              className="left-btn2"
-            />
-          </div>
-          <div className="right-scroll2">
-            <img
-              onClick={() => {
-                const carousel = document.querySelector(".movie-category2");
-                carousel.scrollLeft += 1200;
-              }}
-              src={right}
-              alt=""
-              className="right-btn2"
-            />
-          </div>
-          <p className="category-title2 c-title">Popular</p>
-          <div className="movie-category2">
-            {Trending.map((items) => {
-              return (
-                <div className="trending-movies">
-                  <img
-                    src={
-                      "https://image.tmdb.org/t/p/w500" + items.backdrop_path
-                    }
-                    alt=""
-                    className="poster-3"
-                  />
-                  <div className="movie-all-data">
-                    <div className="movie-title">{items.title}</div>
-                    <div className="two-buttons">
-                      <img src={play} alt="" className="circle-play" />
-                      <img
-                        onClick={() => setAdded(!Added)}
-                        src={Added ? added : add}
-                        alt=""
-                        className="add-list"
-                      />
-                    </div>
-                    <div className="extra-data">
-                      <p className="match">
-                        {(Math.round(items.vote_average) / 10) * 100}% match
+                );
+              })}
+            </div>
+            <div className="left-scroll3">
+              <img
+                onClick={() => {
+                  const carousel = document.querySelector(".movie-category3");
+                  carousel.scrollLeft -= 1200;
+                }}
+                src={left}
+                alt=""
+                className="left-btn3"
+              />
+            </div>
+            <div className="right-scroll3">
+              <img
+                onClick={() => {
+                  const carousel = document.querySelector(".movie-category3");
+                  carousel.scrollLeft += 1200;
+                }}
+                src={right}
+                alt=""
+                className="right-btn3"
+              />
+            </div>
+            <p className="category-title3 c-title">Top Rated Movies</p>
+            <div className="movie-category3">
+              {Rated.map((items) => {
+                return (
+                  <div className="top-movies">
+                    <img
+                      src={
+                        "https://image.tmdb.org/t/p/w500" + items.backdrop_path
+                      }
+                      alt=""
+                      className="poster-4"
+                    />
+                    <div className="movie-all-data">
+                      <div className="movie-title">{items.title}</div>
+                      <div className="two-buttons">
+                        <img src={play} alt="" className="circle-play" />
+                        <img
+                          onClick={() => setAdded(!Added)}
+                          src={Added ? added : add}
+                          alt=""
+                          className="add-list"
+                        />
+                      </div>
+                      <div className="extra-data">
+                        <p className="match">
+                          {(Math.round(items.vote_average) / 10) * 100}% match
+                        </p>
+                        <p className="rating">
+                          {items.adult === false ? "U/A 13+" : "A"}
+                        </p>
+                        <p className="HD">HD</p>
+                      </div>
+                      <p className="movie-desc">
+                        {items.overview.slice(0, 80) + "..."}
                       </p>
-                      <p className="rating">
-                        {items.adult === false ? "U/A 13+" : "A"}
-                      </p>
-                      <p className="HD">HD</p>
                     </div>
-                    <p className="movie-desc">
-                      {items.overview.slice(0, 80) + "..."}
-                    </p>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-          <div className="left-scroll3">
-            <img
-              onClick={() => {
-                const carousel = document.querySelector(".movie-category3");
-                carousel.scrollLeft -= 1200;
-              }}
-              src={left}
-              alt=""
-              className="left-btn3"
-            />
-          </div>
-          <div className="right-scroll3">
-            <img
-              onClick={() => {
-                const carousel = document.querySelector(".movie-category3");
-                carousel.scrollLeft += 1200;
-              }}
-              src={right}
-              alt=""
-              className="right-btn3"
-            />
-          </div>
-          <p className="category-title3 c-title">Top Rated Movies</p>
-          <div className="movie-category3">
-            {Rated.map((items) => {
-              return (
-                <div className="top-movies">
-                  <img
-                    src={
-                      "https://image.tmdb.org/t/p/w500" + items.backdrop_path
-                    }
-                    alt=""
-                    className="poster-4"
-                  />
-                  <div className="movie-all-data">
-                    <div className="movie-title">{items.title}</div>
-                    <div className="two-buttons">
-                      <img src={play} alt="" className="circle-play" />
-                      <img
-                        onClick={() => setAdded(!Added)}
-                        src={Added ? added : add}
-                        alt=""
-                        className="add-list"
-                      />
-                    </div>
-                    <div className="extra-data">
-                      <p className="match">
-                        {(Math.round(items.vote_average) / 10) * 100}% match
+                );
+              })}
+            </div>
+            <div className="left-scroll4">
+              <img
+                onClick={() => {
+                  const carousel = document.querySelector(".movie-category4");
+                  carousel.scrollLeft -= 1200;
+                }}
+                src={left}
+                alt=""
+                className="left-btn4"
+              />
+            </div>
+            <div className="right-scroll4">
+              <img
+                onClick={() => {
+                  const carousel = document.querySelector(".movie-category4");
+                  carousel.scrollLeft += 1200;
+                }}
+                src={right}
+                alt=""
+                className="right-btn4"
+              />
+            </div>
+            <p className="category-title4 c-title">Masterpiece from Japan</p>
+            <div className="movie-category4">
+              {Anime1.map((items) => {
+                return (
+                  <div className="anime1-movies">
+                    <img
+                      src={
+                        items.backdrop_path === null
+                          ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
+                          : "https://image.tmdb.org/t/p/w500" +
+                            items.backdrop_path
+                      }
+                      alt=""
+                      className="poster-5"
+                    />
+                    <div className="movie-all-data">
+                      <div className="movie-title">{items.title}</div>
+                      <div className="two-buttons">
+                        <img src={play} alt="" className="circle-play" />
+                        <img
+                          onClick={() => {
+                            setAdded(!Added);
+                            console.log(items);
+                          }}
+                          src={Added ? added : add}
+                          alt=""
+                          className="add-list"
+                        />
+                      </div>
+                      <div className="extra-data">
+                        <p className="match">
+                          {(Math.round(items.vote_average) / 10) * 100}% match
+                        </p>
+                        <p className="rating">
+                          {items.adult === false ? "U/A 13+" : "A"}
+                        </p>
+                        <p className="HD">HD</p>
+                      </div>
+                      <p className="movie-desc">
+                        {items.overview.slice(0, 80) + "..."}
                       </p>
-                      <p className="rating">
-                        {items.adult === false ? "U/A 13+" : "A"}
-                      </p>
-                      <p className="HD">HD</p>
                     </div>
-                    <p className="movie-desc">
-                      {items.overview.slice(0, 80) + "..."}
-                    </p>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-          <div className="left-scroll4">
-            <img
-              onClick={() => {
-                const carousel = document.querySelector(".movie-category4");
-                carousel.scrollLeft -= 1200;
-              }}
-              src={left}
-              alt=""
-              className="left-btn4"
-            />
-          </div>
-          <div className="right-scroll4">
-            <img
-              onClick={() => {
-                const carousel = document.querySelector(".movie-category4");
-                carousel.scrollLeft += 1200;
-              }}
-              src={right}
-              alt=""
-              className="right-btn4"
-            />
-          </div>
-          <p className="category-title4 c-title">Masterpiece from Japan</p>
-          <div className="movie-category4">
-            {Anime1.map((items) => {
-              return (
-                <div className="anime1-movies">
-                  <img
-                    src={
-                      items.backdrop_path === null
-                        ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
-                        : "https://image.tmdb.org/t/p/w500" +
-                          items.backdrop_path
-                    }
-                    alt=""
-                    className="poster-5"
-                  />
-                  <div className="movie-all-data">
-                    <div className="movie-title">{items.title}</div>
-                    <div className="two-buttons">
-                      <img src={play} alt="" className="circle-play" />
-                      <img
-                        onClick={() => {
-                          setAdded(!Added);
-                          console.log(items);
-                        }}
-                        src={Added ? added : add}
-                        alt=""
-                        className="add-list"
-                      />
-                    </div>
-                    <div className="extra-data">
-                      <p className="match">
-                        {(Math.round(items.vote_average) / 10) * 100}% match
+                );
+              })}
+            </div>
+            <div className="left-scroll5">
+              <img
+                onClick={() => {
+                  const carousel = document.querySelector(".movie-category5");
+                  carousel.scrollLeft -= 1200;
+                }}
+                src={left}
+                alt=""
+                className="left-btn5"
+              />
+            </div>
+            <div className="right-scroll5">
+              <img
+                onClick={() => {
+                  const carousel = document.querySelector(".movie-category5");
+                  carousel.scrollLeft += 1200;
+                }}
+                src={right}
+                alt=""
+                className="right-btn5"
+              />
+            </div>
+            <p className="category-title5 c-title">
+              Trending Shows in India Today
+            </p>
+            <div className="movie-category5">
+              {TV.map((items) => {
+                return (
+                  <div className="top-india-movies">
+                    <img
+                      src={
+                        items.backdrop_path === null
+                          ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
+                          : "https://image.tmdb.org/t/p/w500" +
+                            items.backdrop_path
+                      }
+                      alt=""
+                      className="poster-6"
+                    />
+                    <div className="movie-all-data">
+                      <div className="movie-title">{items.title}</div>
+                      <div className="two-buttons">
+                        <img src={play} alt="" className="circle-play" />
+                        <img
+                          onClick={() => {
+                            setAdded(!Added);
+                            console.log(items);
+                          }}
+                          src={Added ? added : add}
+                          alt=""
+                          className="add-list"
+                        />
+                      </div>
+                      <div className="extra-data">
+                        <p className="match">
+                          {(Math.round(items.vote_average) / 10) * 100}% match
+                        </p>
+                        <p className="rating">U/A 13+</p>
+                        <p className="HD">HD</p>
+                      </div>
+                      <p className="movie-desc">
+                        {items.overview.slice(0, 80) + "..."}
                       </p>
-                      <p className="rating">
-                        {items.adult === false ? "U/A 13+" : "A"}
-                      </p>
-                      <p className="HD">HD</p>
                     </div>
-                    <p className="movie-desc">
-                      {items.overview.slice(0, 80) + "..."}
-                    </p>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-          <div className="left-scroll5">
-            <img
-              onClick={() => {
-                const carousel = document.querySelector(".movie-category5");
-                carousel.scrollLeft -= 1200;
-              }}
-              src={left}
-              alt=""
-              className="left-btn5"
-            />
-          </div>
-          <div className="right-scroll5">
-            <img
-              onClick={() => {
-                const carousel = document.querySelector(".movie-category5");
-                carousel.scrollLeft += 1200;
-              }}
-              src={right}
-              alt=""
-              className="right-btn5"
-            />
-          </div>
-          <p className="category-title5 c-title">Trending Shows in India Today</p>
-          <div className="movie-category5">
-            {TV.map((items) => {
-              return (
-                <div className="top-india-movies">
-                  <img
-                    src={
-                      items.backdrop_path === null
-                        ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
-                        : "https://image.tmdb.org/t/p/w500" +
-                          items.backdrop_path
-                    }
-                    alt=""
-                    className="poster-6"
-                  />
-                  <div className="movie-all-data">
-                    <div className="movie-title">{items.title}</div>
-                    <div className="two-buttons">
-                      <img src={play} alt="" className="circle-play" />
-                      <img
-                        onClick={() => {
-                          setAdded(!Added);
-                          console.log(items);
-                        }}
-                        src={Added ? added : add}
-                        alt=""
-                        className="add-list"
-                      />
-                    </div>
-                    <div className="extra-data">
-                      <p className="match">
-                        {(Math.round(items.vote_average) / 10) * 100}% match
-                      </p>
-                      <p className="rating">
-                      U/A 13+
-                      </p>
-                      <p className="HD">HD</p>
-                    </div>
-                    <p className="movie-desc">
-                      {items.overview.slice(0, 80) + "..."}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+            <div className="newmovie-data">
+              {searchData &&
+                searchData.map((items) => {
+                  return (
+                    <img
+                      src={
+                        items.backdrop_path === null
+                          ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
+                          : "https://image.tmdb.org/t/p/w500" +
+                            items.backdrop_path
+                      }
+                      alt=""
+                      className="poster-6"
+                    />
+                  );
+                })}
+            </div>
           </div>
         </div>
       </div>
