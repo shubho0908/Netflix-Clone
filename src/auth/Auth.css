@@ -8,23 +8,29 @@
     .poster,
     .movies-name,
     .navbar-4,
+    .search-bar,
     .search-white,
     .c-title,
     .left-scroll,
     .left-scroll2,
     .left-scroll3,
     .left-scroll4,
+    .left-scroll5,
     .left-btn,
     .left-btn2,
     .left-btn3,
     .left-btn4,
+    .left-btn5,
     .right-scroll,
     .right-scroll2,
     .right-scroll3,
+    .right-scroll4,
+    .right-scroll5,
     .right-btn,
     .right-btn2,
     .right-btn3,
     .right-btn4,
+    .right-btn5,
     .in-data,
     .movies-section,
     .now-playing,
@@ -33,6 +39,7 @@
     .movie-category2,
     .movie-category3,
     .movie-category4,
+    .movie-category5,
     .category-lists,
     li,
     .right-content,
@@ -124,6 +131,7 @@
     .movie-title,
     .top-movies,
     .anime1-movies,
+    .top-india-movies,
     .two-buttons,
     .extra-data,
     .match,
@@ -331,8 +339,10 @@ input.check {
   *:not(
       .bg-main-data,
       .swal-modal,
+      .search-bar,
       .top-movies,
       .anime1-movies,
+      .top-india-movies,
       .signin-button,
       .start-link,
       .email-inp,.password-inp,
@@ -342,18 +352,23 @@ input.check {
       .right-scroll,
       .right-scroll2,
       .right-scroll3,
+      .right-scroll4,
+      .right-scroll5,
       .right-btn,
       .right-btn2,
       .right-btn3,
       .right-btn4,
+      .right-btn5,
       .left-scroll,
       .left-scroll2,
       .left-scroll3,
       .left-scroll4,
+      .left-scroll5,
     .left-btn,
     .left-btn2,
     .left-btn3,
     .left-btn4,
+    .left-btn5,
       .now-playing,
       .trending-movies,
       .movies-section,
@@ -362,6 +377,7 @@ input.check {
       .movie-category2,
       .movie-category3,
       .movie-category4,
+      .movie-category5,
       .play-icon,
       .right-content,
       .search-icon,
@@ -1462,7 +1478,7 @@ input.check {
   position: fixed;
   background: none;
   width: 98.5vw;
-  z-index: 1;
+  z-index: 600;
   padding: .8vw;
   display: flex;
   justify-content: space-between;
@@ -1473,11 +1489,11 @@ input.check {
   color: white;
   list-style: none;
   display: flex;
-  margin-right: 63vw;
+  margin-right: 59.3vw;
 }
 
 .category-lists > li {
-  margin-left: 1.82vw;
+  margin-left: 1.52vw;
   font-size: 0.72vw;
   font-family: sans-serif;
 }
@@ -1487,11 +1503,13 @@ input.check {
   display: flex;
   align-items: center;
   justify-content: right;
-  right: 3vw;
+  right: 7.8vw;
 }
 
 .account-img {
+  position: relative;
   width: 1.8vw;
+  right: 4.4vw;
   border-radius: .15vw;
 }
 .nav-css{
@@ -1547,7 +1565,18 @@ input.check {
   width: 100%;
   position: relative;
   padding-left: 3.2vw;
-  bottom: 51.5vw;
+  bottom: 52vw;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.movie-category5{
+  display: flex;
+  width: 100%;
+  position: relative;
+  padding-left: 3.2vw;
+  bottom: 64.2vw;
   overflow-y: hidden;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -1569,7 +1598,11 @@ input.check {
   width: 0;
 }
 
-.now-playing>img, .trending-movies>img,.top-movies>img, .anime1-movies>img{
+.movie-category5::-webkit-scrollbar{
+  width: 0;
+}
+
+.now-playing>img, .trending-movies>img,.top-movies>img, .anime1-movies>img,.top-india-movies>img{
   border-radius: .3vw;
   margin-left: 0.25vw;
   margin-right: 0.25vw;
@@ -1580,19 +1613,19 @@ input.check {
   width: 16vw;
 }
 
-.now-playing,.top-movies,.trending-movies,.anime1-movies{
+.now-playing,.top-movies,.trending-movies,.anime1-movies,.top-india-movies{
   cursor: pointer;
   transition: all .3s ease-in-out;
 }
 
 
-.now-playing:hover ,.trending-movies:hover,.top-movies:hover, .anime1-movies:hover {
+.now-playing:hover ,.trending-movies:hover,.top-movies:hover, .anime1-movies:hover, .top-india-movies:hover {
   position: relative;
   z-index: 40;
   transform: scale(1.3);
 }
 
-.now-playing:hover .movie-all-data,.trending-movies:hover .movie-all-data,.top-movies:hover .movie-all-data, .anime1-movies:hover .movie-all-data{
+.now-playing:hover .movie-all-data,.trending-movies:hover .movie-all-data,.top-movies:hover .movie-all-data, .anime1-movies:hover .movie-all-data, .top-india-movies:hover .movie-all-data{
 opacity: 1;
   visibility: visible;
 }
@@ -1640,6 +1673,17 @@ opacity: 1;
 
 }
 
+.left-btn5{
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: 65.3vw;
+  left: .5vw;
+  width: 2.5vw;
+  z-index: 50;
+
+}
+
 .right-btn{
   cursor: pointer;
   filter: invert(1);
@@ -1680,11 +1724,27 @@ opacity: 1;
   z-index: 50;
 }
 
+.right-btn5{
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: 66vw;
+  right: .5vw;
+  width: 1.6vw;
+  z-index: 50;
+}
+
 .search-white{
+  cursor: pointer;
+  position: relative;
+  cursor: pointer;
+  right: -8.2vw;
   filter: invert(1);
   width: 1.2vw;
   height: 100%;
   margin-right: 2vw;
+  transition: all .25s;
+
 }
 
 
@@ -1732,7 +1792,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   font-weight: 600;
   font-size: 1.4vw;
   text-align: left;
-  bottom: 47.5vw;
+  bottom: 48vw;
   left: 3.5vw;
 }
 
@@ -1741,7 +1801,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   font-weight: 600;
   font-size: 1.4vw;
   text-align: left;
-  bottom: 47.5vw;
+  bottom: 60.2vw;
   left: 3.5vw;
 }
 
@@ -1826,4 +1886,26 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
 .add-list{
   margin-left: .4vw;
 
+}
+
+.search-bar{
+  cursor: pointer;
+  height: 1.8vw;
+  border-radius: .18vw;
+  position: relative;
+  width: 12vw;
+  right: 5.5vw;
+  opacity: 0;
+  transition: all .25s;
+  padding-left: .6vw;
+  font-family: sans-serif;
+  font-size: .85vw;
+  color: white;
+  background-color: #5a5a5a54;
+}
+
+.search-icon{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }

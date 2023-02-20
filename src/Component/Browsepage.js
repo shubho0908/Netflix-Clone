@@ -34,6 +34,13 @@ const Browsepage = () => {
 
   window.addEventListener("scroll", changeBG);
 
+
+  const SearchChange=()=>{
+    document.querySelector('.search-white').style.opacity = "0"
+    document.querySelector('.search-bar').style.opacity = "1"
+  }
+
+
   useEffect(() => {
     const FetchData = async () => {
       const url =
@@ -84,15 +91,15 @@ const Browsepage = () => {
         <div className="navbar-4 nav-css">
           <img src={Logo} className="main-logo" />
           <div className="category-lists">
-            <li style={{ fontWeight: 600 }}>Home</li>
+            <li style={{ fontWeight: 600,width: "4.5vw" }}>Home</li>
+            <li style={{ width: "4.5vw" }}>My List</li>
+            <li style={{ width: "4.5vw" }}>Movies</li>
             <li style={{ width: "4.5vw" }}>TV Shows</li>
-            <li style={{ width: "3vw" }}>My List</li>
-            <li>Popular</li>
-            <li></li>
           </div>
           <div className="right-content">
-            <div className="search-icon">
-              <img src={Search} alt="" className="search-white" />
+            <div onClick={SearchChange} className="search-icon">
+              <img  src={Search} alt="" className="search-white" />
+              <input type="text" className="search-bar" placeholder="Search Movies, TV Shows.."/>
             </div>
             <div className="account">
               <img className="account-img" src={avatar} alt="" />
@@ -146,7 +153,6 @@ const Browsepage = () => {
                         <img
                           onClick={() => setAdded(!Added)}
                           src={Added ? added : add}
-                          alt=""
                           className="add-list"
                         />
                       </div>
@@ -360,33 +366,33 @@ const Browsepage = () => {
               );
             })}
           </div>
-          <div className="left-scroll4">
+          <div className="left-scroll5">
             <img
               onClick={() => {
-                const carousel = document.querySelector(".movie-category4");
+                const carousel = document.querySelector(".movie-category5");
                 carousel.scrollLeft -= 1200;
               }}
               src={left}
               alt=""
-              className="left-btn4"
+              className="left-btn5"
             />
           </div>
-          <div className="right-scroll4">
+          <div className="right-scroll5">
             <img
               onClick={() => {
-                const carousel = document.querySelector(".movie-category4");
+                const carousel = document.querySelector(".movie-category5");
                 carousel.scrollLeft += 1200;
               }}
               src={right}
               alt=""
-              className="right-btn4"
+              className="right-btn5"
             />
           </div>
-          <p className="category-title5 c-title">Masterpiece from Japan</p>
-          <div className="movie-category4">
+          <p className="category-title5 c-title">Trending Shows in India Today</p>
+          <div className="movie-category5">
             {TV.map((items) => {
               return (
-                <div className="anime1-movies">
+                <div className="top-india-movies">
                   <img
                     src={
                       items.backdrop_path === null
@@ -395,7 +401,7 @@ const Browsepage = () => {
                           items.backdrop_path
                     }
                     alt=""
-                    className="poster-5"
+                    className="poster-6"
                   />
                   <div className="movie-all-data">
                     <div className="movie-title">{items.title}</div>
@@ -416,7 +422,7 @@ const Browsepage = () => {
                         {(Math.round(items.vote_average) / 10) * 100}% match
                       </p>
                       <p className="rating">
-                        {items.adult === false ? "U/A 13+" : "A"}
+                      U/A 13+
                       </p>
                       <p className="HD">HD</p>
                     </div>
