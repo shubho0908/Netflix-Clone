@@ -3,13 +3,14 @@ const AddToList = (data) => {
       type: "ADD",
       data: data,
     };
+
   };
-  const Delete = (id) => {
+  const RemoveList = (id) => {
     return {
-      type: "DELETE",
+      type: "REMOVE",
       id: id,
     };
   };
   
-  export { AddToCart, Delete };
+  export { AddToList, RemoveList };
   

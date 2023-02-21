@@ -7,7 +7,6 @@ const firebaseConfig = {
   storageBucket: "netflix-clone-30579.appspot.com",
   messagingSenderId: "276048617772",
   appId: "1:276048617772:web:0401a47eeda5fd93250c89",
-  databaseURL: "https://netflix-clone-30579-default-rtdb.firebaseio.com/",
 
 };
 

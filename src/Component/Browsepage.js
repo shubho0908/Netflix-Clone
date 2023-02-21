@@ -1,6 +1,8 @@
 import { React, useEffect, useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { app } from "../Firebase";
+import { useSelector, useDispatch } from "react-redux";
+import { AddToList,  RemoveList} from "../action/add";
 import Poster from "../img/movie/bg-poster.png";
 import avatar from "../img/avatar.png";
 import Logo from "../img/logo.png";
@@ -14,6 +16,11 @@ import added from "../img/added.png";
 const auth = getAuth(app);
 
 const Browsepage = (props) => {
+
+
+const ListItems = useSelector((state)=> state.MoviesAdded.ListItems)
+const dispatch = useDispatch()
+
   const [movies, setMovies] = useState([]);
   const [Trending, setTrending] = useState([]);
   const [Rated, setRated] = useState([]);
@@ -22,8 +29,10 @@ const Browsepage = (props) => {
   const [TV, setTV] = useState([]);
   const [search, setSearch] = useState("");
   const [searchData, setSearchData] = useState([]);
+  const [read, setRead] = useState([])
 
-  const changeBG = () => {
+
+ const changeBG = () => {
     const navbar = document.querySelector(".navbar-4");
     const scrollVal = window.scrollY;
     if (scrollVal < 42) {
@@ -109,6 +118,8 @@ const Browsepage = (props) => {
     }
   };
 
+  
+
   useEffect(() => {
     const FetchData = async () => {
       const url =
@@ -152,9 +163,6 @@ const Browsepage = (props) => {
     ClassicAnime();
     TVshows();
   }, []);
-
-
-  console.log(searchData.slice(0,5));
 
   return (
     <>
@@ -214,8 +222,10 @@ const Browsepage = (props) => {
             <p className="category-title1 c-title">Now Playing</p>
             <div className="movie-category1">
               {movies.map((items) => {
+                
                 return (
                   <>
+                  
                     <div className="now-playing" key={items.id}>
                       <img
                         src={
@@ -232,8 +242,17 @@ const Browsepage = (props) => {
                           <img
                             onClick={() => {
                               setAdded(!Added);
+                              if (Added) {
+                                dispatch(AddToList(items))
+                                }
+                              else{
+                                
+                                dispatch(RemoveList(items.id))
+                              }
                              }}
-                            src={Added ? added : add}
+                            src={ListItems.filter((ele) => ele.id === items.id).length > 0
+                              ? added
+                              : add}
                             className="add-list"
                           />
                         </div>
@@ -296,10 +315,17 @@ const Browsepage = (props) => {
                         <img
                           onClick={() => {
                             setAdded(!Added);
-                            
-                          }}
-                          src={Added ? added : add}
-                          alt=""
+                              if (Added) {
+                                dispatch(AddToList(items))
+                                }
+                              else{
+                                
+                                dispatch(RemoveList(items.id))
+                              }
+                             }}
+                            src={ListItems.filter((ele) => ele.id === items.id).length > 0
+                              ? added
+                              : add}
                           className="add-list"
                         />
                       </div>
@@ -361,10 +387,17 @@ const Browsepage = (props) => {
                         <img
                           onClick={() => {
                             setAdded(!Added);
-                            
-                          }}
-                          src={Added ? added : add}
-                          alt=""
+                              if (Added) {
+                                dispatch(AddToList(items))
+                                }
+                              else{
+                                
+                                dispatch(RemoveList(items.id))
+                              }
+                             }}
+                            src={ListItems.filter((ele) => ele.id === items.id).length > 0
+                              ? added
+                              : add}
                           className="add-list"
                         />
                       </div>
@@ -429,10 +462,17 @@ const Browsepage = (props) => {
                         <img
                           onClick={() => {
                             setAdded(!Added);
-                              
-                          }}
-                          src={Added ? added : add}
-                          alt=""
+                              if (Added) {
+                                dispatch(AddToList(items))
+                                }
+                              else{
+                                
+                                dispatch(RemoveList(items.id))
+                              }
+                             }}
+                            src={ListItems.filter((ele) => ele.id === items.id).length > 0
+                              ? added
+                              : add}
                           className="add-list"
                         />
                       </div>
@@ -499,10 +539,17 @@ const Browsepage = (props) => {
                         <img
                           onClick={() => {
                             setAdded(!Added);
-                             
-                          }}
-                          src={Added ? added : add}
-                          alt=""
+                              if (Added) {
+                                dispatch(AddToList(items))
+                                }
+                              else{
+                                
+                                dispatch(RemoveList(items.id))
+                              }
+                             }}
+                            src={ListItems.filter((ele) => ele.id === items.id).length > 0
+                              ? added
+                              : add}
                           className="add-list"
                         />
                       </div>
@@ -544,10 +591,17 @@ const Browsepage = (props) => {
                           <img
                             onClick={() => {
                               setAdded(!Added);
-                              
-                            }}
-                            src={Added ? added : add}
-                            alt=""
+                              if (Added) {
+                                dispatch(AddToList(items))
+                                }
+                              else{
+                                
+                                dispatch(RemoveList(items.id))
+                              }
+                             }}
+                            src={ListItems.filter((ele) => ele.id === items.id).length > 0
+                              ? added
+                              : add}
                             className="add-list"
                           />
                         </div>
