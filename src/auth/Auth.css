@@ -7,8 +7,11 @@
     .watching,
     .poster,
     .search-data,
+    .my-list,
+    .logo-anchor,
     .movie-all-data2,
     .search-movies,
+    .list-movies,
     .all-dataa,
     .movies-name,
     .navbar-4,
@@ -343,12 +346,15 @@ input.check {
   *:not(
       .bg-main-data,
       .swal-modal,
+      .my-list,
+      .logo-anchor,
       .search-bar,
       .movie-all-data2,
       .top-movies,
     .all-dataa,
   .search-data,
   .search-movies,
+  .list-movies,
       .anime1-movies,
       .top-india-movies,
       .signin-button,
@@ -1501,6 +1507,7 @@ input.check {
 }
 
 .category-lists > li {
+  cursor: pointer;
   margin-left: 1.52vw;
   font-size: 0.72vw;
   font-family: sans-serif;
@@ -1522,7 +1529,7 @@ input.check {
 }
 .nav-css{
   background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgb(19, 19, 19) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 2%, rgba(19, 19, 19, 0.825) 100%);
 }
 
 .movies-section{
@@ -1604,6 +1611,22 @@ input.check {
   scroll-behavior: smooth;
 }
 
+.my-list{
+  display: none;
+  grid-template-columns: repeat(4, 20vw);
+  grid-template-rows: repeat(5, 14vw);
+  grid-gap: 10px; /* adjust as needed */
+  width: 100%;
+  height: 100%;
+  margin-top: 5vw;
+  justify-content: center;
+  position: relative;
+  bottom: 10vw;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
 
 .movie-category1::-webkit-scrollbar{
   width: 0;
@@ -1626,6 +1649,10 @@ input.check {
 }
 
 .search-data::-webkit-scrollbar{
+  width: 0;
+}
+
+.my-list::-webkit-scrollbar{
   width: 0;
 }
 
@@ -1652,20 +1679,32 @@ input.check {
   width: 18.8vw;
 }
 
+.list-movies>img{
+  
+  border-radius: .3vw;
+  margin-left: 0.25vw;
+  margin-right: 0.25vw;
+  margin-top: 3.55vw;
+  margin-bottom: 2.25vw;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  width: 18.8vw;
+}
 
-.now-playing,.top-movies,.trending-movies,.anime1-movies,.top-india-movies, .search-movies{
+
+.now-playing,.top-movies,.trending-movies,.anime1-movies,.top-india-movies, .search-movies, .list-movies{
   cursor: pointer;
   transition: all .3s ease-in-out;
 }
 
 
-.now-playing:hover ,.trending-movies:hover,.top-movies:hover, .anime1-movies:hover, .top-india-movies:hover, .search-movies:hover {
+.now-playing:hover ,.trending-movies:hover,.top-movies:hover, .anime1-movies:hover, .top-india-movies:hover, .search-movies:hover,.list-movies:hover {
   position: relative;
   z-index: 40;
   transform: scale(1.3);
 }
 
-.now-playing:hover .movie-all-data,.trending-movies:hover .movie-all-data,.top-movies:hover .movie-all-data, .anime1-movies:hover .movie-all-data, .top-india-movies:hover .movie-all-data, .search-movies:hover .movie-all-data2{
+.now-playing:hover .movie-all-data,.trending-movies:hover .movie-all-data,.top-movies:hover .movie-all-data, .anime1-movies:hover .movie-all-data, .top-india-movies:hover .movie-all-data, .search-movies:hover .movie-all-data2, .list-movies:hover .movie-all-data2{
 opacity: 1;
   visibility: visible;
 }
@@ -1970,10 +2009,23 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   align-items: center;
 }
 
-body::-webkit-scrollbar{
+.App::-webkit-scrollbar{
   display: none;
 }
 
 .movies-section, .all-dataa{
   height: 100vh;
+}
+
+.category-lists>li{
+color: rgba(255, 255, 255, 0.742);
+}
+
+.category-lists>li:hover{
+  color: white !important;
+
+}
+
+.home{
+  color: white !important;
 }

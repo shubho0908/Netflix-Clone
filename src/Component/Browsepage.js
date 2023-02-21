@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { app } from "../Firebase";
 import { useSelector, useDispatch } from "react-redux";
-import { AddToList,  RemoveList} from "../action/add";
+import { AddToList, RemoveList } from "../action/add";
 import Poster from "../img/movie/bg-poster.png";
 import avatar from "../img/avatar.png";
 import Logo from "../img/logo.png";
@@ -16,10 +16,8 @@ import added from "../img/added.png";
 const auth = getAuth(app);
 
 const Browsepage = (props) => {
-
-
-const ListItems = useSelector((state)=> state.MoviesAdded.ListItems)
-const dispatch = useDispatch()
+  const ListItems = useSelector((state) => state.MoviesAdded.ListItems);
+  const dispatch = useDispatch();
 
   const [movies, setMovies] = useState([]);
   const [Trending, setTrending] = useState([]);
@@ -29,20 +27,6 @@ const dispatch = useDispatch()
   const [TV, setTV] = useState([]);
   const [search, setSearch] = useState("");
   const [searchData, setSearchData] = useState([]);
-  const [read, setRead] = useState([])
-
-
- const changeBG = () => {
-    const navbar = document.querySelector(".navbar-4");
-    const scrollVal = window.scrollY;
-    if (scrollVal < 42) {
-      navbar.classList.remove("nav-css");
-    } else {
-      navbar.classList.add("nav-css");
-    }
-  };
-
-  window.addEventListener("scroll", changeBG);
 
   const SearchChange = () => {
     document.querySelector(".search-white").style.opacity = "0";
@@ -52,6 +36,7 @@ const dispatch = useDispatch()
   const OnSearch = async (e) => {
     const searchValue = e.target.value;
     document.querySelector(".poster").style.display = "none";
+    document.querySelector(".my-list").style.display = "none";
     document.querySelector(".search-data").style.display = "grid";
 
     fetch(
@@ -118,7 +103,74 @@ const dispatch = useDispatch()
     }
   };
 
-  
+  const MyList = () => {
+    if (ListItems.length > 10) {
+      document.querySelector(".movies-section").style.height = "100%";
+      document.querySelector(".all-dataa").style.height = "100%";
+    } else {
+      document.querySelector(".movies-section").style.height = "100vh";
+      document.querySelector(".all-dataa").style.height = "100vh";
+    }
+    document.querySelector(".list").style.color = "white";
+    document.querySelector(".list").style.fontWeight = "600";
+    document.querySelector(".home").style.color = "rgba(255, 255, 255, 0.742)";
+    document.querySelector(".home").style.fontWeight = "400";
+    document.querySelector(".movies").style.color =
+      "rgba(255, 255, 255, 0.742)";
+    document.querySelector(".movies").style.fontWeight = "400";
+    document.querySelector(".tv-shows").style.color =
+      "rgba(255, 255, 255, 0.742)";
+    document.querySelector(".tv-shows").style.fontWeight = "400";
+    document.querySelector(".poster").style.display = "none";
+    document.querySelector(".search-data").style.display = "none";
+    document.querySelector(".my-list").style.display = "grid";
+    document.querySelector(".movie-category1").style.display = "none";
+    document.querySelector(".movie-category2").style.display = "none";
+    document.querySelector(".movie-category3").style.display = "none";
+    document.querySelector(".movie-category4").style.display = "none";
+    document.querySelector(".movie-category5").style.display = "none";
+    document.querySelector(".left-scroll").style.display = "none";
+    document.querySelector(".right-scroll").style.display = "none";
+    document.querySelector(".left-scroll2").style.display = "none";
+    document.querySelector(".right-scroll2").style.display = "none";
+    document.querySelector(".left-scroll3").style.display = "none";
+    document.querySelector(".right-scroll3").style.display = "none";
+    document.querySelector(".left-scroll4").style.display = "none";
+    document.querySelector(".right-scroll4").style.display = "none";
+    document.querySelector(".left-scroll5").style.display = "none";
+    document.querySelector(".right-scroll5").style.display = "none";
+  };
+
+  const Home = () => {
+    document.querySelector(".home").style.color = "white";
+    document.querySelector(".home").style.fontWeight = "600";
+    document.querySelector(".list").style.color = "rgba(255, 255, 255, 0.742)";
+    document.querySelector(".list").style.fontWeight = "400";
+    document.querySelector(".movies").style.color =
+      "rgba(255, 255, 255, 0.742)";
+    document.querySelector(".movies").style.fontWeight = "400";
+    document.querySelector(".tv-shows").style.color =
+      "rgba(255, 255, 255, 0.742)";
+    document.querySelector(".tv-shows").style.fontWeight = "400";
+    document.querySelector(".poster").style.display = "block";
+    document.querySelector(".search-data").style.display = "none";
+    document.querySelector(".my-list").style.display = "none";
+    document.querySelector(".movie-category1").style.display = "flex";
+    document.querySelector(".movie-category2").style.display = "flex";
+    document.querySelector(".movie-category3").style.display = "flex";
+    document.querySelector(".movie-category4").style.display = "flex";
+    document.querySelector(".movie-category5").style.display = "flex";
+    document.querySelector(".left-scroll").style.display = "block";
+    document.querySelector(".right-scroll").style.display = "block";
+    document.querySelector(".left-scroll2").style.display = "block";
+    document.querySelector(".right-scroll2").style.display = "block";
+    document.querySelector(".left-scroll3").style.display = "block";
+    document.querySelector(".right-scroll3").style.display = "block";
+    document.querySelector(".left-scroll4").style.display = "block";
+    document.querySelector(".right-scroll4").style.display = "block";
+    document.querySelector(".left-scroll5").style.display = "block";
+    document.querySelector(".right-scroll5").style.display = "block";
+  };
 
   useEffect(() => {
     const FetchData = async () => {
@@ -168,12 +220,26 @@ const dispatch = useDispatch()
     <>
       <div className="App app4">
         <div className="navbar-4 nav-css">
-          <img src={Logo} className="main-logo" />
+          <a className="logo-anchor" href="/">
+            <img src={Logo} className="main-logo" />
+          </a>
           <div className="category-lists">
-            <li style={{ fontWeight: 600, width: "4.5vw" }}>Home</li>
-            <li style={{ width: "4.5vw" }}>My List</li>
-            <li style={{ width: "4.5vw" }}>Movies</li>
-            <li style={{ width: "4.5vw" }}>TV Shows</li>
+            <li
+              className="home"
+              onClick={Home}
+              style={{ fontWeight: 600, width: "4.5vw" }}
+            >
+              Home
+            </li>
+            <li className="list" onClick={MyList} style={{ width: "4.5vw" }}>
+              My List
+            </li>
+            <li className="movies" style={{ width: "4.5vw" }}>
+              Movies
+            </li>
+            <li className="tv-shows" style={{ width: "4.5vw" }}>
+              TV Shows
+            </li>
           </div>
           <div className="right-content">
             <div onClick={SearchChange} className="search-icon">
@@ -222,10 +288,8 @@ const dispatch = useDispatch()
             <p className="category-title1 c-title">Now Playing</p>
             <div className="movie-category1">
               {movies.map((items) => {
-                
                 return (
                   <>
-                  
                     <div className="now-playing" key={items.id}>
                       <img
                         src={
@@ -243,16 +307,17 @@ const dispatch = useDispatch()
                             onClick={() => {
                               setAdded(!Added);
                               if (Added) {
-                                dispatch(AddToList(items))
-                                }
-                              else{
-                                
-                                dispatch(RemoveList(items.id))
+                                dispatch(RemoveList(items.id));
+                              } else {
+                                dispatch(AddToList(items));
                               }
-                             }}
-                            src={ListItems.filter((ele) => ele.id === items.id).length > 0
-                              ? added
-                              : add}
+                            }}
+                            src={
+                              ListItems.filter((ele) => ele.id === items.id)
+                                .length > 0
+                                ? added
+                                : add
+                            }
                             className="add-list"
                           />
                         </div>
@@ -315,17 +380,18 @@ const dispatch = useDispatch()
                         <img
                           onClick={() => {
                             setAdded(!Added);
-                              if (Added) {
-                                dispatch(AddToList(items))
-                                }
-                              else{
-                                
-                                dispatch(RemoveList(items.id))
-                              }
-                             }}
-                            src={ListItems.filter((ele) => ele.id === items.id).length > 0
+                            if (Added) {
+                              dispatch(RemoveList(items.id));
+                            } else {
+                              dispatch(AddToList(items));
+                            }
+                          }}
+                          src={
+                            ListItems.filter((ele) => ele.id === items.id)
+                              .length > 0
                               ? added
-                              : add}
+                              : add
+                          }
                           className="add-list"
                         />
                       </div>
@@ -387,17 +453,18 @@ const dispatch = useDispatch()
                         <img
                           onClick={() => {
                             setAdded(!Added);
-                              if (Added) {
-                                dispatch(AddToList(items))
-                                }
-                              else{
-                                
-                                dispatch(RemoveList(items.id))
-                              }
-                             }}
-                            src={ListItems.filter((ele) => ele.id === items.id).length > 0
+                            if (Added) {
+                              dispatch(RemoveList(items.id));
+                            } else {
+                              dispatch(AddToList(items));
+                            }
+                          }}
+                          src={
+                            ListItems.filter((ele) => ele.id === items.id)
+                              .length > 0
                               ? added
-                              : add}
+                              : add
+                          }
                           className="add-list"
                         />
                       </div>
@@ -462,17 +529,18 @@ const dispatch = useDispatch()
                         <img
                           onClick={() => {
                             setAdded(!Added);
-                              if (Added) {
-                                dispatch(AddToList(items))
-                                }
-                              else{
-                                
-                                dispatch(RemoveList(items.id))
-                              }
-                             }}
-                            src={ListItems.filter((ele) => ele.id === items.id).length > 0
+                            if (Added) {
+                              dispatch(RemoveList(items.id));
+                            } else {
+                              dispatch(AddToList(items));
+                            }
+                          }}
+                          src={
+                            ListItems.filter((ele) => ele.id === items.id)
+                              .length > 0
                               ? added
-                              : add}
+                              : add
+                          }
                           className="add-list"
                         />
                       </div>
@@ -539,17 +607,18 @@ const dispatch = useDispatch()
                         <img
                           onClick={() => {
                             setAdded(!Added);
-                              if (Added) {
-                                dispatch(AddToList(items))
-                                }
-                              else{
-                                
-                                dispatch(RemoveList(items.id))
-                              }
-                             }}
-                            src={ListItems.filter((ele) => ele.id === items.id).length > 0
+                            if (Added) {
+                              dispatch(RemoveList(items.id));
+                            } else {
+                              dispatch(AddToList(items));
+                            }
+                          }}
+                          src={
+                            ListItems.filter((ele) => ele.id === items.id)
+                              .length > 0
                               ? added
-                              : add}
+                              : add
+                          }
                           className="add-list"
                         />
                       </div>
@@ -571,7 +640,7 @@ const dispatch = useDispatch()
 
             <div className="search-data">
               {searchData &&
-                searchData.slice(0,16).map((items) => {
+                searchData.slice(0, 16).map((items) => {
                   return (
                     <div className="search-movies">
                       <img
@@ -592,16 +661,17 @@ const dispatch = useDispatch()
                             onClick={() => {
                               setAdded(!Added);
                               if (Added) {
-                                dispatch(AddToList(items))
-                                }
-                              else{
-                                
-                                dispatch(RemoveList(items.id))
+                                dispatch(AddToList(items));
+                              } else {
+                                dispatch(RemoveList(items.id));
                               }
-                             }}
-                            src={ListItems.filter((ele) => ele.id === items.id).length > 0
-                              ? added
-                              : add}
+                            }}
+                            src={
+                              ListItems.filter((ele) => ele.id === items.id)
+                                .length > 0
+                                ? added
+                                : add
+                            }
                             className="add-list"
                           />
                         </div>
@@ -619,6 +689,61 @@ const dispatch = useDispatch()
                     </div>
                   );
                 })}
+            </div>
+            <div className="my-list">
+              {ListItems.length === 0 ? (
+                <p className="empty">Nothing to show here</p>
+              ) : (
+                ListItems.map((items) => {
+                  return (
+                    <div className="list-movies">
+                      <img
+                        src={
+                          items.backdrop_path === null
+                            ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
+                            : "https://image.tmdb.org/t/p/w500" +
+                              items.backdrop_path
+                        }
+                        alt=""
+                        className="poster-7"
+                      />
+                      <div className="movie-all-data2">
+                        <div className="movie-title">{items.title}</div>
+                        <div className="two-buttons">
+                          <img src={play} alt="" className="circle-play" />
+                          <img
+                            onClick={() => {
+                              setAdded(Added);
+                              if (Added) {
+                                dispatch(RemoveList(items.id));
+                              } else {
+                                dispatch(AddToList(items));
+                              }
+                            }}
+                            src={
+                              ListItems.filter((ele) => ele.id === items.id)
+                                .length > 0
+                                ? added
+                                : add
+                            }
+                            className="add-list"
+                          />
+                        </div>
+                        <div className="extra-data">
+                          <p className="match">
+                            {(Math.round(items.vote_average) / 10) * 100}% match
+                          </p>
+                          <p className="rating">U/A 13+</p>
+                          <p className="HD">HD</p>
+                        </div>
+                        <p className="movie-desc">
+                          {items.overview.slice(0, 80) + "..."}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })
+              )}
             </div>
           </div>
         </div>
