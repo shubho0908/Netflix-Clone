@@ -42,43 +42,48 @@ const Browsepage = () => {
 
   const OnSearch = async (e) => {
     const searchValue = e.target.value;
-    document.querySelector('.poster').style.display = "none"
-    document.querySelector('.movie-category1').style.display = "none"
-    document.querySelector('.movie-category2').style.display = "none"
-    document.querySelector('.movie-category3').style.display = "none"
-    document.querySelector('.movie-category4').style.display = "none"
-    document.querySelector('.movie-category5').style.display = "none"
-    document.querySelector('.left-scroll').style.display = "none"
-    document.querySelector('.right-scroll').style.display = "none"
-    document.querySelector('.left-scroll2').style.display = "none"
-    document.querySelector('.right-scroll2').style.display = "none"
-    document.querySelector('.left-scroll3').style.display = "none"
-    document.querySelector('.right-scroll3').style.display = "none"
-    document.querySelector('.left-scroll4').style.display = "none"
-    document.querySelector('.right-scroll4').style.display = "none"
-    document.querySelector('.left-scroll5').style.display = "none"
-    document.querySelector('.right-scroll5').style.display = "none"
+    document.querySelector(".poster").style.display = "none";
+    document.querySelector(".search-data").style.display = "grid";
+    document.querySelector('.movies-section').style.height = "100%"
+    document.querySelector('.all-dataa').style.height = "100%"
+    document.querySelector(".movie-category1").style.display = "none";
+    document.querySelector(".movie-category2").style.display = "none";
+    document.querySelector(".movie-category3").style.display = "none";
+    document.querySelector(".movie-category4").style.display = "none";
+    document.querySelector(".movie-category5").style.display = "none";
+    document.querySelector(".left-scroll").style.display = "none";
+    document.querySelector(".right-scroll").style.display = "none";
+    document.querySelector(".left-scroll2").style.display = "none";
+    document.querySelector(".right-scroll2").style.display = "none";
+    document.querySelector(".left-scroll3").style.display = "none";
+    document.querySelector(".right-scroll3").style.display = "none";
+    document.querySelector(".left-scroll4").style.display = "none";
+    document.querySelector(".right-scroll4").style.display = "none";
+    document.querySelector(".left-scroll5").style.display = "none";
+    document.querySelector(".right-scroll5").style.display = "none";
     document.body.style.background = "#141414";
     setSearch(searchValue);
     if (searchValue.trim() === "") {
       setSearchData([]);
-    document.querySelector('.poster').style.display = "block"
-    document.querySelector('.movie-category1').style.display = "flex"
-    document.querySelector('.movie-category2').style.display = "flex"
-    document.querySelector('.movie-category3').style.display = "flex"
-    document.querySelector('.movie-category4').style.display = "flex"
-    document.querySelector('.movie-category5').style.display = "flex"
-    document.querySelector('.left-scroll').style.display = "block"
-    document.querySelector('.right-scroll').style.display = "block"
-    document.querySelector('.left-scroll2').style.display = "block"
-    document.querySelector('.right-scroll2').style.display = "block"
-    document.querySelector('.left-scroll3').style.display = "block"
-    document.querySelector('.right-scroll3').style.display = "block"
-    document.querySelector('.left-scroll4').style.display = "block"
-    document.querySelector('.right-scroll4').style.display = "block"
-    document.querySelector('.left-scroll5').style.display = "block"
-    document.querySelector('.right-scroll5').style.display = "block"
-
+      document.querySelector(".search-data").style.display = "none";
+      document.querySelector(".poster").style.display = "block";
+      document.querySelector('.movies-section').style.height = "100vh"
+      document.querySelector('.all-dataa').style.height = "100vh"
+      document.querySelector(".movie-category1").style.display = "flex";
+      document.querySelector(".movie-category2").style.display = "flex";
+      document.querySelector(".movie-category3").style.display = "flex";
+      document.querySelector(".movie-category4").style.display = "flex";
+      document.querySelector(".movie-category5").style.display = "flex";
+      document.querySelector(".left-scroll").style.display = "block";
+      document.querySelector(".right-scroll").style.display = "block";
+      document.querySelector(".left-scroll2").style.display = "block";
+      document.querySelector(".right-scroll2").style.display = "block";
+      document.querySelector(".left-scroll3").style.display = "block";
+      document.querySelector(".right-scroll3").style.display = "block";
+      document.querySelector(".left-scroll4").style.display = "block";
+      document.querySelector(".right-scroll4").style.display = "block";
+      document.querySelector(".left-scroll5").style.display = "block";
+      document.querySelector(".right-scroll5").style.display = "block";
     } else {
       const url = `https://api.themoviedb.org/3/search/tv?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=1&query=${searchValue}&include_adult=false`;
       const response = await fetch(url);
@@ -86,7 +91,6 @@ const Browsepage = () => {
       setSearchData(data.results);
     }
   };
-
 
   useEffect(() => {
     const FetchData = async () => {
@@ -460,7 +464,7 @@ const Browsepage = () => {
                       className="poster-6"
                     />
                     <div className="movie-all-data">
-                      <div className="movie-title">{items.title}</div>
+                      <div className="movie-title">{items.name}</div>
                       <div className="two-buttons">
                         <img src={play} alt="" className="circle-play" />
                         <img
@@ -492,42 +496,42 @@ const Browsepage = () => {
                 searchData.map((items) => {
                   return (
                     <div className="search-movies">
-                    <img
-                      src={
-                        items.backdrop_path === null
-                          ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
-                          : "https://image.tmdb.org/t/p/w500" +
-                            items.backdrop_path
-                      }
-                      alt=""
-                      className="poster-7"
-                    />
-                    <div className="movie-all-data2">
-                      <div className="movie-title">{items.name}</div>
-                      <div className="two-buttons">
-                        <img src={play} alt="" className="circle-play" />
-                        <img
-                          onClick={() => {
-                            setAdded(!Added);
-                          }}
-                          src={Added ? added : add}
-                          alt=""
-                          className="add-list"
-                        />
-                      </div>
-                      <div className="extra-data">
-                        <p className="match">
-                          {(Math.round(items.vote_average) / 10) * 100}% match
+                      <img
+                        src={
+                          items.backdrop_path === null
+                            ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
+                            : "https://image.tmdb.org/t/p/w500" +
+                              items.backdrop_path
+                        }
+                        alt=""
+                        className="poster-7"
+                      />
+                      <div className="movie-all-data2">
+                        <div className="movie-title">{items.name}</div>
+                        <div className="two-buttons">
+                          <img src={play} alt="" className="circle-play" />
+                          <img
+                            onClick={() => {
+                              setAdded(!Added);
+                            }}
+                            src={Added ? added : add}
+                            alt=""
+                            className="add-list"
+                          />
+                        </div>
+                        <div className="extra-data">
+                          <p className="match">
+                            {(Math.round(items.vote_average) / 10) * 100}% match
+                          </p>
+                          <p className="rating">U/A 13+</p>
+                          <p className="HD">HD</p>
+                        </div>
+                        <p className="movie-desc">
+                          {items.overview.slice(0, 80) + "..."}
                         </p>
-                        <p className="rating">U/A 13+</p>
-                        <p className="HD">HD</p>
                       </div>
-                      <p className="movie-desc">
-                        {items.overview.slice(0, 80) + "..."}
-                      </p>
                     </div>
-                  </div>
-                );
+                  );
                 })}
             </div>
           </div>
