@@ -690,9 +690,10 @@ const Browsepage = (props) => {
                   );
                 })}
             </div>
+              <p className="list-name">{ListItems.length !== 0 ? "My List" : ""}</p>
             <div className="my-list">
               {ListItems.length === 0 ? (
-                <p className="empty">Nothing to show here</p>
+                <p className="empty">Nothing to show here..</p>
               ) : (
                 ListItems.map((items) => {
                   return (
