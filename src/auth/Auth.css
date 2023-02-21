@@ -9,6 +9,7 @@
     .empty,
     .search-data,
     .my-list,
+    .movie-tab,
     .list-name,
     .logo-anchor,
     .movie-all-data2,
@@ -350,6 +351,7 @@ input.check {
       .swal-modal,
       .empty,
       .my-list,
+      .movie-tab,
       .list-name,
       .logo-anchor,
       .search-bar,
@@ -1631,6 +1633,22 @@ input.check {
   scroll-behavior: smooth;
 }
 
+.movie-tab{
+  display: none;
+  grid-template-columns: repeat(4, 20vw);
+  grid-template-rows: repeat(5, 14vw);
+  grid-gap: 10px; /* adjust as needed */
+  width: 100%;
+  height: 100%;
+  margin-top: 3.8vw;
+  justify-content: center;
+  position: relative;
+  bottom: 10vw;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
 
 .movie-category1::-webkit-scrollbar{
   width: 0;
@@ -1657,6 +1675,10 @@ input.check {
 }
 
 .my-list::-webkit-scrollbar{
+  width: 0;
+}
+
+.movie-tab::-webkit-scrollbar{
   width: 0;
 }
 
@@ -2035,6 +2057,7 @@ color: rgba(255, 255, 255, 0.742);
 }
 
 .list-name{
+  display: none;
   color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 2.2vw;

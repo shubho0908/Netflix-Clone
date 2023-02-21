@@ -124,6 +124,8 @@ const Browsepage = (props) => {
     document.querySelector(".poster").style.display = "none";
     document.querySelector(".search-data").style.display = "none";
     document.querySelector(".my-list").style.display = "grid";
+    document.querySelector(".movie-tab").style.display = "none";
+    document.querySelector(".list-name").style.display = "block";
     document.querySelector(".movie-category1").style.display = "none";
     document.querySelector(".movie-category2").style.display = "none";
     document.querySelector(".movie-category3").style.display = "none";
@@ -142,6 +144,8 @@ const Browsepage = (props) => {
   };
 
   const Home = () => {
+    document.querySelector(".movies-section").style.height = "100vh";
+    document.querySelector(".all-dataa").style.height = "100vh";
     document.querySelector(".home").style.color = "white";
     document.querySelector(".home").style.fontWeight = "600";
     document.querySelector(".list").style.color = "rgba(255, 255, 255, 0.742)";
@@ -155,6 +159,8 @@ const Browsepage = (props) => {
     document.querySelector(".poster").style.display = "block";
     document.querySelector(".search-data").style.display = "none";
     document.querySelector(".my-list").style.display = "none";
+    document.querySelector(".movie-tab").style.display = "none";
+    document.querySelector(".list-name").style.display = "none";
     document.querySelector(".movie-category1").style.display = "flex";
     document.querySelector(".movie-category2").style.display = "flex";
     document.querySelector(".movie-category3").style.display = "flex";
@@ -171,6 +177,46 @@ const Browsepage = (props) => {
     document.querySelector(".left-scroll5").style.display = "block";
     document.querySelector(".right-scroll5").style.display = "block";
   };
+
+  const MoviesTab =()=>{
+    if (movies.length > 15) {
+      document.querySelector(".movies-section").style.height = "100%";
+      document.querySelector(".all-dataa").style.height = "100%";
+    } else {
+      document.querySelector(".movies-section").style.height = "100vh";
+      document.querySelector(".all-dataa").style.height = "100vh";
+    }
+    document.querySelector(".movies").style.color = "white";
+    document.querySelector(".movies").style.fontWeight = "600";
+    document.querySelector(".home").style.color = "rgba(255, 255, 255, 0.742)";
+    document.querySelector(".home").style.fontWeight = "400";
+    document.querySelector(".list").style.color =
+      "rgba(255, 255, 255, 0.742)";
+    document.querySelector(".list").style.fontWeight = "400";
+    document.querySelector(".tv-shows").style.color =
+      "rgba(255, 255, 255, 0.742)";
+    document.querySelector(".tv-shows").style.fontWeight = "400";
+    document.querySelector(".poster").style.display = "none";
+    document.querySelector(".search-data").style.display = "none";
+    document.querySelector(".movie-tab").style.display = "grid";
+    document.querySelector(".my-list").style.display = "none";
+    document.querySelector(".list-name").style.display = "none";
+    document.querySelector(".movie-category1").style.display = "none";
+    document.querySelector(".movie-category2").style.display = "none";
+    document.querySelector(".movie-category3").style.display = "none";
+    document.querySelector(".movie-category4").style.display = "none";
+    document.querySelector(".movie-category5").style.display = "none";
+    document.querySelector(".left-scroll").style.display = "none";
+    document.querySelector(".right-scroll").style.display = "none";
+    document.querySelector(".left-scroll2").style.display = "none";
+    document.querySelector(".right-scroll2").style.display = "none";
+    document.querySelector(".left-scroll3").style.display = "none";
+    document.querySelector(".right-scroll3").style.display = "none";
+    document.querySelector(".left-scroll4").style.display = "none";
+    document.querySelector(".right-scroll4").style.display = "none";
+    document.querySelector(".left-scroll5").style.display = "none";
+    document.querySelector(".right-scroll5").style.display = "none";
+  }
 
   useEffect(() => {
     const FetchData = async () => {
@@ -234,7 +280,7 @@ const Browsepage = (props) => {
             <li className="list" onClick={MyList} style={{ width: "4.5vw" }}>
               My List
             </li>
-            <li className="movies" style={{ width: "4.5vw" }}>
+            <li onClick={MoviesTab} className="movies" style={{ width: "4.5vw" }}>
               Movies
             </li>
             <li className="tv-shows" style={{ width: "4.5vw" }}>
@@ -637,7 +683,6 @@ const Browsepage = (props) => {
                 );
               })}
             </div>
-
             <div className="search-data">
               {searchData &&
                 searchData.slice(0, 16).map((items) => {
@@ -690,7 +735,7 @@ const Browsepage = (props) => {
                   );
                 })}
             </div>
-              <p className="list-name">{ListItems.length !== 0 ? "My List" : ""}</p>
+              <p className="list-name">My List</p>
             <div className="my-list">
               {ListItems.length === 0 ? (
                 <p className="empty">Nothing to show here..</p>
@@ -709,7 +754,7 @@ const Browsepage = (props) => {
                         className="poster-7"
                       />
                       <div className="movie-all-data2">
-                        <div className="movie-title">{items.title}</div>
+                        <div className="movie-title">{items.title || items.name}</div>
                         <div className="two-buttons">
                           <img src={play} alt="" className="circle-play" />
                           <img
@@ -744,6 +789,58 @@ const Browsepage = (props) => {
                     </div>
                   );
                 })
+              )}
+            </div>
+            <div className="movie-tab">
+            {movies.slice(0, 16).map((items) => {
+                  return (
+                    <div className="list-movies">
+                      <img
+                        src={
+                          items.backdrop_path === null
+                            ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
+                            : "https://image.tmdb.org/t/p/w500" +
+                              items.backdrop_path
+                        }
+                        alt=""
+                        className="poster-7"
+                      />
+                      <div className="movie-all-data2">
+                        <div className="movie-title">{items.title || items.name}</div>
+                        <div className="two-buttons">
+                          <img src={play} alt="" className="circle-play" />
+                          <img
+                            onClick={() => {
+                              setAdded(!Added);
+                              if (Added) {
+                                dispatch(RemoveList(items.id));
+                              } else {
+                                dispatch(AddToList(items));
+                              }
+                            }}
+                            src={
+                              ListItems.filter((ele) => ele.id === items.id)
+                                .length > 0
+                                ? added
+                                : add
+                            }
+                            className="add-list"
+                          />
+                        </div>
+                        <div className="extra-data">
+                          <p className="match">
+                            {(Math.round(items.vote_average) / 10) * 100}% match
+                          </p>
+                          <p className="rating">U/A 13+</p>
+                          <p className="HD">HD</p>
+                        </div>
+                        <p className="movie-desc">
+                          {items.overview.slice(0, 80) + "..."}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                }
               )}
             </div>
           </div>
