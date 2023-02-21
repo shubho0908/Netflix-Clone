@@ -1598,7 +1598,7 @@ input.check {
   margin-top: 5vw;
   justify-content: center;
   position: relative;
-  bottom: 6vw;
+  bottom: 10vw;
   overflow-y: hidden;
   overflow-x: scroll;
   scroll-behavior: smooth;

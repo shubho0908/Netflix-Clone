@@ -23,7 +23,7 @@ const Main = (props) => {
           </div>
         </div>
         <div style={{ display: "none" }} className="browse">
-          <Browsepage />
+          <Browsepage username={props.name} />
         </div>
       </div>
     </>

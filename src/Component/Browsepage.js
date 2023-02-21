@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { app } from "../Firebase";
+import { getDatabase, ref, set } from "firebase/database";
 import Poster from "../img/movie/bg-poster.png";
 import avatar from "../img/avatar.png";
 import Logo from "../img/logo.png";
@@ -10,11 +11,11 @@ import right from "../img/right.png";
 import play from "../img/play.png";
 import add from "../img/add.png";
 import added from "../img/added.png";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 const auth = getAuth(app);
+const database = getDatabase(app);
 
-const Browsepage = () => {
+const Browsepage = (props) => {
   const [movies, setMovies] = useState([]);
   const [Trending, setTrending] = useState([]);
   const [Rated, setRated] = useState([]);
@@ -23,6 +24,22 @@ const Browsepage = () => {
   const [TV, setTV] = useState([]);
   const [search, setSearch] = useState("");
   const [searchData, setSearchData] = useState([]);
+
+  const AddList = (data) => {
+    const database = getDatabase();
+    set(ref(database, `${props.username}/`), {
+      data: data,
+    });
+    console.log("Added");
+  };
+
+  const DeleteList = () => {
+    const database = getDatabase();
+    set(ref(database, `${props.username}/`), {
+      data: null,
+    });
+    console.log("Deleted");
+  };
 
   const changeBG = () => {
     const navbar = document.querySelector(".navbar-4");
@@ -48,7 +65,7 @@ const Browsepage = () => {
     document.querySelector(".search-data").style.display = "grid";
 
     fetch(
-      `https://api.themoviedb.org/3/search/tv?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=1&query=${searchValue}&include_adult=false`
+      `https://api.themoviedb.org/3/search/movie?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&query=${searchValue}&page=1&include_adult=false`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -104,7 +121,7 @@ const Browsepage = () => {
       document.querySelector(".left-scroll5").style.display = "block";
       document.querySelector(".right-scroll5").style.display = "block";
     } else {
-      const url = `https://api.themoviedb.org/3/search/tv?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=1&query=${searchValue}&include_adult=false`;
+      const url = `https://api.themoviedb.org/3/search/movie?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&query=${searchValue}&page=1&include_adult=false`;
       const response = await fetch(url);
       const data = await response.json();
       setSearchData(data.results);
@@ -229,7 +246,14 @@ const Browsepage = () => {
                         <div className="two-buttons">
                           <img src={play} alt="" className="circle-play" />
                           <img
-                            onClick={() => setAdded(!Added)}
+                            onClick={() => {
+                              setAdded(!Added);
+                              if (!Added) {
+                                AddList(items);
+                              } else if (Added) {
+                                DeleteList();
+                              }
+                            }}
                             src={Added ? added : add}
                             className="add-list"
                           />
@@ -291,7 +315,14 @@ const Browsepage = () => {
                       <div className="two-buttons">
                         <img src={play} alt="" className="circle-play" />
                         <img
-                          onClick={() => setAdded(!Added)}
+                          onClick={() => {
+                            setAdded(!Added);
+                            if (!Added) {
+                              AddList(items);
+                            } else if (Added) {
+                              DeleteList();
+                            }
+                          }}
                           src={Added ? added : add}
                           alt=""
                           className="add-list"
@@ -353,7 +384,14 @@ const Browsepage = () => {
                       <div className="two-buttons">
                         <img src={play} alt="" className="circle-play" />
                         <img
-                          onClick={() => setAdded(!Added)}
+                          onClick={() => {
+                            setAdded(!Added);
+                            if (!Added) {
+                              AddList(items);
+                            } else if (Added) {
+                              DeleteList();
+                            }
+                          }}
                           src={Added ? added : add}
                           alt=""
                           className="add-list"
@@ -420,6 +458,11 @@ const Browsepage = () => {
                         <img
                           onClick={() => {
                             setAdded(!Added);
+                              if (!Added) {
+                                AddList(items);
+                              } else if (Added) {
+                                DeleteList();
+                              };
                           }}
                           src={Added ? added : add}
                           alt=""
@@ -489,6 +532,11 @@ const Browsepage = () => {
                         <img
                           onClick={() => {
                             setAdded(!Added);
+                              if (!Added) {
+                                AddList(items);
+                              } else if (Added) {
+                                DeleteList();
+                              };
                           }}
                           src={Added ? added : add}
                           alt=""
@@ -510,6 +558,7 @@ const Browsepage = () => {
                 );
               })}
             </div>
+
             <div className="search-data">
               {searchData &&
                 searchData.map((items) => {
@@ -526,12 +575,17 @@ const Browsepage = () => {
                         className="poster-7"
                       />
                       <div className="movie-all-data2">
-                        <div className="movie-title">{items.name}</div>
+                        <div className="movie-title">{items.title}</div>
                         <div className="two-buttons">
                           <img src={play} alt="" className="circle-play" />
                           <img
                             onClick={() => {
                               setAdded(!Added);
+                              if (!Added) {
+                                AddList(items);
+                              } else if (Added) {
+                                DeleteList();
+                              };
                             }}
                             src={Added ? added : add}
                             alt=""
