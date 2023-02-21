@@ -30,7 +30,6 @@ function App() {
   if (user === null) {
     return (
       <div className="App">
-        <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<Signin />} />
             <Route exact path="/signup" element={<Signup />} />
@@ -38,7 +37,6 @@ function App() {
             <Route exact path="/welcome-2" element={<CreatePass2 />} />
             <Route exact path="/browse" element={<Browsepage />} />
           </Routes>
-        </BrowserRouter>
       </div>
     );
   }
@@ -46,7 +44,7 @@ function App() {
   return (
     <>
       <div className="App">
-        <Main name={user.email.substring(0, user.email.indexOf("@"))}/>
+        <Main name={user.email.substring(0, user.email.indexOf("@"))} />
       </div>
     </>
   );

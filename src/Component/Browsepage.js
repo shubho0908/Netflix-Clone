@@ -10,6 +10,7 @@ import right from "../img/right.png";
 import play from "../img/play.png";
 import add from "../img/add.png";
 import added from "../img/added.png";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 const auth = getAuth(app);
 
@@ -34,6 +35,7 @@ const Browsepage = () => {
   };
 
   window.addEventListener("scroll", changeBG);
+  console.log(searchData.length);
 
   const SearchChange = () => {
     document.querySelector(".search-white").style.opacity = "0";
@@ -44,8 +46,25 @@ const Browsepage = () => {
     const searchValue = e.target.value;
     document.querySelector(".poster").style.display = "none";
     document.querySelector(".search-data").style.display = "grid";
-    document.querySelector('.movies-section').style.height = "100%"
-    document.querySelector('.all-dataa').style.height = "100%"
+
+    fetch(
+      `https://api.themoviedb.org/3/search/tv?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=1&query=${searchValue}&include_adult=false`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const searchData = data.results;
+        const dataLength = searchData.length;
+
+        if (dataLength > 10) {
+          document.querySelector(".movies-section").style.height = "100%";
+          document.querySelector(".all-dataa").style.height = "100%";
+        } else {
+          document.querySelector(".movies-section").style.height = "100vh";
+          document.querySelector(".all-dataa").style.height = "100vh";
+        }
+      })
+      .catch((error) => console.error(error));
+
     document.querySelector(".movie-category1").style.display = "none";
     document.querySelector(".movie-category2").style.display = "none";
     document.querySelector(".movie-category3").style.display = "none";
@@ -67,8 +86,8 @@ const Browsepage = () => {
       setSearchData([]);
       document.querySelector(".search-data").style.display = "none";
       document.querySelector(".poster").style.display = "block";
-      document.querySelector('.movies-section').style.height = "100vh"
-      document.querySelector('.all-dataa').style.height = "100vh"
+      document.querySelector(".movies-section").style.height = "100vh";
+      document.querySelector(".all-dataa").style.height = "100vh";
       document.querySelector(".movie-category1").style.display = "flex";
       document.querySelector(".movie-category2").style.display = "flex";
       document.querySelector(".movie-category3").style.display = "flex";
