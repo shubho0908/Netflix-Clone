@@ -40,7 +40,7 @@ const Browsepage = (props) => {
     document.querySelector(".search-data").style.display = "grid";
 
     fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&query=${searchValue}&page=1&include_adult=false`
+      `https://api.themoviedb.org/3/search/multi?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&query=${searchValue}&page=1&include_adult=false`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -96,7 +96,7 @@ const Browsepage = (props) => {
       document.querySelector(".left-scroll5").style.display = "block";
       document.querySelector(".right-scroll5").style.display = "block";
     } else {
-      const url = `https://api.themoviedb.org/3/search/movie?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&query=${searchValue}&page=1&include_adult=false`;
+      const url = `https://api.themoviedb.org/3/search/multi?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&query=${searchValue}&page=1&include_adult=false`;
       const response = await fetch(url);
       const data = await response.json();
       setSearchData(data.results);
@@ -178,7 +178,7 @@ const Browsepage = (props) => {
     document.querySelector(".right-scroll5").style.display = "block";
   };
 
-  const MoviesTab =()=>{
+  const MoviesTab = () => {
     if (movies.length > 15) {
       document.querySelector(".movies-section").style.height = "100%";
       document.querySelector(".all-dataa").style.height = "100%";
@@ -190,8 +190,7 @@ const Browsepage = (props) => {
     document.querySelector(".movies").style.fontWeight = "600";
     document.querySelector(".home").style.color = "rgba(255, 255, 255, 0.742)";
     document.querySelector(".home").style.fontWeight = "400";
-    document.querySelector(".list").style.color =
-      "rgba(255, 255, 255, 0.742)";
+    document.querySelector(".list").style.color = "rgba(255, 255, 255, 0.742)";
     document.querySelector(".list").style.fontWeight = "400";
     document.querySelector(".tv-shows").style.color =
       "rgba(255, 255, 255, 0.742)";
@@ -216,7 +215,7 @@ const Browsepage = (props) => {
     document.querySelector(".right-scroll4").style.display = "none";
     document.querySelector(".left-scroll5").style.display = "none";
     document.querySelector(".right-scroll5").style.display = "none";
-  }
+  };
 
   useEffect(() => {
     const FetchData = async () => {
@@ -280,7 +279,11 @@ const Browsepage = (props) => {
             <li className="list" onClick={MyList} style={{ width: "4.5vw" }}>
               My List
             </li>
-            <li onClick={MoviesTab} className="movies" style={{ width: "4.5vw" }}>
+            <li
+              onClick={MoviesTab}
+              className="movies"
+              style={{ width: "4.5vw" }}
+            >
               Movies
             </li>
             <li className="tv-shows" style={{ width: "4.5vw" }}>
@@ -560,7 +563,7 @@ const Browsepage = (props) => {
                   <div className="anime1-movies">
                     <img
                       src={
-                        items.backdrop_path === null
+                        items.backdrop_path === null || !items.backdrop_path
                           ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
                           : "https://image.tmdb.org/t/p/w500" +
                             items.backdrop_path
@@ -638,7 +641,7 @@ const Browsepage = (props) => {
                   <div className="top-india-movies">
                     <img
                       src={
-                        items.backdrop_path === null
+                        items.backdrop_path === null || !items.backdrop_path
                           ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
                           : "https://image.tmdb.org/t/p/w500" +
                             items.backdrop_path
@@ -685,12 +688,13 @@ const Browsepage = (props) => {
             </div>
             <div className="search-data">
               {searchData &&
+                searchData.length > 0 &&
                 searchData.slice(0, 16).map((items) => {
                   return (
                     <div className="search-movies">
                       <img
                         src={
-                          items.backdrop_path === null
+                          items.backdrop_path === null || !items.backdrop_path
                             ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
                             : "https://image.tmdb.org/t/p/w500" +
                               items.backdrop_path
@@ -699,17 +703,17 @@ const Browsepage = (props) => {
                         className="poster-7"
                       />
                       <div className="movie-all-data2">
-                        <div className="movie-title">{items.title}</div>
+                        <div className="movie-title">{items.title || items.name}</div>
                         <div className="two-buttons">
                           <img src={play} alt="" className="circle-play" />
                           <img
                             onClick={() => {
                               setAdded(!Added);
-                              if (Added) {
-                                dispatch(AddToList(items));
-                              } else {
-                                dispatch(RemoveList(items.id));
-                              }
+                            if (Added) {
+                              dispatch(RemoveList(items.id));
+                            } else {
+                              dispatch(AddToList(items));
+                            }
                             }}
                             src={
                               ListItems.filter((ele) => ele.id === items.id)
@@ -728,14 +732,16 @@ const Browsepage = (props) => {
                           <p className="HD">HD</p>
                         </div>
                         <p className="movie-desc">
-                          {items.overview.slice(0, 80) + "..."}
+                          {items.overview && items.overview.length > 80
+                            ? items.overview.slice(0, 80) + "..."
+                            : items.overview}
                         </p>
                       </div>
                     </div>
                   );
                 })}
             </div>
-              <p className="list-name">My List</p>
+            <p className="list-name">My List</p>
             <div className="my-list">
               {ListItems.length === 0 ? (
                 <p className="empty">Nothing to show here..</p>
@@ -745,7 +751,7 @@ const Browsepage = (props) => {
                     <div className="list-movies">
                       <img
                         src={
-                          items.backdrop_path === null
+                          items.backdrop_path === null || !items.backdrop_path
                             ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
                             : "https://image.tmdb.org/t/p/w500" +
                               items.backdrop_path
@@ -754,7 +760,9 @@ const Browsepage = (props) => {
                         className="poster-7"
                       />
                       <div className="movie-all-data2">
-                        <div className="movie-title">{items.title || items.name}</div>
+                        <div className="movie-title">
+                          {items.title || items.name}
+                        </div>
                         <div className="two-buttons">
                           <img src={play} alt="" className="circle-play" />
                           <img
@@ -792,56 +800,57 @@ const Browsepage = (props) => {
               )}
             </div>
             <div className="movie-tab">
-            {movies.slice(0, 16).map((items) => {
-                  return (
-                    <div className="list-movies">
-                      <img
-                        src={
-                          items.backdrop_path === null
-                            ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
-                            : "https://image.tmdb.org/t/p/w500" +
-                              items.backdrop_path
-                        }
-                        alt=""
-                        className="poster-7"
-                      />
-                      <div className="movie-all-data2">
-                        <div className="movie-title">{items.title || items.name}</div>
-                        <div className="two-buttons">
-                          <img src={play} alt="" className="circle-play" />
-                          <img
-                            onClick={() => {
-                              setAdded(!Added);
-                              if (Added) {
-                                dispatch(RemoveList(items.id));
-                              } else {
-                                dispatch(AddToList(items));
-                              }
-                            }}
-                            src={
-                              ListItems.filter((ele) => ele.id === items.id)
-                                .length > 0
-                                ? added
-                                : add
-                            }
-                            className="add-list"
-                          />
-                        </div>
-                        <div className="extra-data">
-                          <p className="match">
-                            {(Math.round(items.vote_average) / 10) * 100}% match
-                          </p>
-                          <p className="rating">U/A 13+</p>
-                          <p className="HD">HD</p>
-                        </div>
-                        <p className="movie-desc">
-                          {items.overview.slice(0, 80) + "..."}
-                        </p>
+              {movies.slice(0, 16).map((items) => {
+                return (
+                  <div className="list-movies">
+                    <img
+                      src={
+                        items.backdrop_path === null || !items.backdrop_path
+                          ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
+                          : "https://image.tmdb.org/t/p/w500" +
+                            items.backdrop_path
+                      }
+                      alt=""
+                      className="poster-7"
+                    />
+                    <div className="movie-all-data2">
+                      <div className="movie-title">
+                        {items.title || items.name}
                       </div>
+                      <div className="two-buttons">
+                        <img src={play} alt="" className="circle-play" />
+                        <img
+                          onClick={() => {
+                            setAdded(!Added);
+                            if (Added) {
+                              dispatch(RemoveList(items.id));
+                            } else {
+                              dispatch(AddToList(items));
+                            }
+                          }}
+                          src={
+                            ListItems.filter((ele) => ele.id === items.id)
+                              .length > 0
+                              ? added
+                              : add
+                          }
+                          className="add-list"
+                        />
+                      </div>
+                      <div className="extra-data">
+                        <p className="match">
+                          {(Math.round(items.vote_average) / 10) * 100}% match
+                        </p>
+                        <p className="rating">U/A 13+</p>
+                        <p className="HD">HD</p>
+                      </div>
+                      <p className="movie-desc">
+                        {items.overview.slice(0, 80) + "..."}
+                      </p>
                     </div>
-                  );
-                }
-              )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
