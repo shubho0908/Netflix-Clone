@@ -1,7 +1,6 @@
 import { React, useEffect, useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { app } from "../Firebase";
-import { getDatabase, ref, set } from "firebase/database";
 import Poster from "../img/movie/bg-poster.png";
 import avatar from "../img/avatar.png";
 import Logo from "../img/logo.png";
@@ -13,7 +12,6 @@ import add from "../img/add.png";
 import added from "../img/added.png";
 
 const auth = getAuth(app);
-const database = getDatabase(app);
 
 const Browsepage = (props) => {
   const [movies, setMovies] = useState([]);
@@ -24,22 +22,6 @@ const Browsepage = (props) => {
   const [TV, setTV] = useState([]);
   const [search, setSearch] = useState("");
   const [searchData, setSearchData] = useState([]);
-
-  const AddList = (data) => {
-    const database = getDatabase();
-    set(ref(database, `${props.username}/`), {
-      data: data,
-    });
-    console.log("Added");
-  };
-
-  const DeleteList = () => {
-    const database = getDatabase();
-    set(ref(database, `${props.username}/`), {
-      data: null,
-    });
-    console.log("Deleted");
-  };
 
   const changeBG = () => {
     const navbar = document.querySelector(".navbar-4");
@@ -52,7 +34,6 @@ const Browsepage = (props) => {
   };
 
   window.addEventListener("scroll", changeBG);
-  console.log(searchData.length);
 
   const SearchChange = () => {
     document.querySelector(".search-white").style.opacity = "0";
@@ -69,8 +50,8 @@ const Browsepage = (props) => {
     )
       .then((res) => res.json())
       .then((data) => {
-        const searchData = data.results;
-        const dataLength = searchData.length;
+        const searchdata = data.results;
+        const dataLength = searchdata.length;
 
         if (dataLength > 10) {
           document.querySelector(".movies-section").style.height = "100%";
@@ -172,6 +153,9 @@ const Browsepage = (props) => {
     TVshows();
   }, []);
 
+
+  console.log(searchData.slice(0,5));
+
   return (
     <>
       <div className="App app4">
@@ -248,12 +232,7 @@ const Browsepage = (props) => {
                           <img
                             onClick={() => {
                               setAdded(!Added);
-                              if (!Added) {
-                                AddList(items);
-                              } else if (Added) {
-                                DeleteList();
-                              }
-                            }}
+                             }}
                             src={Added ? added : add}
                             className="add-list"
                           />
@@ -317,11 +296,7 @@ const Browsepage = (props) => {
                         <img
                           onClick={() => {
                             setAdded(!Added);
-                            if (!Added) {
-                              AddList(items);
-                            } else if (Added) {
-                              DeleteList();
-                            }
+                            
                           }}
                           src={Added ? added : add}
                           alt=""
@@ -386,11 +361,7 @@ const Browsepage = (props) => {
                         <img
                           onClick={() => {
                             setAdded(!Added);
-                            if (!Added) {
-                              AddList(items);
-                            } else if (Added) {
-                              DeleteList();
-                            }
+                            
                           }}
                           src={Added ? added : add}
                           alt=""
@@ -458,11 +429,7 @@ const Browsepage = (props) => {
                         <img
                           onClick={() => {
                             setAdded(!Added);
-                              if (!Added) {
-                                AddList(items);
-                              } else if (Added) {
-                                DeleteList();
-                              };
+                              
                           }}
                           src={Added ? added : add}
                           alt=""
@@ -532,11 +499,7 @@ const Browsepage = (props) => {
                         <img
                           onClick={() => {
                             setAdded(!Added);
-                              if (!Added) {
-                                AddList(items);
-                              } else if (Added) {
-                                DeleteList();
-                              };
+                             
                           }}
                           src={Added ? added : add}
                           alt=""
@@ -561,7 +524,7 @@ const Browsepage = (props) => {
 
             <div className="search-data">
               {searchData &&
-                searchData.map((items) => {
+                searchData.slice(0,16).map((items) => {
                   return (
                     <div className="search-movies">
                       <img
@@ -581,11 +544,7 @@ const Browsepage = (props) => {
                           <img
                             onClick={() => {
                               setAdded(!Added);
-                              if (!Added) {
-                                AddList(items);
-                              } else if (Added) {
-                                DeleteList();
-                              };
+                              
                             }}
                             src={Added ? added : add}
                             alt=""

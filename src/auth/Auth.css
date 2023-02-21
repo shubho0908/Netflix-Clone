@@ -1590,7 +1590,7 @@ input.check {
 
 .search-data{
   display: none;
-  grid-template-columns: repeat(5, 18.8vw);
+  grid-template-columns: repeat(4, 20vw);
   grid-template-rows: repeat(5, 14vw);
   grid-gap: 10px; /* adjust as needed */
   width: 100%;
@@ -1881,7 +1881,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   font-size: .68vw;
   padding: .4vw;
   bottom: 4.7vw;
-  right: .10vw;
+  left: 0.25vw;
     width: 18.7vw;
   opacity: 0;
   transition: all .28s;
