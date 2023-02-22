@@ -30,6 +30,11 @@ const Browsepage = (props) => {
   const [search, setSearch] = useState("");
   const [searchData, setSearchData] = useState([]);
 
+  const [isHome, setHome] = useState(true)
+  const [isList, setList] = useState(false)
+  const [isMovies, setisMovies] = useState(false)
+  const [isTV, setisTV] = useState(false)
+
   const SearchChange = () => {
     document.querySelector(".search-white").style.opacity = "0";
     document.querySelector(".search-bar").style.opacity = "1";
@@ -74,6 +79,7 @@ const Browsepage = (props) => {
     document.querySelector(".right-scroll4").style.display = "none";
     document.querySelector(".left-scroll5").style.display = "none";
     document.querySelector(".right-scroll5").style.display = "none";
+
     document.body.style.background = "#141414";
     setSearch(searchValue);
     if (searchValue.trim() === "") {
@@ -82,30 +88,34 @@ const Browsepage = (props) => {
       document.querySelector(".poster").style.display = "block";
       document.querySelector(".movies-section").style.height = "100vh";
       document.querySelector(".all-dataa").style.height = "100vh";
-      document.querySelector(".movie-category1").style.display = "flex";
-      document.querySelector(".movie-category2").style.display = "flex";
-      document.querySelector(".movie-category3").style.display = "flex";
-      document.querySelector(".movie-category4").style.display = "flex";
-      document.querySelector(".movie-category5").style.display = "flex";
-      document.querySelector(".left-scroll").style.display = "block";
-      document.querySelector(".right-scroll").style.display = "block";
-      document.querySelector(".left-scroll2").style.display = "block";
-      document.querySelector(".right-scroll2").style.display = "block";
-      document.querySelector(".left-scroll3").style.display = "block";
-      document.querySelector(".right-scroll3").style.display = "block";
-      document.querySelector(".left-scroll4").style.display = "block";
-      document.querySelector(".right-scroll4").style.display = "block";
-      document.querySelector(".left-scroll5").style.display = "block";
-      document.querySelector(".right-scroll5").style.display = "block";
+      if (isHome === true) {
+        Home()        
+      }
+      else if (isList === true) {
+        MyList()
+      }
+      else if (isMovies === true) {
+        MoviesTab()
+        
+      }
     } else {
       const url = `https://api.themoviedb.org/3/search/multi?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&query=${searchValue}&page=1&include_adult=false`;
       const response = await fetch(url);
       const data = await response.json();
       setSearchData(data.results);
+      document.querySelector(".my-list").style.display = "none";
+      document.querySelector(".list-name").style.display = "none";
+    document.querySelector(".movies-category-01").style.display = "none";
+    document.querySelector(".list-name").style.display = "none";
     }
   };
 
   const MyList = () => {
+    setList(true)
+    setHome(false)
+    setisMovies(false)
+    document.querySelector(".list-name").style.display = "block";
+    document.querySelector(".my-list").style.display = "grid";
     if (ListItems.length > 10) {
       document.querySelector(".movies-section").style.height = "100%";
       document.querySelector(".all-dataa").style.height = "100%";
@@ -118,21 +128,26 @@ const Browsepage = (props) => {
     document.querySelector(".home").style.color = "rgba(255, 255, 255, 0.742)";
     document.querySelector(".home").style.fontWeight = "400";
     document.querySelector(".movies").style.color =
-      "rgba(255, 255, 255, 0.742)";
+    "rgba(255, 255, 255, 0.742)";
     document.querySelector(".movies").style.fontWeight = "400";
     document.querySelector(".tv-shows").style.color =
-      "rgba(255, 255, 255, 0.742)";
+    "rgba(255, 255, 255, 0.742)";
     document.querySelector(".tv-shows").style.fontWeight = "400";
-    document.querySelector(".poster").style.display = "none";
     document.querySelector(".search-data").style.display = "none";
-    document.querySelector(".my-list").style.display = "grid";
-    document.querySelector(".list-name").style.display = "block";
-
+    document.querySelector(".search-data").style.bottom = "-5.2vw";
+    document.querySelector(".poster").style.display = "none";
+    document.querySelector('.category-title1').style.display = "none";
+    document.querySelector('.category-title2').style.display = "none";
+    document.querySelector('.category-title3').style.display = "none";
+    document.querySelector('.category-title4').style.display = "none";
+    document.querySelector('.category-title5').style.display = "none";
     document.querySelector(".movie-category1").style.display = "none";
     document.querySelector(".movie-category2").style.display = "none";
     document.querySelector(".movie-category3").style.display = "none";
     document.querySelector(".movie-category4").style.display = "none";
     document.querySelector(".movie-category5").style.display = "none";
+    document.querySelector(".movies-category-01").style.display = "none";
+
     document.querySelector(".left-scroll").style.display = "none";
     document.querySelector(".right-scroll").style.display = "none";
     document.querySelector(".left-scroll2").style.display = "none";
@@ -146,8 +161,12 @@ const Browsepage = (props) => {
   };
 
   const MoviesTab = () => {
-    document.querySelector(".my-list").style.display = "none";
-    document.querySelector(".list-name").style.display = "none";
+    setisMovies(true)
+    setHome(false)
+    setList(false)
+    document.querySelector(".poster").src = movieposter;
+    document.querySelector(".movies-section").style.height = "100vh";
+    document.querySelector(".all-dataa").style.height = "100vh";
     document.querySelector(".movies").style.color = "white";
     document.querySelector(".movies").style.fontWeight = "600";
     document.querySelector(".home").style.color = "rgba(255, 255, 255, 0.742)";
@@ -158,7 +177,10 @@ const Browsepage = (props) => {
     "rgba(255, 255, 255, 0.742)";
     document.querySelector(".tv-shows").style.fontWeight = "400";
     document.querySelector(".poster").style.display = "block";
-    document.querySelector(".poster").src = movieposter;
+    document.querySelector(".search-data").style.display = "none";
+    document.querySelector(".search-data").style.bottom = "-5.2vw";
+    document.querySelector(".my-list").style.display = "none";
+    document.querySelector(".list-name").style.display = "none";
     document.querySelector('.category-title1').style.display = "none";
     document.querySelector('.category-title2').style.display = "none";
     document.querySelector('.category-title3').style.display = "none";
@@ -169,9 +191,10 @@ const Browsepage = (props) => {
     document.querySelector(".movie-category3").style.display = "none";
     document.querySelector(".movie-category4").style.display = "none";
     document.querySelector(".movie-category5").style.display = "none";
+    document.querySelector(".movies-category-01").style.display = "flex";
 
-    document.querySelector(".left-scroll").style.display = "none";
-    document.querySelector(".right-scroll").style.display = "none";
+    document.querySelector(".left-scroll").style.display = "block";
+    document.querySelector(".right-scroll").style.display = "block";
     document.querySelector(".left-scroll2").style.display = "none";
     document.querySelector(".right-scroll2").style.display = "none";
     document.querySelector(".left-scroll3").style.display = "none";
@@ -182,8 +205,14 @@ const Browsepage = (props) => {
     document.querySelector(".right-scroll5").style.display = "none";
     document.querySelector(".search-data").style.display = "none";
     document.querySelectorAll(".c-title").style.display = "none";
+
+
+
   };
   const Home = () => {
+    setHome(true)
+    setList(false)
+    setisMovies(false)
     document.querySelector(".poster").src = Poster;
     document.querySelector(".movies-section").style.height = "100vh";
     document.querySelector(".all-dataa").style.height = "100vh";
@@ -201,6 +230,7 @@ const Browsepage = (props) => {
     document.querySelector(".search-data").style.display = "none";
     document.querySelector(".my-list").style.display = "none";
     document.querySelector(".list-name").style.display = "none";
+    
     document.querySelector('.category-title1').style.display = "block";
     document.querySelector('.category-title2').style.display = "block";
     document.querySelector('.category-title3').style.display = "block";
@@ -211,6 +241,7 @@ const Browsepage = (props) => {
     document.querySelector(".movie-category3").style.display = "flex";
     document.querySelector(".movie-category4").style.display = "flex";
     document.querySelector(".movie-category5").style.display = "flex";
+    document.querySelector(".movies-category-01").style.display = "none";
 
     document.querySelector(".left-scroll").style.display = "block";
     document.querySelector(".right-scroll").style.display = "block";
@@ -827,6 +858,83 @@ const Browsepage = (props) => {
                   );
                 })
               )}
+            </div>
+            <div className="left-scroll new-left01">
+              <img
+                onClick={() => {
+                  const carousel = document.querySelector(".movies-category-01");
+                  carousel.scrollLeft -= 1200;
+                }}
+                src={left}
+                alt=""
+                className="left-btn new-leftbtn-01"
+              />
+            </div>
+            <div className="right-scroll new-right01">
+              <img
+                onClick={() => {
+                  const carousel = document.querySelector(".movies-category-01");
+                  carousel.scrollLeft += 1200;
+                }}
+                src={right}
+                alt=""
+                className="right-btn new-rightbtn-01"
+              />
+            </div>
+            <div className="movies-category-01">
+              {movies.map((items) => {
+                return (
+                  <>
+                    <div className="now-playing" key={items.id}>
+                      <img
+                        src={
+                          "https://image.tmdb.org/t/p/w500" +
+                          items.backdrop_path
+                        }
+                        alt=""
+                        className="poster-2"
+                      />
+                      <div className="movie-all-data">
+                        <div className="movie-title">
+                          {items.title || items.name}
+                        </div>
+                        <div className="two-buttons">
+                          <img src={play} alt="" className="circle-play" />
+                          <img
+                            onClick={() => {
+                              setAdded(!Added);
+                              if (Added) {
+                                dispatch(RemoveList(items.id));
+                              } else {
+                                dispatch(AddToList(items));
+                              }
+                            }}
+                            src={
+                              ListItems.filter((ele) => ele.id === items.id)
+                                .length > 0
+                                ? added
+                                : add
+                            }
+                            className="add-list"
+                          />
+                        </div>
+                        <div className="extra-data">
+                          <p className="match">
+                            {(Math.round(items.vote_average) / 10) * 100}% match
+                          </p>
+                          <p className="rating">
+                            {items.adult === false ? "U/A 16+" : "A"}
+                          </p>
+                          <p className="HD">HD</p>
+                        </div>
+                        <p className="movie-desc">
+                          {items.overview.slice(0, 80) + "..."}
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>
