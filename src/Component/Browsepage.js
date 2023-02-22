@@ -20,6 +20,7 @@ const Browsepage = (props) => {
   const dispatch = useDispatch();
 
   const [movies, setMovies] = useState([]);
+  const [movies2, setMovies2] = useState([]);
   const [Trending, setTrending] = useState([]);
   const [Rated, setRated] = useState([]);
   const [Added, setAdded] = useState(false);
@@ -226,22 +227,25 @@ const Browsepage = (props) => {
       setMovies(new_data.results);
     };
     const TrendingMovies = async () => {
+      let pageno = Math.floor(Math.random() * 100) + 1;
       const url =
-        "https://api.themoviedb.org/3/trending/movie/day?api_key=0bee82696d9f2ec6851e2a729cf4c379";
+        `https://api.themoviedb.org/3/trending/all/week?api_key=0bee82696d9f2ec6851e2a729cf4c379&page=${pageno}`;
       const data = await fetch(url);
       const new_data = await data.json();
       setTrending(new_data.results);
     };
     const TopRated = async () => {
+      let pageno = Math.floor(Math.random() * 450) + 1;
       const url =
-        "https://api.themoviedb.org/3/movie/top_rated?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=1";
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}`;
       const data = await fetch(url);
       const new_data = await data.json();
       setRated(new_data.results);
     };
     const ClassicAnime = async () => {
+      let pageno = Math.floor(Math.random() * 2) + 1;
       const url =
-        "https://api.themoviedb.org/3/movie/129/recommendations?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=1";
+        `https://api.themoviedb.org/3/movie/129/recommendations?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}`;
       const data = await fetch(url);
       const new_data = await data.json();
       setAnime1(new_data.results);
@@ -254,11 +258,21 @@ const Browsepage = (props) => {
       setTV(new_data.results);
     };
 
+    const FetchMovies2 = async () => {
+      let pageno = Math.floor(Math.random() * 200) + 1;
+
+      const url = `https://api.themoviedb.org/3/movie/popular?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}`;
+      const data = await fetch(url);
+      const new_data = await data.json();
+      setMovies2(new_data.results);
+    };
+
     FetchData();
     TrendingMovies();
     TopRated();
     ClassicAnime();
     TVshows();
+    FetchMovies2();
   }, []);
 
   return (
@@ -556,7 +570,7 @@ const Browsepage = (props) => {
                 className="right-btn4"
               />
             </div>
-            <p className="category-title4 c-title">Masterpiece from Japan</p>
+            <p className="category-title4 c-title">Some Masterpieces</p>
             <div className="movie-category4">
               {Anime1.map((items) => {
                 return (
@@ -703,17 +717,19 @@ const Browsepage = (props) => {
                         className="poster-7"
                       />
                       <div className="movie-all-data2">
-                        <div className="movie-title">{items.title || items.name}</div>
+                        <div className="movie-title">
+                          {items.title || items.name}
+                        </div>
                         <div className="two-buttons">
                           <img src={play} alt="" className="circle-play" />
                           <img
                             onClick={() => {
                               setAdded(!Added);
-                            if (Added) {
-                              dispatch(RemoveList(items.id));
-                            } else {
-                              dispatch(AddToList(items));
-                            }
+                              if (Added) {
+                                dispatch(RemoveList(items.id));
+                              } else {
+                                dispatch(AddToList(items));
+                              }
                             }}
                             src={
                               ListItems.filter((ele) => ele.id === items.id)
@@ -800,7 +816,7 @@ const Browsepage = (props) => {
               )}
             </div>
             <div className="movie-tab">
-              {movies.slice(0, 16).map((items) => {
+              {movies2.slice(0, 16).map((items) => {
                 return (
                   <div className="list-movies">
                     <img
