@@ -31,10 +31,22 @@ const Browsepage = (props) => {
   const [searchData, setSearchData] = useState([]);
   const [Recommendation, setRecommendation] = useState([]);
   const [TrendingTV, setTrendingTV] = useState([]);
+  const [Fiction, setFiction] = useState([]);
 
-  const [isHome, setHome] = useState(true)
-  const [isList, setList] = useState(false)
-  const [isMovies, setisMovies] = useState(false)
+  const [isHome, setHome] = useState(true);
+  const [isList, setList] = useState(false);
+  const [isMovies, setisMovies] = useState(false);
+
+  const changeBG = () => {
+    const ScrollVal = window.scrollY;
+    if (ScrollVal > 52) {
+      document.querySelector(".navbar-4").classList.add("nav-css");
+    } else {
+      document.querySelector(".navbar-4").classList.remove("nav-css");
+    }
+  };
+
+  window.addEventListener("scroll", changeBG);
 
   const SearchChange = () => {
     document.querySelector(".search-white").style.opacity = "0";
@@ -49,17 +61,21 @@ const Browsepage = (props) => {
     document.querySelector(".movies-category-01").style.display = "none";
     document.querySelector(".movies-category-02").style.display = "none";
     document.querySelector(".movies-category-03").style.display = "none";
-    document.querySelector('.new-title01').style.display = "none";
-    document.querySelector('.new-title02').style.display = "none";
-    document.querySelector('.new-title03').style.display = "none";
-    document.querySelector('.new-leftbtn-01').style.display = "none";
-    document.querySelector('.new-leftbtn-02').style.display = "none";
-    document.querySelector('.new-leftbtn-03').style.display = "none";
-    document.querySelector('.new-rightbtn-01').style.display = "none";
-    document.querySelector('.new-rightbtn-02').style.display = "none";
-    document.querySelector('.new-rightbtn-03').style.display = "none";
+    document.querySelector(".movies-category-04").style.display = "none";
+    document.querySelector(".new-title01").style.display = "none";
+    document.querySelector(".new-title02").style.display = "none";
+    document.querySelector(".new-title03").style.display = "none";
+    document.querySelector(".new-title04").style.display = "none";
+    document.querySelector(".new-leftbtn-01").style.display = "none";
+    document.querySelector(".new-leftbtn-02").style.display = "none";
+    document.querySelector(".new-leftbtn-03").style.display = "none";
+    document.querySelector(".new-leftbtn-04").style.display = "none";
+    document.querySelector(".new-rightbtn-01").style.display = "none";
+    document.querySelector(".new-rightbtn-02").style.display = "none";
+    document.querySelector(".new-rightbtn-03").style.display = "none";
+    document.querySelector(".new-rightbtn-04").style.display = "none";
     document.querySelector(".list-name").style.display = "none";
-  document.querySelector(".list-name").style.display = "none";
+    document.querySelector(".list-name").style.display = "none";
 
     fetch(
       `https://api.themoviedb.org/3/search/multi?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&query=${searchValue}&page=1&include_adult=false`
@@ -104,28 +120,24 @@ const Browsepage = (props) => {
       document.querySelector(".movies-section").style.height = "100vh";
       document.querySelector(".all-dataa").style.height = "100vh";
       if (isHome === true) {
-        Home()        
-      }
-      else if (isList === true) {
-        MyList()
-      }
-      else if (isMovies === true) {
-        MoviesTab()
-        
+        Home();
+      } else if (isList === true) {
+        MyList();
+      } else if (isMovies === true) {
+        MoviesTab();
       }
     } else {
       const url = `https://api.themoviedb.org/3/search/multi?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&query=${searchValue}&page=1&include_adult=false`;
       const response = await fetch(url);
       const data = await response.json();
       setSearchData(data.results);
-
     }
   };
 
   const MyList = () => {
-    setList(true)
-    setHome(false)
-    setisMovies(false)
+    setList(true);
+    setHome(false);
+    setisMovies(false);
     document.querySelector(".list-name").style.display = "block";
     document.querySelector(".my-list").style.display = "grid";
     if (ListItems.length > 10) {
@@ -140,20 +152,21 @@ const Browsepage = (props) => {
     document.querySelector(".home").style.color = "rgba(255, 255, 255, 0.742)";
     document.querySelector(".home").style.fontWeight = "400";
     document.querySelector(".movies").style.color =
-    "rgba(255, 255, 255, 0.742)";
+      "rgba(255, 255, 255, 0.742)";
     document.querySelector(".movies").style.fontWeight = "400";
 
     document.querySelector(".search-data").style.display = "none";
     document.querySelector(".search-data").style.bottom = "-5.2vw";
     document.querySelector(".poster").style.display = "none";
-    document.querySelector('.new-title01').style.display = "none";
-    document.querySelector('.new-title02').style.display = "none";
-    document.querySelector('.new-title03').style.display = "none";
-    document.querySelector('.category-title1').style.display = "none";
-    document.querySelector('.category-title2').style.display = "none";
-    document.querySelector('.category-title3').style.display = "none";
-    document.querySelector('.category-title4').style.display = "none";
-    document.querySelector('.category-title5').style.display = "none";
+    document.querySelector(".new-title01").style.display = "none";
+    document.querySelector(".new-title02").style.display = "none";
+    document.querySelector(".new-title03").style.display = "none";
+    document.querySelector(".new-title04").style.display = "none";
+    document.querySelector(".category-title1").style.display = "none";
+    document.querySelector(".category-title2").style.display = "none";
+    document.querySelector(".category-title3").style.display = "none";
+    document.querySelector(".category-title4").style.display = "none";
+    document.querySelector(".category-title5").style.display = "none";
     document.querySelector(".movie-category1").style.display = "none";
     document.querySelector(".movie-category2").style.display = "none";
     document.querySelector(".movie-category3").style.display = "none";
@@ -162,12 +175,15 @@ const Browsepage = (props) => {
     document.querySelector(".movies-category-01").style.display = "none";
     document.querySelector(".movies-category-02").style.display = "none";
     document.querySelector(".movies-category-03").style.display = "none";
+    document.querySelector(".movies-category-04").style.display = "none";
     document.querySelector(".new-leftbtn-01").style.display = "none";
     document.querySelector(".new-leftbtn-02").style.display = "none";
     document.querySelector(".new-leftbtn-03").style.display = "none";
+    document.querySelector(".new-leftbtn-04").style.display = "none";
     document.querySelector(".new-rightbtn-01").style.display = "none";
     document.querySelector(".new-rightbtn-02").style.display = "none";
     document.querySelector(".new-rightbtn-03").style.display = "none";
+    document.querySelector(".new-rightbtn-04").style.display = "none";
     document.querySelector(".left-scroll").style.display = "none";
     document.querySelector(".right-scroll").style.display = "none";
     document.querySelector(".left-scroll2").style.display = "none";
@@ -181,9 +197,9 @@ const Browsepage = (props) => {
   };
 
   const MoviesTab = () => {
-    setisMovies(true)
-    setHome(false)
-    setList(false)
+    setisMovies(true);
+    setHome(false);
+    setList(false);
     document.querySelector(".poster").src = movieposter;
     document.querySelector(".movies-section").style.height = "100vh";
     document.querySelector(".all-dataa").style.height = "100vh";
@@ -199,14 +215,15 @@ const Browsepage = (props) => {
     document.querySelector(".search-data").style.bottom = "-5.2vw";
     document.querySelector(".my-list").style.display = "none";
     document.querySelector(".list-name").style.display = "none";
-    document.querySelector('.category-title1').style.display = "none";
-    document.querySelector('.category-title2').style.display = "none";
-    document.querySelector('.category-title3').style.display = "none";
-    document.querySelector('.category-title4').style.display = "none";
-    document.querySelector('.category-title5').style.display = "none";
-    document.querySelector('.new-title01').style.display = "block";
-    document.querySelector('.new-title02').style.display = "block";
-    document.querySelector('.new-title03').style.display = "block";
+    document.querySelector(".category-title1").style.display = "none";
+    document.querySelector(".category-title2").style.display = "none";
+    document.querySelector(".category-title3").style.display = "none";
+    document.querySelector(".category-title4").style.display = "none";
+    document.querySelector(".category-title5").style.display = "none";
+    document.querySelector(".new-title01").style.display = "block";
+    document.querySelector(".new-title02").style.display = "block";
+    document.querySelector(".new-title03").style.display = "block";
+    document.querySelector(".new-title04").style.display = "block";
     document.querySelector(".movie-category1").style.display = "none";
     document.querySelector(".movie-category2").style.display = "none";
     document.querySelector(".movie-category3").style.display = "none";
@@ -215,12 +232,15 @@ const Browsepage = (props) => {
     document.querySelector(".movies-category-01").style.display = "flex";
     document.querySelector(".movies-category-02").style.display = "flex";
     document.querySelector(".movies-category-03").style.display = "flex";
+    document.querySelector(".movies-category-04").style.display = "flex";
     document.querySelector(".new-leftbtn-01").style.display = "block";
     document.querySelector(".new-rightbtn-01").style.display = "block";
     document.querySelector(".new-leftbtn-02").style.display = "block";
     document.querySelector(".new-leftbtn-03").style.display = "block";
+    document.querySelector(".new-leftbtn-04").style.display = "block";
     document.querySelector(".new-rightbtn-02").style.display = "block";
     document.querySelector(".new-rightbtn-03").style.display = "block";
+    document.querySelector(".new-rightbtn-04").style.display = "block";
     document.querySelector(".left-scroll").style.display = "none";
     document.querySelector(".right-scroll").style.display = "none";
     document.querySelector(".left-scroll2").style.display = "none";
@@ -233,14 +253,11 @@ const Browsepage = (props) => {
     document.querySelector(".right-scroll5").style.display = "none";
     document.querySelector(".search-data").style.display = "none";
     document.querySelectorAll(".c-title").style.display = "none";
-
-
-
   };
   const Home = () => {
-    setHome(true)
-    setList(false)
-    setisMovies(false)
+    setHome(true);
+    setList(false);
+    setisMovies(false);
     document.querySelector(".poster").src = Poster;
     document.querySelector(".movies-section").style.height = "100vh";
     document.querySelector(".all-dataa").style.height = "100vh";
@@ -257,14 +274,15 @@ const Browsepage = (props) => {
     document.querySelector(".search-data").style.bottom = "11vw";
     document.querySelector(".my-list").style.display = "none";
     document.querySelector(".list-name").style.display = "none";
-    document.querySelector('.new-title01').style.display = "none";
-    document.querySelector('.new-title02').style.display = "none";
-    document.querySelector('.new-title03').style.display = "none";
-        document.querySelector('.category-title1').style.display = "block";
-    document.querySelector('.category-title2').style.display = "block";
-    document.querySelector('.category-title3').style.display = "block";
-    document.querySelector('.category-title4').style.display = "block";
-    document.querySelector('.category-title5').style.display = "block";
+    document.querySelector(".new-title01").style.display = "none";
+    document.querySelector(".new-title02").style.display = "none";
+    document.querySelector(".new-title03").style.display = "none";
+    document.querySelector(".new-title04").style.display = "none";
+    document.querySelector(".category-title1").style.display = "block";
+    document.querySelector(".category-title2").style.display = "block";
+    document.querySelector(".category-title3").style.display = "block";
+    document.querySelector(".category-title4").style.display = "block";
+    document.querySelector(".category-title5").style.display = "block";
     document.querySelector(".movie-category1").style.display = "flex";
     document.querySelector(".movie-category2").style.display = "flex";
     document.querySelector(".movie-category3").style.display = "flex";
@@ -273,6 +291,7 @@ const Browsepage = (props) => {
     document.querySelector(".movies-category-01").style.display = "none";
     document.querySelector(".movies-category-02").style.display = "none";
     document.querySelector(".movies-category-03").style.display = "none";
+    document.querySelector(".movies-category-04").style.display = "none";
 
     document.querySelector(".left-scroll").style.display = "block";
     document.querySelector(".right-scroll").style.display = "block";
@@ -288,8 +307,10 @@ const Browsepage = (props) => {
     document.querySelector(".new-rightbtn-01").style.display = "none";
     document.querySelector(".new-leftbtn-02").style.display = "none";
     document.querySelector(".new-leftbtn-03").style.display = "none";
+    document.querySelector(".new-leftbtn-04").style.display = "none";
     document.querySelector(".new-rightbtn-02").style.display = "none";
     document.querySelector(".new-rightbtn-03").style.display = "none";
+    document.querySelector(".new-rightbtn-04").style.display = "none";
   };
 
   useEffect(() => {
@@ -356,6 +377,15 @@ const Browsepage = (props) => {
       setTrendingTV(new_data.results);
     };
 
+    const Fictional = async () => {
+      let pageno = Math.floor(Math.random() * 100) + 1;
+
+      const url = `https://api.themoviedb.org/3/movie/616037/similar?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}`;
+      const data = await fetch(url);
+      const new_data = await data.json();
+      setFiction(new_data.results);
+    };
+
     FetchData();
     TrendingMovies();
     TopRated();
@@ -363,7 +393,8 @@ const Browsepage = (props) => {
     TVshows();
     FetchMovies2();
     FetchMovies3();
-    FetchTV()
+    FetchTV();
+    Fictional();
   }, []);
 
   return (
@@ -391,11 +422,10 @@ const Browsepage = (props) => {
             >
               Movies & TV Shows
             </li>
-
           </div>
           <div className="right-content">
             <div onClick={SearchChange} className="search-icon">
-              <img src={Search} alt="" className="search-white" />
+              <img src={Search}  className="search-white" />
               <input
                 onChange={OnSearch}
                 type="text"
@@ -405,12 +435,12 @@ const Browsepage = (props) => {
               />
             </div>
             <div className="account">
-              <img className="account-img" src={avatar} alt="" />
+              <img className="account-img" src={avatar}  />
             </div>
           </div>
         </div>
         <div className="bg-main-data">
-          <img src={Poster} alt="" className="poster" />
+          <img src={Poster}  className="poster" />
           <button className="play1">&#9654; Play</button>
         </div>
         <div className="movies-section">
@@ -422,7 +452,7 @@ const Browsepage = (props) => {
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                alt=""
+                
                 className="left-btn"
               />
             </div>
@@ -433,7 +463,7 @@ const Browsepage = (props) => {
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                alt=""
+                
                 className="right-btn"
               />
             </div>
@@ -445,10 +475,12 @@ const Browsepage = (props) => {
                     <div className="now-playing" key={items.id}>
                       <img
                         src={
-                          "https://image.tmdb.org/t/p/w500" +
-                          items.backdrop_path
+                          items.backdrop_path === null || !items.backdrop_path
+                            ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
+                            : "https://image.tmdb.org/t/p/w500" +
+                              items.backdrop_path
                         }
-                        alt=""
+                        
                         className="poster-2"
                       />
                       <div className="movie-all-data">
@@ -456,7 +488,7 @@ const Browsepage = (props) => {
                           {items.title || items.name}
                         </div>
                         <div className="two-buttons">
-                          <img src={play} alt="" className="circle-play" />
+                          <img src={play}  className="circle-play"/>
                           <img
                             onClick={() => {
                               setAdded(!Added);
@@ -500,7 +532,7 @@ const Browsepage = (props) => {
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                alt=""
+                
                 className="left-btn2"
               />
             </div>
@@ -511,7 +543,7 @@ const Browsepage = (props) => {
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                alt=""
+                
                 className="right-btn2"
               />
             </div>
@@ -522,9 +554,12 @@ const Browsepage = (props) => {
                   <div className="trending-movies">
                     <img
                       src={
-                        "https://image.tmdb.org/t/p/w500" + items.backdrop_path
+                        items.backdrop_path === null || !items.backdrop_path
+                          ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
+                          : "https://image.tmdb.org/t/p/w500" +
+                            items.backdrop_path
                       }
-                      alt=""
+                      
                       className="poster-3"
                     />
                     <div className="movie-all-data">
@@ -532,7 +567,7 @@ const Browsepage = (props) => {
                         {items.title || items.name}
                       </div>
                       <div className="two-buttons">
-                        <img src={play} alt="" className="circle-play" />
+                        <img src={play}  className="circle-play" />
                         <img
                           onClick={() => {
                             setAdded(!Added);
@@ -575,7 +610,7 @@ const Browsepage = (props) => {
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                alt=""
+                
                 className="left-btn3"
               />
             </div>
@@ -586,7 +621,7 @@ const Browsepage = (props) => {
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                alt=""
+                
                 className="right-btn3"
               />
             </div>
@@ -597,9 +632,12 @@ const Browsepage = (props) => {
                   <div className="top-movies">
                     <img
                       src={
-                        "https://image.tmdb.org/t/p/w500" + items.backdrop_path
+                        items.backdrop_path === null || !items.backdrop_path
+                          ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
+                          : "https://image.tmdb.org/t/p/w500" +
+                            items.backdrop_path
                       }
-                      alt=""
+                      
                       className="poster-4"
                     />
                     <div className="movie-all-data">
@@ -607,7 +645,7 @@ const Browsepage = (props) => {
                         {items.title || items.name}
                       </div>
                       <div className="two-buttons">
-                        <img src={play} alt="" className="circle-play" />
+                        <img src={play}  className="circle-play" />
                         <img
                           onClick={() => {
                             setAdded(!Added);
@@ -650,7 +688,7 @@ const Browsepage = (props) => {
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                alt=""
+                
                 className="left-btn4"
               />
             </div>
@@ -661,7 +699,7 @@ const Browsepage = (props) => {
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                alt=""
+                
                 className="right-btn4"
               />
             </div>
@@ -677,7 +715,7 @@ const Browsepage = (props) => {
                           : "https://image.tmdb.org/t/p/w500" +
                             items.backdrop_path
                       }
-                      alt=""
+                      
                       className="poster-5"
                     />
                     <div className="movie-all-data">
@@ -685,7 +723,7 @@ const Browsepage = (props) => {
                         {items.title || items.name}
                       </div>
                       <div className="two-buttons">
-                        <img src={play} alt="" className="circle-play" />
+                        <img src={play}  className="circle-play" />
                         <img
                           onClick={() => {
                             setAdded(!Added);
@@ -728,7 +766,7 @@ const Browsepage = (props) => {
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                alt=""
+                
                 className="left-btn5"
               />
             </div>
@@ -739,7 +777,7 @@ const Browsepage = (props) => {
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                alt=""
+                
                 className="right-btn5"
               />
             </div>
@@ -757,7 +795,7 @@ const Browsepage = (props) => {
                           : "https://image.tmdb.org/t/p/w500" +
                             items.backdrop_path
                       }
-                      alt=""
+                      
                       className="poster-6"
                     />
                     <div className="movie-all-data">
@@ -765,7 +803,7 @@ const Browsepage = (props) => {
                         {items.title || items.name}
                       </div>
                       <div className="two-buttons">
-                        <img src={play} alt="" className="circle-play" />
+                        <img src={play}  className="circle-play" />
                         <img
                           onClick={() => {
                             setAdded(!Added);
@@ -812,7 +850,7 @@ const Browsepage = (props) => {
                             : "https://image.tmdb.org/t/p/w500" +
                               items.backdrop_path
                         }
-                        alt=""
+                        
                         className="poster-7"
                       />
                       <div className="movie-all-data2">
@@ -820,7 +858,7 @@ const Browsepage = (props) => {
                           {items.title || items.name}
                         </div>
                         <div className="two-buttons">
-                          <img src={play} alt="" className="circle-play" />
+                          <img src={play}  className="circle-play" />
                           <img
                             onClick={() => {
                               setAdded(!Added);
@@ -871,7 +909,7 @@ const Browsepage = (props) => {
                             : "https://image.tmdb.org/t/p/w500" +
                               items.backdrop_path
                         }
-                        alt=""
+                        
                         className="poster-7"
                       />
                       <div className="movie-all-data2">
@@ -879,7 +917,7 @@ const Browsepage = (props) => {
                           {items.title || items.name}
                         </div>
                         <div className="two-buttons">
-                          <img src={play} alt="" className="circle-play" />
+                          <img src={play}  className="circle-play" />
                           <img
                             onClick={() => {
                               setAdded(Added);
@@ -917,22 +955,26 @@ const Browsepage = (props) => {
             <div className="new-left01">
               <img
                 onClick={() => {
-                  const carousel = document.querySelector(".movies-category-01");
+                  const carousel = document.querySelector(
+                    ".movies-category-01"
+                  );
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                alt=""
+                
                 className="new-leftbtn-01"
               />
             </div>
             <div className="new-right01">
               <img
                 onClick={() => {
-                  const carousel = document.querySelector(".movies-category-01");
+                  const carousel = document.querySelector(
+                    ".movies-category-01"
+                  );
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                alt=""
+                
                 className="new-rightbtn-01"
               />
             </div>
@@ -944,10 +986,12 @@ const Browsepage = (props) => {
                     <div className="now-playing" key={items.id}>
                       <img
                         src={
-                          "https://image.tmdb.org/t/p/w500" +
-                          items.backdrop_path
+                          items.backdrop_path === null || !items.backdrop_path
+                            ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
+                            : "https://image.tmdb.org/t/p/w500" +
+                              items.backdrop_path
                         }
-                        alt=""
+                        
                         className="poster-2"
                       />
                       <div className="movie-all-data">
@@ -955,7 +999,7 @@ const Browsepage = (props) => {
                           {items.title || items.name}
                         </div>
                         <div className="two-buttons">
-                          <img src={play} alt="" className="circle-play" />
+                          <img src={play}  className="circle-play" />
                           <img
                             onClick={() => {
                               setAdded(!Added);
@@ -995,22 +1039,26 @@ const Browsepage = (props) => {
             <div className="new-left02">
               <img
                 onClick={() => {
-                  const carousel = document.querySelector(".movies-category-02");
+                  const carousel = document.querySelector(
+                    ".movies-category-02"
+                  );
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                alt=""
+                
                 className="new-leftbtn-02"
               />
             </div>
             <div className="new-right02">
               <img
                 onClick={() => {
-                  const carousel = document.querySelector(".movies-category-02");
+                  const carousel = document.querySelector(
+                    ".movies-category-02"
+                  );
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                alt=""
+                
                 className="new-rightbtn-02"
               />
             </div>
@@ -1022,10 +1070,12 @@ const Browsepage = (props) => {
                     <div className="now-playing" key={items.id}>
                       <img
                         src={
-                          "https://image.tmdb.org/t/p/w500" +
-                          items.backdrop_path
+                          items.backdrop_path === null || !items.backdrop_path
+                            ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
+                            : "https://image.tmdb.org/t/p/w500" +
+                              items.backdrop_path
                         }
-                        alt=""
+                        
                         className="poster-2"
                       />
                       <div className="movie-all-data">
@@ -1033,7 +1083,7 @@ const Browsepage = (props) => {
                           {items.title || items.name}
                         </div>
                         <div className="two-buttons">
-                          <img src={play} alt="" className="circle-play" />
+                          <img src={play}  className="circle-play" />
                           <img
                             onClick={() => {
                               setAdded(!Added);
@@ -1073,22 +1123,26 @@ const Browsepage = (props) => {
             <div className="new-left03">
               <img
                 onClick={() => {
-                  const carousel = document.querySelector(".movies-category-03");
+                  const carousel = document.querySelector(
+                    ".movies-category-03"
+                  );
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                alt=""
+                
                 className="new-leftbtn-03"
               />
             </div>
             <div className="new-right03">
               <img
                 onClick={() => {
-                  const carousel = document.querySelector(".movies-category-03");
+                  const carousel = document.querySelector(
+                    ".movies-category-03"
+                  );
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                alt=""
+                
                 className="new-rightbtn-03"
               />
             </div>
@@ -1100,10 +1154,12 @@ const Browsepage = (props) => {
                     <div className="now-playing" key={items.id}>
                       <img
                         src={
-                          "https://image.tmdb.org/t/p/w500" +
-                          items.backdrop_path
+                          items.backdrop_path === null || !items.backdrop_path
+                            ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
+                            : "https://image.tmdb.org/t/p/w500" +
+                              items.backdrop_path
                         }
-                        alt=""
+                        
                         className="poster-2"
                       />
                       <div className="movie-all-data">
@@ -1111,7 +1167,91 @@ const Browsepage = (props) => {
                           {items.title || items.name}
                         </div>
                         <div className="two-buttons">
-                          <img src={play} alt="" className="circle-play" />
+                          <img src={play}  className="circle-play" />
+                          <img
+                            onClick={() => {
+                              setAdded(!Added);
+                              if (Added) {
+                                dispatch(RemoveList(items.id));
+                              } else {
+                                dispatch(AddToList(items));
+                              }
+                            }}
+                            src={
+                              ListItems.filter((ele) => ele.id === items.id)
+                                .length > 0
+                                ? added
+                                : add
+                            }
+                            className="add-list"
+                          />
+                        </div>
+                        <div className="extra-data">
+                          <p className="match">
+                            {(Math.round(items.vote_average) / 10) * 100}% match
+                          </p>
+                          <p className="rating">
+                            {items.adult === false ? "U/A 16+" : "A"}
+                          </p>
+                          <p className="HD">HD</p>
+                        </div>
+                        <p className="movie-desc">
+                          {items.overview.slice(0, 80) + "..."}
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
+            </div>
+            <div className="new-left04">
+              <img
+                onClick={() => {
+                  const carousel = document.querySelector(
+                    ".movies-category-04"
+                  );
+                  carousel.scrollLeft -= 1200;
+                }}
+                src={left}
+                
+                className="new-leftbtn-04"
+              />
+            </div>
+            <div className="new-right04">
+              <img
+                onClick={() => {
+                  const carousel = document.querySelector(
+                    ".movies-category-04"
+                  );
+                  carousel.scrollLeft += 1200;
+                }}
+                src={right}
+                
+                className="new-rightbtn-04"
+              />
+            </div>
+            <p className="new-title04">Best Fictional Shows</p>
+            <div className="movies-category-04">
+              {Fiction.map((items) => {
+                return (
+                  <>
+                    <div className="now-playing" key={items.id}>
+                      <img
+                        src={
+                          items.backdrop_path === null || !items.backdrop_path
+                            ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
+                            : "https://image.tmdb.org/t/p/w500" +
+                              items.backdrop_path
+                        }
+                        
+                        className="poster-2"
+                      />
+                      <div className="movie-all-data">
+                        <div className="movie-title">
+                          {items.title || items.name}
+                        </div>
+                        <div className="two-buttons">
+                          <img src={play}  className="circle-play" />
                           <img
                             onClick={() => {
                               setAdded(!Added);
@@ -1151,6 +1291,8 @@ const Browsepage = (props) => {
           </div>
         </div>
       </div>
+        <div className="Footer-area">
+        </div>
     </>
   );
 };

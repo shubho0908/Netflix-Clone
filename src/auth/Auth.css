@@ -14,21 +14,27 @@
     .new-title01,
     .new-title02,
     .new-title03,
+    .new-title04,
     .new-left01,
     .new-left02,
     .new-left03,
+    .new-left04,
     .movies-category-02,
     .movies-category-03,
+    .movies-category-04,
     .new-right01,
     .new-right02,
     .new-right03,
+    .new-right04,
     .new-leftbtn-01,
     .new-left02,
     .new-leftbtn-02,
     .new-leftbtn-03,
+    .new-leftbtn-04,
     .new-rightbtn-01,
     .new-rightbtn-02,
     .new-rightbtn-03,
+    .new-rightbtn-04,
     .logo-anchor,
     .movies-category-01,
     .movie-all-data2,
@@ -376,18 +382,26 @@ input.check {
       .movies-category-02,
       .new-left02,
       .new-left03,
+      .new-left04,
       .new-right02,
       .new-right03,
+      .new-right04,
       .new-title01,
       .new-title02,
       .new-title03,
+      .new-title04,
       .new-leftbtn-02,
       .new-leftbtn-03,
+      .new-leftbtn-04,
       .new-rightbtn-02,
+      .new-rightbtn-01,
+      .new-rightbtn-03,
+      .new-rightbtn-04,
       .list-name,
       .logo-anchor,
       .movies-category-01,
       .movies-category-03,
+      .movies-category-04,
       .search-bar,
       .movie-all-data2,
       .top-movies,
@@ -1511,6 +1525,7 @@ input.check {
 }
 
 .play1 {
+  cursor: pointer;
   font-family: sans-serif;
   font-weight: 600;
   font-size: 1.45vw;
@@ -1521,6 +1536,11 @@ input.check {
   border-radius: .2vw;
   left: -39.1vw;
   border: none;
+  transition: all 0.2s;
+}
+
+.play1:hover{
+  transform: scale(1.1);
 }
 
 .main-logo {
@@ -1564,7 +1584,7 @@ input.check {
 .account-img {
   position: relative;
   width: 1.8vw;
-  right: 4.4vw;
+  right: 0.8vw;
   border-radius: .15vw;
 }
 .nav-css{
@@ -1642,7 +1662,7 @@ input.check {
   grid-gap: 10px; /* adjust as needed */
   width: 100%;
   height: 100%;
-  margin-top: 5vw;
+  margin-top: 4.75vw;
   justify-content: center;
   position: relative;
   bottom: 10vw;
@@ -1696,6 +1716,10 @@ input.check {
 }
 
 .movies-category-03::-webkit-scrollbar{
+  width: 0;
+}
+
+.movies-category-04::-webkit-scrollbar{
   width: 0;
 }
 
@@ -2035,6 +2059,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   width: 1.8vw;
 }
 
+
 .add-list{
   margin-left: .4vw;
 
@@ -2046,10 +2071,11 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   border-radius: .18vw;
   position: relative;
   width: 12vw;
-  right: 5.5vw;
+  right: 4.3vw;
   opacity: 0;
   transition: all .25s;
   padding-left: .6vw;
+  padding-right: .6vw;
   font-family: sans-serif;
   font-size: .85vw;
   color: white;
@@ -2060,6 +2086,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   cursor: pointer;
   display: flex;
   align-items: center;
+  width: 12vw;
 }
 
 .App::-webkit-scrollbar{
@@ -2104,7 +2131,7 @@ top: 12vw;
 width: 30vw;
 }
 
-.movie-category1,.movie-category2,.movie-category3,.movie-category4,.movie-category5,.left-scroll,.right-scroll,.left-scroll2,.right-scroll2,.left-scroll3,.right-scroll3,.left-scroll4,.right-scroll4,.left-scroll5,.right-scroll5,.c-title,.movies-category-01,.movies-category-02,.new-leftbtn-01,.new-leftbtn-02,.new-leftbtn-03,.new-rightbtn-01,.new-rightbtn-02,.new-rightbtn-03,.new-title01,.new-title02,.new-title03,.movies-category-03{
+.movie-category1,.movie-category2,.movie-category3,.movie-category4,.movie-category5,.left-scroll,.right-scroll,.left-scroll2,.right-scroll2,.left-scroll3,.right-scroll3,.left-scroll4,.right-scroll4,.left-scroll5,.right-scroll5,.c-title,.movies-category-01,.movies-category-02,.new-leftbtn-01,.new-leftbtn-02,.new-leftbtn-03,.new-leftbtn-04,.new-rightbtn-01,.new-rightbtn-02,.new-rightbtn-03,.new-rightbtn-04,.new-title01,.new-title02,.new-title03,.movies-category-03,.movies-category-04{
   animation: newfade .32s;
 }
 
@@ -2156,6 +2183,17 @@ width: 30vw;
   scroll-behavior: smooth;
 }
 
+.movies-category-04{
+  display: none;
+  width: 100%;
+  position: relative;
+  bottom: 52.8vw;
+  padding-left: 3.2vw;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
 .new-leftbtn-01{
   display: none;
   cursor: pointer;
@@ -2191,6 +2229,18 @@ width: 30vw;
   z-index: 50;
 
 }
+
+.new-leftbtn-04{
+  display: none;
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: 47.8vw;
+  left: .5vw;
+  width: 2.5vw;
+  z-index: 50;
+
+}
 .new-rightbtn-01{
   display: none;
   cursor: pointer;
@@ -2219,6 +2269,17 @@ width: 30vw;
   filter: invert(1);
   position: absolute;
   top: 30.5vw;
+  right: .5vw;
+  width: 1.6vw;
+  z-index: 50;
+
+}
+.new-rightbtn-04{
+  display: none;
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: 48.5vw;
   right: .5vw;
   width: 1.6vw;
   z-index: 50;
@@ -2259,6 +2320,19 @@ width: 30vw;
   font-size: 1.4vw;
   text-align: left;
   bottom: 36.8vw;
+  left: 3.5vw;
+  z-index: 10;
+  color: white;
+}
+
+.new-title04{
+  display: none;
+  position: relative;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 1.4vw;
+  text-align: left;
+  bottom: 49vw;
   left: 3.5vw;
   z-index: 10;
   color: white;
