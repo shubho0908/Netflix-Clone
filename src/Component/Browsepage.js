@@ -32,6 +32,7 @@ const Browsepage = (props) => {
   const [Recommendation, setRecommendation] = useState([]);
   const [TrendingTV, setTrendingTV] = useState([]);
   const [Fiction, setFiction] = useState([]);
+  const [isClicked, setClicked] = useState(false);
 
   const [isHome, setHome] = useState(true);
   const [isList, setList] = useState(false);
@@ -425,7 +426,7 @@ const Browsepage = (props) => {
           </div>
           <div className="right-content">
             <div onClick={SearchChange} className="search-icon">
-              <img src={Search}  className="search-white" />
+              <img src={Search} className="search-white" />
               <input
                 onChange={OnSearch}
                 type="text"
@@ -435,12 +436,37 @@ const Browsepage = (props) => {
               />
             </div>
             <div className="account">
-              <img className="account-img" src={avatar}  />
+              <img
+                onClick={() => {
+                  setClicked(!isClicked);
+                  if (!isClicked) {
+                    document.querySelector(".user-data").style.display =
+                      "block";
+                  } else {
+                    document.querySelector(".user-data").style.display = "none";
+                  }
+                }}
+                className="account-img"
+                src={avatar}
+              />
+            </div>
+            <div className="user-data">
+              <p className="user-name">{props.username.slice(0, 5) + ".."}</p>
+              <hr />
+              <p
+                className="signout"
+                onClick={() => {
+                  signOut(auth);
+                  window.location.href = "/"
+                }}
+              >
+                Sign out
+              </p>
             </div>
           </div>
         </div>
         <div className="bg-main-data">
-          <img src={Poster}  className="poster" />
+          <img src={Poster} className="poster" />
           <button className="play1">&#9654; Play</button>
         </div>
         <div className="movies-section">
@@ -452,7 +478,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                
                 className="left-btn"
               />
             </div>
@@ -463,7 +488,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                
                 className="right-btn"
               />
             </div>
@@ -480,7 +504,6 @@ const Browsepage = (props) => {
                             : "https://image.tmdb.org/t/p/w500" +
                               items.backdrop_path
                         }
-                        
                         className="poster-2"
                       />
                       <div className="movie-all-data">
@@ -488,7 +511,7 @@ const Browsepage = (props) => {
                           {items.title || items.name}
                         </div>
                         <div className="two-buttons">
-                          <img src={play}  className="circle-play"/>
+                          <img src={play} className="circle-play" />
                           <img
                             onClick={() => {
                               setAdded(!Added);
@@ -532,7 +555,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                
                 className="left-btn2"
               />
             </div>
@@ -543,7 +565,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                
                 className="right-btn2"
               />
             </div>
@@ -559,7 +580,6 @@ const Browsepage = (props) => {
                           : "https://image.tmdb.org/t/p/w500" +
                             items.backdrop_path
                       }
-                      
                       className="poster-3"
                     />
                     <div className="movie-all-data">
@@ -567,7 +587,7 @@ const Browsepage = (props) => {
                         {items.title || items.name}
                       </div>
                       <div className="two-buttons">
-                        <img src={play}  className="circle-play" />
+                        <img src={play} className="circle-play" />
                         <img
                           onClick={() => {
                             setAdded(!Added);
@@ -610,7 +630,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                
                 className="left-btn3"
               />
             </div>
@@ -621,7 +640,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                
                 className="right-btn3"
               />
             </div>
@@ -637,7 +655,6 @@ const Browsepage = (props) => {
                           : "https://image.tmdb.org/t/p/w500" +
                             items.backdrop_path
                       }
-                      
                       className="poster-4"
                     />
                     <div className="movie-all-data">
@@ -645,7 +662,7 @@ const Browsepage = (props) => {
                         {items.title || items.name}
                       </div>
                       <div className="two-buttons">
-                        <img src={play}  className="circle-play" />
+                        <img src={play} className="circle-play" />
                         <img
                           onClick={() => {
                             setAdded(!Added);
@@ -688,7 +705,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                
                 className="left-btn4"
               />
             </div>
@@ -699,7 +715,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                
                 className="right-btn4"
               />
             </div>
@@ -715,7 +730,6 @@ const Browsepage = (props) => {
                           : "https://image.tmdb.org/t/p/w500" +
                             items.backdrop_path
                       }
-                      
                       className="poster-5"
                     />
                     <div className="movie-all-data">
@@ -723,7 +737,7 @@ const Browsepage = (props) => {
                         {items.title || items.name}
                       </div>
                       <div className="two-buttons">
-                        <img src={play}  className="circle-play" />
+                        <img src={play} className="circle-play" />
                         <img
                           onClick={() => {
                             setAdded(!Added);
@@ -766,7 +780,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                
                 className="left-btn5"
               />
             </div>
@@ -777,7 +790,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                
                 className="right-btn5"
               />
             </div>
@@ -795,7 +807,6 @@ const Browsepage = (props) => {
                           : "https://image.tmdb.org/t/p/w500" +
                             items.backdrop_path
                       }
-                      
                       className="poster-6"
                     />
                     <div className="movie-all-data">
@@ -803,7 +814,7 @@ const Browsepage = (props) => {
                         {items.title || items.name}
                       </div>
                       <div className="two-buttons">
-                        <img src={play}  className="circle-play" />
+                        <img src={play} className="circle-play" />
                         <img
                           onClick={() => {
                             setAdded(!Added);
@@ -850,7 +861,6 @@ const Browsepage = (props) => {
                             : "https://image.tmdb.org/t/p/w500" +
                               items.backdrop_path
                         }
-                        
                         className="poster-7"
                       />
                       <div className="movie-all-data2">
@@ -858,7 +868,7 @@ const Browsepage = (props) => {
                           {items.title || items.name}
                         </div>
                         <div className="two-buttons">
-                          <img src={play}  className="circle-play" />
+                          <img src={play} className="circle-play" />
                           <img
                             onClick={() => {
                               setAdded(!Added);
@@ -909,7 +919,6 @@ const Browsepage = (props) => {
                             : "https://image.tmdb.org/t/p/w500" +
                               items.backdrop_path
                         }
-                        
                         className="poster-7"
                       />
                       <div className="movie-all-data2">
@@ -917,7 +926,7 @@ const Browsepage = (props) => {
                           {items.title || items.name}
                         </div>
                         <div className="two-buttons">
-                          <img src={play}  className="circle-play" />
+                          <img src={play} className="circle-play" />
                           <img
                             onClick={() => {
                               setAdded(Added);
@@ -961,7 +970,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                
                 className="new-leftbtn-01"
               />
             </div>
@@ -974,7 +982,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                
                 className="new-rightbtn-01"
               />
             </div>
@@ -991,7 +998,6 @@ const Browsepage = (props) => {
                             : "https://image.tmdb.org/t/p/w500" +
                               items.backdrop_path
                         }
-                        
                         className="poster-2"
                       />
                       <div className="movie-all-data">
@@ -999,7 +1005,7 @@ const Browsepage = (props) => {
                           {items.title || items.name}
                         </div>
                         <div className="two-buttons">
-                          <img src={play}  className="circle-play" />
+                          <img src={play} className="circle-play" />
                           <img
                             onClick={() => {
                               setAdded(!Added);
@@ -1045,7 +1051,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                
                 className="new-leftbtn-02"
               />
             </div>
@@ -1058,7 +1063,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                
                 className="new-rightbtn-02"
               />
             </div>
@@ -1075,7 +1079,6 @@ const Browsepage = (props) => {
                             : "https://image.tmdb.org/t/p/w500" +
                               items.backdrop_path
                         }
-                        
                         className="poster-2"
                       />
                       <div className="movie-all-data">
@@ -1083,7 +1086,7 @@ const Browsepage = (props) => {
                           {items.title || items.name}
                         </div>
                         <div className="two-buttons">
-                          <img src={play}  className="circle-play" />
+                          <img src={play} className="circle-play" />
                           <img
                             onClick={() => {
                               setAdded(!Added);
@@ -1129,7 +1132,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                
                 className="new-leftbtn-03"
               />
             </div>
@@ -1142,7 +1144,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                
                 className="new-rightbtn-03"
               />
             </div>
@@ -1159,7 +1160,6 @@ const Browsepage = (props) => {
                             : "https://image.tmdb.org/t/p/w500" +
                               items.backdrop_path
                         }
-                        
                         className="poster-2"
                       />
                       <div className="movie-all-data">
@@ -1167,7 +1167,7 @@ const Browsepage = (props) => {
                           {items.title || items.name}
                         </div>
                         <div className="two-buttons">
-                          <img src={play}  className="circle-play" />
+                          <img src={play} className="circle-play" />
                           <img
                             onClick={() => {
                               setAdded(!Added);
@@ -1213,7 +1213,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft -= 1200;
                 }}
                 src={left}
-                
                 className="new-leftbtn-04"
               />
             </div>
@@ -1226,7 +1225,6 @@ const Browsepage = (props) => {
                   carousel.scrollLeft += 1200;
                 }}
                 src={right}
-                
                 className="new-rightbtn-04"
               />
             </div>
@@ -1243,7 +1241,6 @@ const Browsepage = (props) => {
                             : "https://image.tmdb.org/t/p/w500" +
                               items.backdrop_path
                         }
-                        
                         className="poster-2"
                       />
                       <div className="movie-all-data">
@@ -1251,7 +1248,7 @@ const Browsepage = (props) => {
                           {items.title || items.name}
                         </div>
                         <div className="two-buttons">
-                          <img src={play}  className="circle-play" />
+                          <img src={play} className="circle-play" />
                           <img
                             onClick={() => {
                               setAdded(!Added);
@@ -1291,8 +1288,7 @@ const Browsepage = (props) => {
           </div>
         </div>
       </div>
-        <div className="Footer-area">
-        </div>
+      <div className="Footer-area"></div>
     </>
   );
 };

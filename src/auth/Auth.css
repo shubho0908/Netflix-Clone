@@ -5,6 +5,9 @@
 *:not(
     .swal-modal,
     .watching,
+    .user-data,
+    .user-name,
+    .signout,
     .poster,
     .empty,
     .search-data,
@@ -374,7 +377,12 @@ input.check {
   *:not(
       .bg-main-data,
       .swal-modal,
+      .user-data,
+      .user-name,
+      .signout,
       .empty,
+      .new-leftbtn-01,
+      .new-rightbtn-01,
       .new-left01,
       .new-left02,
       .my-list,
@@ -1582,6 +1590,7 @@ input.check {
 }
 
 .account-img {
+  cursor: pointer;
   position: relative;
   width: 1.8vw;
   right: 0.8vw;
@@ -2336,4 +2345,155 @@ width: 30vw;
   left: 3.5vw;
   z-index: 10;
   color: white;
+}
+
+.user-data{
+  display: none;
+  background-color: #434343ce;
+  color: white;
+  position: absolute;
+  right: -.8vw;
+  top: 2.3vw;
+  border-radius: .2vw;
+  width: 5vw;
+  z-index: 500;
+  font-weight: 600;
+  font-size: .9vw;
+}
+
+.signout{
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.signout:hover{
+  color: rgb(255, 0, 0);
+}
+
+hr{
+  opacity: 0.5;
+}
+
+
+/* FINAL MEDIA QUERIES */
+
+/* HOME */
+
+@media (max-width: 1025px) {
+.left-btn2{
+  top: 14.3vw;
+}
+.right-btn2{
+  top: 14.3vw;
+
+}
+.left-btn3{
+  top: 33vw;
+}
+.right-btn3{
+  top: 33.5vw;
+
+}
+.left-btn4{
+  top: 50.3vw;
+}
+.right-btn4{
+  top: 50.3vw;
+
+}
+.left-btn5{
+  top: 69vw;
+}
+.right-btn5{
+  top: 69.5vw;
+
+}
+  
+}
+
+@media (max-width: 768px) {
+  .left-btn2{
+    top: 15.3vw;
+  }
+  .right-btn2{
+    top: 15.5vw;
+  }
+  .left-btn3{
+    top: 35.3vw;
+  }
+  .right-btn3{
+    top: 36vw;
+  }
+  .left-btn4{
+    top: 53.8vw;
+  }
+  .right-btn4{
+    top: 54vw;
+  }
+  .left-btn5{
+    top: 73vw;
+  }
+  .right-btn5{
+    top: 73.5vw;
+  }
+}
+
+@media (max-width: 555px) {
+  .left-btn2{
+    top: 15.8vw;
+  }
+  .right-btn2{
+    top: 16.5vw;
+  }
+  .left-btn3{
+    top: 37.2vw;
+  }
+  .right-btn3{
+    top: 37.8vw;
+  }
+  .left-btn4{
+    top: 56.5vw;
+  }
+  .right-btn4{
+    top: 56.55vw;
+  }
+  .left-btn5{
+    top: 77vw;
+  }
+  .right-btn5{
+    top: 77.25vw;
+  }
+}
+
+@media (max-width: 400px) {
+  .left-btn2{
+    top: 17.8vw;
+  }
+  .right-btn2{
+    top: 18vw;
+  }
+  .left-btn3{
+    top: 40.5vw;
+  }
+  .right-btn3{
+    top: 41.2vw;
+  }
+  .left-btn4{
+    top: 61vw;
+  }
+  .right-btn4{
+    top: 61.6vw;
+  }
+  .left-btn5{
+    top: 83.6vw;
+  }
+  .right-btn5{
+    top: 84.3vw;
+  }
+}
+
+@media (max-width: 350px) {
+  .left-btn2{
+    
+  }
 }
