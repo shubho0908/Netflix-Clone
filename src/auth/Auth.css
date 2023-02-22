@@ -2494,6 +2494,27 @@ hr{
 
 @media (max-width: 350px) {
   .left-btn2{
-    
+    top: 18.8vw;
+  }
+  .right-btn2{
+    top: 19vw;
+  }
+  .left-btn3{
+    top: 43vw;
+  }
+  .right-btn3{
+    top: 43.5vw;
+  }
+  .left-btn4{
+    top: 64.5vw;
+  }
+  .right-btn4{
+    top: 65vw;
+  }
+  .left-btn5{
+    top: 88.2vw;
+  }
+  .right-btn5{
+    top: 90vw;
   }
 }
