@@ -1633,23 +1633,6 @@ input.check {
   scroll-behavior: smooth;
 }
 
-.movie-tab{
-  display: none;
-  grid-template-columns: repeat(4, 20vw);
-  grid-template-rows: repeat(5, 14vw);
-  grid-gap: 10px; /* adjust as needed */
-  width: 100%;
-  height: 100%;
-  margin-top: 3.8vw;
-  justify-content: center;
-  position: relative;
-  bottom: 10vw;
-  overflow-y: hidden;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-}
-
-
 .movie-category1::-webkit-scrollbar{
   width: 0;
 }
@@ -1678,9 +1661,6 @@ input.check {
   width: 0;
 }
 
-.movie-tab::-webkit-scrollbar{
-  width: 0;
-}
 
 .now-playing>img, .trending-movies>img,.top-movies>img, .anime1-movies>img,.top-india-movies>img{
   border-radius: .3vw;
@@ -1740,7 +1720,7 @@ opacity: 1;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: -4.2vw;
+  top: -4.5vw;
   left: .5vw;
   width: 2.5vw;
   z-index: 50;
@@ -1761,7 +1741,7 @@ opacity: 1;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: 30.5vw;
+  top: 31.5vw;
   left: .5vw;
   width: 2.5vw;
   z-index: 50;
@@ -1783,7 +1763,7 @@ opacity: 1;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: 65.3vw;
+  top: 66.2vw;
   left: .5vw;
   width: 2.5vw;
   z-index: 50;
@@ -1814,7 +1794,7 @@ opacity: 1;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: 31.4vw;
+  top: 32.1vw;
   right: .5vw;
   width: 1.6vw;
   z-index: 50;
@@ -1824,7 +1804,7 @@ opacity: 1;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: 49vw;
+  top: 49.3vw;
   right: .5vw;
   width: 1.6vw;
   z-index: 50;
@@ -1834,7 +1814,7 @@ opacity: 1;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: 66vw;
+  top: 66.8vw;
   right: .5vw;
   width: 1.6vw;
   z-index: 50;
@@ -2075,4 +2055,22 @@ position: relative;
 left: 26vw;
 top: 12vw;
 width: 30vw;
+}
+
+.movie-category1,.movie-category2,.movie-category3,.movie-category4,.movie-category5{
+  animation: newfade .25s;
+}
+
+@keyframes newfade {
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+.nodisplay{
+  display: none;
 }

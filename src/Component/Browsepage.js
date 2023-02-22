@@ -12,6 +12,7 @@ import right from "../img/right.png";
 import play from "../img/play.png";
 import add from "../img/add.png";
 import added from "../img/added.png";
+import movieposter from "../img/movie/kantara.png";
 
 const auth = getAuth(app);
 
@@ -125,8 +126,8 @@ const Browsepage = (props) => {
     document.querySelector(".poster").style.display = "none";
     document.querySelector(".search-data").style.display = "none";
     document.querySelector(".my-list").style.display = "grid";
-    document.querySelector(".movie-tab").style.display = "none";
     document.querySelector(".list-name").style.display = "block";
+
     document.querySelector(".movie-category1").style.display = "none";
     document.querySelector(".movie-category2").style.display = "none";
     document.querySelector(".movie-category3").style.display = "none";
@@ -144,7 +145,46 @@ const Browsepage = (props) => {
     document.querySelector(".right-scroll5").style.display = "none";
   };
 
+  const MoviesTab = () => {
+    document.querySelector(".my-list").style.display = "none";
+    document.querySelector(".list-name").style.display = "none";
+    document.querySelector(".movies").style.color = "white";
+    document.querySelector(".movies").style.fontWeight = "600";
+    document.querySelector(".home").style.color = "rgba(255, 255, 255, 0.742)";
+    document.querySelector(".home").style.fontWeight = "400";
+    document.querySelector(".list").style.color = "rgba(255, 255, 255, 0.742)";
+    document.querySelector(".list").style.fontWeight = "400";
+    document.querySelector(".tv-shows").style.color =
+    "rgba(255, 255, 255, 0.742)";
+    document.querySelector(".tv-shows").style.fontWeight = "400";
+    document.querySelector(".poster").style.display = "block";
+    document.querySelector(".poster").src = movieposter;
+    document.querySelector('.category-title1').style.display = "none";
+    document.querySelector('.category-title2').style.display = "none";
+    document.querySelector('.category-title3').style.display = "none";
+    document.querySelector('.category-title4').style.display = "none";
+    document.querySelector('.category-title5').style.display = "none";
+    document.querySelector(".movie-category1").style.display = "none";
+    document.querySelector(".movie-category2").style.display = "none";
+    document.querySelector(".movie-category3").style.display = "none";
+    document.querySelector(".movie-category4").style.display = "none";
+    document.querySelector(".movie-category5").style.display = "none";
+
+    document.querySelector(".left-scroll").style.display = "none";
+    document.querySelector(".right-scroll").style.display = "none";
+    document.querySelector(".left-scroll2").style.display = "none";
+    document.querySelector(".right-scroll2").style.display = "none";
+    document.querySelector(".left-scroll3").style.display = "none";
+    document.querySelector(".right-scroll3").style.display = "none";
+    document.querySelector(".left-scroll4").style.display = "none";
+    document.querySelector(".right-scroll4").style.display = "none";
+    document.querySelector(".left-scroll5").style.display = "none";
+    document.querySelector(".right-scroll5").style.display = "none";
+    document.querySelector(".search-data").style.display = "none";
+    document.querySelectorAll(".c-title").style.display = "none";
+  };
   const Home = () => {
+    document.querySelector(".poster").src = Poster;
     document.querySelector(".movies-section").style.height = "100vh";
     document.querySelector(".all-dataa").style.height = "100vh";
     document.querySelector(".home").style.color = "white";
@@ -160,13 +200,18 @@ const Browsepage = (props) => {
     document.querySelector(".poster").style.display = "block";
     document.querySelector(".search-data").style.display = "none";
     document.querySelector(".my-list").style.display = "none";
-    document.querySelector(".movie-tab").style.display = "none";
     document.querySelector(".list-name").style.display = "none";
+    document.querySelector('.category-title1').style.display = "block";
+    document.querySelector('.category-title2').style.display = "block";
+    document.querySelector('.category-title3').style.display = "block";
+    document.querySelector('.category-title4').style.display = "block";
+    document.querySelector('.category-title5').style.display = "block";
     document.querySelector(".movie-category1").style.display = "flex";
     document.querySelector(".movie-category2").style.display = "flex";
     document.querySelector(".movie-category3").style.display = "flex";
     document.querySelector(".movie-category4").style.display = "flex";
     document.querySelector(".movie-category5").style.display = "flex";
+
     document.querySelector(".left-scroll").style.display = "block";
     document.querySelector(".right-scroll").style.display = "block";
     document.querySelector(".left-scroll2").style.display = "block";
@@ -179,45 +224,6 @@ const Browsepage = (props) => {
     document.querySelector(".right-scroll5").style.display = "block";
   };
 
-  const MoviesTab = () => {
-    if (movies.length > 15) {
-      document.querySelector(".movies-section").style.height = "100%";
-      document.querySelector(".all-dataa").style.height = "100%";
-    } else {
-      document.querySelector(".movies-section").style.height = "100vh";
-      document.querySelector(".all-dataa").style.height = "100vh";
-    }
-    document.querySelector(".movies").style.color = "white";
-    document.querySelector(".movies").style.fontWeight = "600";
-    document.querySelector(".home").style.color = "rgba(255, 255, 255, 0.742)";
-    document.querySelector(".home").style.fontWeight = "400";
-    document.querySelector(".list").style.color = "rgba(255, 255, 255, 0.742)";
-    document.querySelector(".list").style.fontWeight = "400";
-    document.querySelector(".tv-shows").style.color =
-      "rgba(255, 255, 255, 0.742)";
-    document.querySelector(".tv-shows").style.fontWeight = "400";
-    document.querySelector(".poster").style.display = "none";
-    document.querySelector(".search-data").style.display = "none";
-    document.querySelector(".movie-tab").style.display = "grid";
-    document.querySelector(".my-list").style.display = "none";
-    document.querySelector(".list-name").style.display = "none";
-    document.querySelector(".movie-category1").style.display = "none";
-    document.querySelector(".movie-category2").style.display = "none";
-    document.querySelector(".movie-category3").style.display = "none";
-    document.querySelector(".movie-category4").style.display = "none";
-    document.querySelector(".movie-category5").style.display = "none";
-    document.querySelector(".left-scroll").style.display = "none";
-    document.querySelector(".right-scroll").style.display = "none";
-    document.querySelector(".left-scroll2").style.display = "none";
-    document.querySelector(".right-scroll2").style.display = "none";
-    document.querySelector(".left-scroll3").style.display = "none";
-    document.querySelector(".right-scroll3").style.display = "none";
-    document.querySelector(".left-scroll4").style.display = "none";
-    document.querySelector(".right-scroll4").style.display = "none";
-    document.querySelector(".left-scroll5").style.display = "none";
-    document.querySelector(".right-scroll5").style.display = "none";
-  };
-
   useEffect(() => {
     const FetchData = async () => {
       const url =
@@ -228,31 +234,28 @@ const Browsepage = (props) => {
     };
     const TrendingMovies = async () => {
       let pageno = Math.floor(Math.random() * 100) + 1;
-      const url =
-        `https://api.themoviedb.org/3/trending/all/week?api_key=0bee82696d9f2ec6851e2a729cf4c379&page=${pageno}`;
+      const url = `https://api.themoviedb.org/3/trending/all/week?api_key=0bee82696d9f2ec6851e2a729cf4c379&page=${pageno}`;
       const data = await fetch(url);
       const new_data = await data.json();
       setTrending(new_data.results);
     };
     const TopRated = async () => {
       let pageno = Math.floor(Math.random() * 450) + 1;
-      const url =
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}`;
+      const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}`;
       const data = await fetch(url);
       const new_data = await data.json();
       setRated(new_data.results);
     };
     const ClassicAnime = async () => {
       let pageno = Math.floor(Math.random() * 2) + 1;
-      const url =
-        `https://api.themoviedb.org/3/movie/129/recommendations?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}`;
+      const url = `https://api.themoviedb.org/3/movie/129/recommendations?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}`;
       const data = await fetch(url);
       const new_data = await data.json();
       setAnime1(new_data.results);
     };
     const TVshows = async () => {
-      const url =
-        "https://api.themoviedb.org/3/tv/on_the_air?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=1";
+      let pageno = Math.floor(Math.random() * 40) + 1;
+      const url = `https://api.themoviedb.org/3/tv/popular?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}`;
       const data = await fetch(url);
       const new_data = await data.json();
       setTV(new_data.results);
@@ -363,7 +366,9 @@ const Browsepage = (props) => {
                         className="poster-2"
                       />
                       <div className="movie-all-data">
-                        <div className="movie-title">{items.title}</div>
+                        <div className="movie-title">
+                          {items.title || items.name}
+                        </div>
                         <div className="two-buttons">
                           <img src={play} alt="" className="circle-play" />
                           <img
@@ -389,7 +394,7 @@ const Browsepage = (props) => {
                             {(Math.round(items.vote_average) / 10) * 100}% match
                           </p>
                           <p className="rating">
-                            {items.adult === false ? "U/A 13+" : "A"}
+                            {items.adult === false ? "U/A 16+" : "A"}
                           </p>
                           <p className="HD">HD</p>
                         </div>
@@ -437,7 +442,9 @@ const Browsepage = (props) => {
                       className="poster-3"
                     />
                     <div className="movie-all-data">
-                      <div className="movie-title">{items.title}</div>
+                      <div className="movie-title">
+                        {items.title || items.name}
+                      </div>
                       <div className="two-buttons">
                         <img src={play} alt="" className="circle-play" />
                         <img
@@ -463,7 +470,7 @@ const Browsepage = (props) => {
                           {(Math.round(items.vote_average) / 10) * 100}% match
                         </p>
                         <p className="rating">
-                          {items.adult === false ? "U/A 13+" : "A"}
+                          {items.adult === false ? "U/A 16+" : "A"}
                         </p>
                         <p className="HD">HD</p>
                       </div>
@@ -510,7 +517,9 @@ const Browsepage = (props) => {
                       className="poster-4"
                     />
                     <div className="movie-all-data">
-                      <div className="movie-title">{items.title}</div>
+                      <div className="movie-title">
+                        {items.title || items.name}
+                      </div>
                       <div className="two-buttons">
                         <img src={play} alt="" className="circle-play" />
                         <img
@@ -536,7 +545,7 @@ const Browsepage = (props) => {
                           {(Math.round(items.vote_average) / 10) * 100}% match
                         </p>
                         <p className="rating">
-                          {items.adult === false ? "U/A 13+" : "A"}
+                          {items.adult === false ? "U/A 16+" : "A"}
                         </p>
                         <p className="HD">HD</p>
                       </div>
@@ -586,7 +595,9 @@ const Browsepage = (props) => {
                       className="poster-5"
                     />
                     <div className="movie-all-data">
-                      <div className="movie-title">{items.title}</div>
+                      <div className="movie-title">
+                        {items.title || items.name}
+                      </div>
                       <div className="two-buttons">
                         <img src={play} alt="" className="circle-play" />
                         <img
@@ -612,7 +623,7 @@ const Browsepage = (props) => {
                           {(Math.round(items.vote_average) / 10) * 100}% match
                         </p>
                         <p className="rating">
-                          {items.adult === false ? "U/A 13+" : "A"}
+                          {items.adult === false ? "U/A 16+" : "A"}
                         </p>
                         <p className="HD">HD</p>
                       </div>
@@ -664,7 +675,9 @@ const Browsepage = (props) => {
                       className="poster-6"
                     />
                     <div className="movie-all-data">
-                      <div className="movie-title">{items.name}</div>
+                      <div className="movie-title">
+                        {items.title || items.name}
+                      </div>
                       <div className="two-buttons">
                         <img src={play} alt="" className="circle-play" />
                         <img
@@ -689,7 +702,7 @@ const Browsepage = (props) => {
                         <p className="match">
                           {(Math.round(items.vote_average) / 10) * 100}% match
                         </p>
-                        <p className="rating">U/A 13+</p>
+                        <p className="rating">U/A 16+</p>
                         <p className="HD">HD</p>
                       </div>
                       <p className="movie-desc">
@@ -744,7 +757,7 @@ const Browsepage = (props) => {
                           <p className="match">
                             {(Math.round(items.vote_average) / 10) * 100}% match
                           </p>
-                          <p className="rating">U/A 13+</p>
+                          <p className="rating">U/A 16+</p>
                           <p className="HD">HD</p>
                         </div>
                         <p className="movie-desc">
@@ -803,7 +816,7 @@ const Browsepage = (props) => {
                           <p className="match">
                             {(Math.round(items.vote_average) / 10) * 100}% match
                           </p>
-                          <p className="rating">U/A 13+</p>
+                          <p className="rating">U/A 16+</p>
                           <p className="HD">HD</p>
                         </div>
                         <p className="movie-desc">
@@ -814,59 +827,6 @@ const Browsepage = (props) => {
                   );
                 })
               )}
-            </div>
-            <div className="movie-tab">
-              {movies2.slice(0, 16).map((items) => {
-                return (
-                  <div className="list-movies">
-                    <img
-                      src={
-                        items.backdrop_path === null || !items.backdrop_path
-                          ? "https://images.hdqwalls.com/wallpapers/logan-movie-poster-pt.jpg"
-                          : "https://image.tmdb.org/t/p/w500" +
-                            items.backdrop_path
-                      }
-                      alt=""
-                      className="poster-7"
-                    />
-                    <div className="movie-all-data2">
-                      <div className="movie-title">
-                        {items.title || items.name}
-                      </div>
-                      <div className="two-buttons">
-                        <img src={play} alt="" className="circle-play" />
-                        <img
-                          onClick={() => {
-                            setAdded(!Added);
-                            if (Added) {
-                              dispatch(RemoveList(items.id));
-                            } else {
-                              dispatch(AddToList(items));
-                            }
-                          }}
-                          src={
-                            ListItems.filter((ele) => ele.id === items.id)
-                              .length > 0
-                              ? added
-                              : add
-                          }
-                          className="add-list"
-                        />
-                      </div>
-                      <div className="extra-data">
-                        <p className="match">
-                          {(Math.round(items.vote_average) / 10) * 100}% match
-                        </p>
-                        <p className="rating">U/A 13+</p>
-                        <p className="HD">HD</p>
-                      </div>
-                      <p className="movie-desc">
-                        {items.overview.slice(0, 80) + "..."}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
             </div>
           </div>
         </div>
