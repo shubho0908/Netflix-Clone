@@ -12,10 +12,23 @@
     .movie-tab,
     .list-name,
     .new-title01,
+    .new-title02,
+    .new-title03,
     .new-left01,
+    .new-left02,
+    .new-left03,
+    .movies-category-02,
+    .movies-category-03,
     .new-right01,
+    .new-right02,
+    .new-right03,
     .new-leftbtn-01,
+    .new-left02,
+    .new-leftbtn-02,
+    .new-leftbtn-03,
     .new-rightbtn-01,
+    .new-rightbtn-02,
+    .new-rightbtn-03,
     .logo-anchor,
     .movies-category-01,
     .movie-all-data2,
@@ -356,12 +369,25 @@ input.check {
       .bg-main-data,
       .swal-modal,
       .empty,
+      .new-left01,
+      .new-left02,
       .my-list,
       .movie-tab,
+      .movies-category-02,
+      .new-left02,
+      .new-left03,
+      .new-right02,
+      .new-right03,
       .new-title01,
+      .new-title02,
+      .new-title03,
+      .new-leftbtn-02,
+      .new-leftbtn-03,
+      .new-rightbtn-02,
       .list-name,
       .logo-anchor,
       .movies-category-01,
+      .movies-category-03,
       .search-bar,
       .movie-all-data2,
       .top-movies,
@@ -1532,7 +1558,7 @@ input.check {
   display: flex;
   align-items: center;
   justify-content: right;
-  right:9vw;
+  right:7.8vw;
 }
 
 .account-img {
@@ -1556,52 +1582,6 @@ input.check {
 
 .movie-category1{
   display: flex;
-  width: 100%;
-  position: relative;
-  bottom: 14.2vw;
-  padding-left: 3.2vw;
-  overflow-y: hidden;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-}
-
-
-
-.movies-category-02{
-  display: none;
-  width: 100%;
-  position: relative;
-  bottom: 14.2vw;
-  padding-left: 3.2vw;
-  overflow-y: hidden;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-}
-
-.movies-category-03{
-  display: none;
-  width: 100%;
-  position: relative;
-  bottom: 14.2vw;
-  padding-left: 3.2vw;
-  overflow-y: hidden;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-}
-
-.movies-category-04{
-  display: none;
-  width: 100%;
-  position: relative;
-  bottom: 14.2vw;
-  padding-left: 3.2vw;
-  overflow-y: hidden;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-}
-
-.movies-category-05{
-  display: none;
   width: 100%;
   position: relative;
   bottom: 14.2vw;
@@ -1708,6 +1688,14 @@ input.check {
 }
 
 .movies-category-01::-webkit-scrollbar{
+  width: 0;
+}
+
+.movies-category-02::-webkit-scrollbar{
+  width: 0;
+}
+
+.movies-category-03::-webkit-scrollbar{
   width: 0;
 }
 
@@ -2116,8 +2104,8 @@ top: 12vw;
 width: 30vw;
 }
 
-.movie-category1,.movie-category2,.movie-category3,.movie-category4,.movie-category5{
-  animation: newfade .25s;
+.movie-category1,.movie-category2,.movie-category3,.movie-category4,.movie-category5,.left-scroll,.right-scroll,.left-scroll2,.right-scroll2,.left-scroll3,.right-scroll3,.left-scroll4,.right-scroll4,.left-scroll5,.right-scroll5,.c-title,.movies-category-01,.movies-category-02,.new-leftbtn-01,.new-leftbtn-02,.new-leftbtn-03,.new-rightbtn-01,.new-rightbtn-02,.new-rightbtn-03,.new-title01,.new-title02,.new-title03,.movies-category-03{
+  animation: newfade .32s;
 }
 
 @keyframes newfade {
@@ -2146,12 +2134,58 @@ width: 30vw;
   scroll-behavior: smooth;
 }
 
+.movies-category-02{
+  display: none;
+  width: 100%;
+  position: relative;
+  bottom: 25vw;
+  padding-left: 3.2vw;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.movies-category-03{
+  display: none;
+  width: 100%;
+  position: relative;
+  bottom: 38.2vw;
+  padding-left: 3.2vw;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
 .new-leftbtn-01{
   display: none;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: -4vw;
+  left: .5vw;
+  width: 2.5vw;
+  z-index: 50;
+
+}
+
+.new-leftbtn-02{
+  display: none;
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: 15.8vw;
+  left: .5vw;
+  width: 2.5vw;
+  z-index: 50;
+
+}
+
+.new-leftbtn-03{
+  display: none;
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: 33.2vw;
   left: .5vw;
   width: 2.5vw;
   z-index: 50;
@@ -2168,6 +2202,28 @@ width: 30vw;
   z-index: 50;
 
 }
+.new-rightbtn-02{
+  display: none;
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: 16.2vw;
+  right: .5vw;
+  width: 1.6vw;
+  z-index: 50;
+
+}
+.new-rightbtn-03{
+  display: none;
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: 33.5vw;
+  right: .5vw;
+  width: 1.6vw;
+  z-index: 50;
+
+}
 
 .new-title01{
   display: none;
@@ -2177,6 +2233,32 @@ width: 30vw;
   font-size: 1.4vw;
   text-align: left;
   bottom: 10vw;
+  left: 3.5vw;
+  z-index: 10;
+  color: white;
+}
+
+.new-title02{
+  display: none;
+  position: relative;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 1.4vw;
+  text-align: left;
+  bottom: 21.3vw;
+  left: 3.5vw;
+  z-index: 10;
+  color: white;
+}
+
+.new-title03{
+  display: none;
+  position: relative;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 1.4vw;
+  text-align: left;
+  bottom: 34.5vw;
   left: 3.5vw;
   z-index: 10;
   color: white;
