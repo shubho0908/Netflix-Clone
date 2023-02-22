@@ -11,6 +11,10 @@
     .my-list,
     .movie-tab,
     .list-name,
+    .new-left01,
+    .new-right01,
+    .new-leftbtn-01,
+    .new-rightbtn-01,
     .logo-anchor,
     .movies-category-01,
     .movie-all-data2,
@@ -1563,7 +1567,7 @@ input.check {
   display: none;
   width: 100%;
   position: relative;
-  bottom: 14.2vw;
+  bottom: 10.2vw;
   padding-left: 3.2vw;
   overflow-y: hidden;
   overflow-x: auto;
@@ -1830,6 +1834,7 @@ opacity: 1;
   z-index: 50;
 
 }
+
 
 .right-btn{
   cursor: pointer;
@@ -2130,4 +2135,32 @@ width: 30vw;
   100%{
     opacity: 1;
   }
+}
+
+
+/* Button Adjust  */
+
+
+.new-leftbtn-01{
+  display: none;
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: -3.5vw;
+  left: .5vw;
+  width: 2.5vw;
+  z-index: 50;
+
+}
+
+.new-rightbtn-01{
+  display: none;
+  cursor: pointer;
+  filter: invert(1);
+  position: absolute;
+  top: -3vw;
+  right: .5vw;
+  width: 1.6vw;
+  z-index: 50;
+
 }

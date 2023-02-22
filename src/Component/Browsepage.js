@@ -147,7 +147,8 @@ const Browsepage = (props) => {
     document.querySelector(".movie-category4").style.display = "none";
     document.querySelector(".movie-category5").style.display = "none";
     document.querySelector(".movies-category-01").style.display = "none";
-
+    document.querySelector(".new-leftbtn-01").style.display = "none";
+    document.querySelector(".new-rightbtn-01").style.display = "none";
     document.querySelector(".left-scroll").style.display = "none";
     document.querySelector(".right-scroll").style.display = "none";
     document.querySelector(".left-scroll2").style.display = "none";
@@ -192,9 +193,10 @@ const Browsepage = (props) => {
     document.querySelector(".movie-category4").style.display = "none";
     document.querySelector(".movie-category5").style.display = "none";
     document.querySelector(".movies-category-01").style.display = "flex";
-
-    document.querySelector(".left-scroll").style.display = "block";
-    document.querySelector(".right-scroll").style.display = "block";
+    document.querySelector(".new-leftbtn-01").style.display = "block";
+    document.querySelector(".new-rightbtn-01").style.display = "block";
+    document.querySelector(".left-scroll").style.display = "none";
+    document.querySelector(".right-scroll").style.display = "none";
     document.querySelector(".left-scroll2").style.display = "none";
     document.querySelector(".right-scroll2").style.display = "none";
     document.querySelector(".left-scroll3").style.display = "none";
@@ -253,6 +255,8 @@ const Browsepage = (props) => {
     document.querySelector(".right-scroll4").style.display = "block";
     document.querySelector(".left-scroll5").style.display = "block";
     document.querySelector(".right-scroll5").style.display = "block";
+    document.querySelector(".new-leftbtn-01").style.display = "none";
+    document.querySelector(".new-rightbtn-01").style.display = "none";
   };
 
   useEffect(() => {
@@ -859,7 +863,7 @@ const Browsepage = (props) => {
                 })
               )}
             </div>
-            <div className="left-scroll new-left01">
+            <div className="new-left01">
               <img
                 onClick={() => {
                   const carousel = document.querySelector(".movies-category-01");
@@ -867,10 +871,10 @@ const Browsepage = (props) => {
                 }}
                 src={left}
                 alt=""
-                className="left-btn new-leftbtn-01"
+                className="new-leftbtn-01"
               />
             </div>
-            <div className="right-scroll new-right01">
+            <div className="new-right01">
               <img
                 onClick={() => {
                   const carousel = document.querySelector(".movies-category-01");
@@ -878,7 +882,7 @@ const Browsepage = (props) => {
                 }}
                 src={right}
                 alt=""
-                className="right-btn new-rightbtn-01"
+                className="new-rightbtn-01"
               />
             </div>
             <div className="movies-category-01">
