@@ -44,6 +44,10 @@ const Browsepage = (props) => {
     const searchValue = e.target.value;
     document.querySelector(".poster").style.display = "none";
     document.querySelector(".my-list").style.display = "none";
+    document.querySelector(".movies-category-01").style.display = "none";
+    document.querySelector(".list-name").style.display = "none";
+  document.querySelector(".list-name").style.display = "none";
+  document.querySelector('.new-title01').style.display = "none";
     document.querySelector(".search-data").style.display = "grid";
 
     fetch(
@@ -103,10 +107,7 @@ const Browsepage = (props) => {
       const response = await fetch(url);
       const data = await response.json();
       setSearchData(data.results);
-      document.querySelector(".my-list").style.display = "none";
-      document.querySelector(".list-name").style.display = "none";
-    document.querySelector(".movies-category-01").style.display = "none";
-    document.querySelector(".list-name").style.display = "none";
+
     }
   };
 
@@ -136,6 +137,7 @@ const Browsepage = (props) => {
     document.querySelector(".search-data").style.display = "none";
     document.querySelector(".search-data").style.bottom = "-5.2vw";
     document.querySelector(".poster").style.display = "none";
+    document.querySelector('.new-title01').style.display = "none";
     document.querySelector('.category-title1').style.display = "none";
     document.querySelector('.category-title2').style.display = "none";
     document.querySelector('.category-title3').style.display = "none";
@@ -187,6 +189,7 @@ const Browsepage = (props) => {
     document.querySelector('.category-title3').style.display = "none";
     document.querySelector('.category-title4').style.display = "none";
     document.querySelector('.category-title5').style.display = "none";
+    document.querySelector('.new-title01').style.display = "block";
     document.querySelector(".movie-category1").style.display = "none";
     document.querySelector(".movie-category2").style.display = "none";
     document.querySelector(".movie-category3").style.display = "none";
@@ -230,10 +233,11 @@ const Browsepage = (props) => {
     document.querySelector(".tv-shows").style.fontWeight = "400";
     document.querySelector(".poster").style.display = "block";
     document.querySelector(".search-data").style.display = "none";
+    document.querySelector(".search-data").style.bottom = "11vw";
     document.querySelector(".my-list").style.display = "none";
     document.querySelector(".list-name").style.display = "none";
-    
-    document.querySelector('.category-title1').style.display = "block";
+    document.querySelector('.new-title01').style.display = "none";
+        document.querySelector('.category-title1').style.display = "block";
     document.querySelector('.category-title2').style.display = "block";
     document.querySelector('.category-title3').style.display = "block";
     document.querySelector('.category-title4').style.display = "block";
@@ -297,9 +301,9 @@ const Browsepage = (props) => {
     };
 
     const FetchMovies2 = async () => {
-      let pageno = Math.floor(Math.random() * 200) + 1;
+      let pageno = Math.floor(Math.random() * 45) + 1;
 
-      const url = `https://api.themoviedb.org/3/movie/popular?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}`;
+      const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}&region=in`;
       const data = await fetch(url);
       const new_data = await data.json();
       setMovies2(new_data.results);
@@ -885,8 +889,9 @@ const Browsepage = (props) => {
                 className="new-rightbtn-01"
               />
             </div>
+            <p className="new-title01">Most Liked</p>
             <div className="movies-category-01">
-              {movies.map((items) => {
+              {movies2.map((items) => {
                 return (
                   <>
                     <div className="now-playing" key={items.id}>
