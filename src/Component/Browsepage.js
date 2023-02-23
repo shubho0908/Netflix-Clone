@@ -79,7 +79,7 @@ const Browsepage = (props) => {
     document.querySelector(".list-name").style.display = "none";
 
     fetch(
-      `https://api.themoviedb.org/3/search/multi?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&query=${searchValue}&page=1&include_adult=false`
+      `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchValue}&page=1&include_adult=false`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -128,7 +128,7 @@ const Browsepage = (props) => {
         MoviesTab();
       }
     } else {
-      const url = `https://api.themoviedb.org/3/search/multi?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&query=${searchValue}&page=1&include_adult=false`;
+      const url = `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchValue}&page=1&include_adult=false`;
       const response = await fetch(url);
       const data = await response.json();
       setSearchData(data.results);
@@ -317,35 +317,35 @@ const Browsepage = (props) => {
   useEffect(() => {
     const FetchData = async () => {
       const url =
-        "https://api.themoviedb.org/3/movie/popular?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=1";
+        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`;
       const data = await fetch(url);
       const new_data = await data.json();
       setMovies(new_data.results);
     };
     const TrendingMovies = async () => {
       let pageno = Math.floor(Math.random() * 100) + 1;
-      const url = `https://api.themoviedb.org/3/trending/all/week?api_key=0bee82696d9f2ec6851e2a729cf4c379&page=${pageno}`;
+      const url = `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_API_KEY}&page=${pageno}`;
       const data = await fetch(url);
       const new_data = await data.json();
       setTrending(new_data.results);
     };
     const TopRated = async () => {
       let pageno = Math.floor(Math.random() * 450) + 1;
-      const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}`;
+      const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${pageno}`;
       const data = await fetch(url);
       const new_data = await data.json();
       setRated(new_data.results);
     };
     const ClassicAnime = async () => {
       let pageno = Math.floor(Math.random() * 2) + 1;
-      const url = `https://api.themoviedb.org/3/movie/129/recommendations?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}`;
+      const url = `https://api.themoviedb.org/3/movie/129/recommendations?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${pageno}`;
       const data = await fetch(url);
       const new_data = await data.json();
       setAnime1(new_data.results);
     };
     const TVshows = async () => {
       let pageno = Math.floor(Math.random() * 40) + 1;
-      const url = `https://api.themoviedb.org/3/tv/popular?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}`;
+      const url = `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${pageno}`;
       const data = await fetch(url);
       const new_data = await data.json();
       setTV(new_data.results);
@@ -354,7 +354,7 @@ const Browsepage = (props) => {
     const FetchMovies2 = async () => {
       let pageno = Math.floor(Math.random() * 45) + 1;
 
-      const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}&region=in`;
+      const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${pageno}&region=in`;
       const data = await fetch(url);
       const new_data = await data.json();
       setMovies2(new_data.results);
@@ -363,7 +363,7 @@ const Browsepage = (props) => {
     const FetchMovies3 = async () => {
       let pageno = Math.floor(Math.random() * 2) + 1;
 
-      const url = `https://api.themoviedb.org/3/movie/19995/recommendations?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}`;
+      const url = `https://api.themoviedb.org/3/movie/19995/recommendations?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${pageno}`;
       const data = await fetch(url);
       const new_data = await data.json();
       setRecommendation(new_data.results);
@@ -372,7 +372,7 @@ const Browsepage = (props) => {
     const FetchTV = async () => {
       let pageno = Math.floor(Math.random() * 50) + 1;
 
-      const url = `https://api.themoviedb.org/3/trending/tv/week?api_key=0bee82696d9f2ec6851e2a729cf4c379&page=${pageno}`;
+      const url = `https://api.themoviedb.org/3/trending/tv/week?api_key=${process.env.REACT_APP_API_KEY}&page=${pageno}`;
       const data = await fetch(url);
       const new_data = await data.json();
       setTrendingTV(new_data.results);
@@ -381,7 +381,7 @@ const Browsepage = (props) => {
     const Fictional = async () => {
       let pageno = Math.floor(Math.random() * 100) + 1;
 
-      const url = `https://api.themoviedb.org/3/movie/616037/similar?api_key=0bee82696d9f2ec6851e2a729cf4c379&language=en-US&page=${pageno}`;
+      const url = `https://api.themoviedb.org/3/movie/616037/similar?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${pageno}`;
       const data = await fetch(url);
       const new_data = await data.json();
       setFiction(new_data.results);
