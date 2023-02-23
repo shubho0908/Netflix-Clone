@@ -1593,7 +1593,7 @@ input.check {
   cursor: pointer;
   position: relative;
   width: 1.8vw;
-  right: 0.8vw;
+  right: -0.3vw;
   border-radius: .15vw;
 }
 .nav-css{
@@ -1647,7 +1647,7 @@ input.check {
   width: 100%;
   position: relative;
   padding-left: 3.2vw;
-  bottom: 52vw;
+  bottom: 50.5vw;
   overflow-y: hidden;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -1658,7 +1658,7 @@ input.check {
   width: 100%;
   position: relative;
   padding-left: 3.2vw;
-  bottom: 64.2vw;
+  bottom: 63.8vw;
   overflow-y: hidden;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -1820,7 +1820,7 @@ opacity: 1;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: 31.5vw;
+  top: 30.8vw;
   left: .5vw;
   width: 2.5vw;
   z-index: 50;
@@ -1874,7 +1874,7 @@ opacity: 1;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
-  top: 32.2vw;
+  top: 31.4vw;
   right: .5vw;
   width: 1.6vw;
   z-index: 50;
@@ -1958,7 +1958,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   font-weight: 600;
   font-size: 1.4vw;
   text-align: left;
-  bottom: 48vw;
+  bottom: 46.5vw;
   left: 3.5vw;
 }
 
@@ -1967,7 +1967,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   font-weight: 600;
   font-size: 1.4vw;
   text-align: left;
-  bottom: 60.2vw;
+  bottom: 60vw;
   left: 3.5vw;
 }
 
@@ -2023,15 +2023,15 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
 
 .match{
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: 600;
-  color: rgb(6, 157, 6);
+  font-weight: bolder;
+  color: rgb(6, 190, 6);
 }
 
 .rating{
   color: white;
   padding: .2vw;
   font-size: .6vw;
-  border-radius: .2vw;
+  border-radius: .1vw;
   margin-left: .7vw;
   margin-right: .3vw;
   height: 100%;
@@ -2044,7 +2044,8 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   color: white;
   padding: .2vw;
   font-size: .6vw;
-  border-radius: .2vw;
+  border-radius: .1vw;
+  font-weight: bolder;
   margin-left: .3vw;
   margin-right: .3vw;
   height: 100%;
@@ -2095,7 +2096,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   cursor: pointer;
   display: flex;
   align-items: center;
-  width: 12vw;
+  width: 11vw;
 }
 
 .App::-webkit-scrollbar{
@@ -2349,17 +2350,18 @@ width: 30vw;
 
 .user-data{
   display: none;
-  background-color: #434343ce;
+  background-color: #252525ce;
   color: white;
   position: absolute;
-  right: -.8vw;
+  right: -2vw;
   top: 2.3vw;
-  border-radius: .2vw;
+  border-radius: .1vw;
   width: 5vw;
   z-index: 500;
   font-weight: 600;
   font-size: .9vw;
 }
+
 
 .signout{
   cursor: pointer;

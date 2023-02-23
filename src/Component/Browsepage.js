@@ -33,6 +33,7 @@ const Browsepage = (props) => {
   const [TrendingTV, setTrendingTV] = useState([]);
   const [Fiction, setFiction] = useState([]);
   const [isClicked, setClicked] = useState(false);
+  const [searchClicked, setsearchClicked] = useState(false);
 
   const [isHome, setHome] = useState(true);
   const [isList, setList] = useState(false);
@@ -50,8 +51,15 @@ const Browsepage = (props) => {
   window.addEventListener("scroll", changeBG);
 
   const SearchChange = () => {
-    document.querySelector(".search-white").style.opacity = "0";
-    document.querySelector(".search-bar").style.opacity = "1";
+    setsearchClicked(!searchClicked)
+    if (!searchClicked) {
+      document.querySelector(".search-white").style.opacity = "0";
+      document.querySelector(".search-bar").style.opacity = "1";
+       }
+       else{
+        document.querySelector(".search-white").style.opacity = "1";
+        document.querySelector(".search-bar").style.opacity = "0";
+       }
   };
 
   const OnSearch = async (e) => {
