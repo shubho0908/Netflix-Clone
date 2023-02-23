@@ -3,7 +3,6 @@ import { getAuth, signOut } from "firebase/auth";
 import { app } from "../Firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { AddToList, RemoveList } from "../action/add";
-import Poster from "../img/movie/bg-poster.png";
 import Poster2 from "../img/movie/bg-2.gif";
 import avatar from "../img/avatar.png";
 import Logo from "../img/logo.png";
@@ -13,7 +12,7 @@ import right from "../img/right.png";
 import play from "../img/play.png";
 import add from "../img/add.png";
 import added from "../img/added.png";
-import movieposter from "../img/movie/kantara.png";
+import movieposter2 from "../img/movie/bg-3.gif";
 
 const auth = getAuth(app);
 
@@ -202,7 +201,7 @@ const Browsepage = (props) => {
     setisMovies(true);
     setHome(false);
     setList(false);
-    document.querySelector(".poster").src = movieposter;
+    document.querySelector(".poster").src = movieposter2;
     document.querySelector(".movies-section").style.height = "100vh";
     document.querySelector(".all-dataa").style.height = "100vh";
     document.querySelector(".movies").style.color = "white";
@@ -260,7 +259,7 @@ const Browsepage = (props) => {
     setHome(true);
     setList(false);
     setisMovies(false);
-    document.querySelector(".poster").src = Poster;
+    document.querySelector(".poster").src = Poster2;
     document.querySelector(".movies-section").style.height = "100vh";
     document.querySelector(".all-dataa").style.height = "100vh";
     document.querySelector(".home").style.color = "white";
