@@ -173,7 +173,11 @@
     .two-buttons,
     .extra-data,
     .match,
-    .rating,.HD,.movie-desc,.circle-play,.add-list
+    .rating,
+    .HD,
+    .movie-desc,
+    .circle-play,
+    .add-list
   ) {
   margin: 0;
   padding: 0;
@@ -413,15 +417,16 @@ input.check {
       .search-bar,
       .movie-all-data2,
       .top-movies,
-    .all-dataa,
-  .search-data,
-  .search-movies,
-  .list-movies,
+      .all-dataa,
+      .search-data,
+      .search-movies,
+      .list-movies,
       .anime1-movies,
       .top-india-movies,
       .signin-button,
       .start-link,
-      .email-inp,.password-inp,
+      .email-inp,
+      .password-inp,
       .c-title,
       .navbar-4,
       .search-white,
@@ -440,11 +445,11 @@ input.check {
       .left-scroll3,
       .left-scroll4,
       .left-scroll5,
-    .left-btn,
-    .left-btn2,
-    .left-btn3,
-    .left-btn4,
-    .left-btn5,
+      .left-btn,
+      .left-btn2,
+      .left-btn3,
+      .left-btn4,
+      .left-btn5,
       .now-playing,
       .trending-movies,
       .movies-section,
@@ -535,15 +540,28 @@ input.check {
       .email-valid,
       .break,
       .navbar-2,
-      .acc1,.acc2,.acc3,.acc1-item,.acc2-item,.acc3-item,
-      .right-arrow,.acc1-icon,.acc2-icon,.acc3-icon,
-      .enter-details,.start-btn,
+      .acc1,
+      .acc2,
+      .acc3,
+      .acc1-item,
+      .acc2-item,
+      .acc3-item,
+      .right-arrow,
+      .acc1-icon,
+      .acc2-icon,
+      .acc3-icon,
+      .enter-details,
+      .start-btn,
       .movie-all-data,
-    .movie-title,
-    .two-buttons,
-    .extra-data,
-    .match,
-    .rating,.HD,.movie-desc,.circle-play,.add-list
+      .movie-title,
+      .two-buttons,
+      .extra-data,
+      .match,
+      .rating,
+      .HD,
+      .movie-desc,
+      .circle-play,
+      .add-list
     ) {
     background: black !important;
   }
@@ -1541,13 +1559,13 @@ input.check {
   width: 9.8vw;
   position: relative;
   bottom: 23vw;
-  border-radius: .2vw;
+  border-radius: 0.2vw;
   left: -39.1vw;
   border: none;
   transition: all 0.2s;
 }
 
-.play1:hover{
+.play1:hover {
   transform: scale(1.1);
 }
 
@@ -1561,7 +1579,7 @@ input.check {
   background: none;
   width: 98.5vw;
   z-index: 600;
-  padding: .8vw;
+  padding: 0.8vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1586,7 +1604,7 @@ input.check {
   display: flex;
   align-items: center;
   justify-content: right;
-  right:6vw;
+  right: 6vw;
 }
 
 .account-img {
@@ -1594,22 +1612,30 @@ input.check {
   position: relative;
   width: 1.8vw;
   right: -0.3vw;
-  border-radius: .15vw;
+  border-radius: 0.15vw;
 }
-.nav-css{
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,1) 2%, rgba(19, 19, 19, 0.825) 100%);
+.nav-css {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 2%,
+    rgba(19, 19, 19, 0.825) 100%
+  );
 }
 
-.movies-section{
+.movies-section {
   position: relative;
-  bottom:8vw;
+  bottom: 8vw;
   height: 100%;
   margin: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,1) 3%, rgba(20,20,20,1) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 3%,
+    rgba(20, 20, 20, 1) 100%
+  );
 }
 
-.movie-category1{
+.movie-category1 {
   display: flex;
   width: 100%;
   position: relative;
@@ -1620,7 +1646,7 @@ input.check {
   scroll-behavior: smooth;
 }
 
-.movie-category2{
+.movie-category2 {
   display: flex;
   width: 100%;
   position: relative;
@@ -1631,7 +1657,7 @@ input.check {
   scroll-behavior: smooth;
 }
 
-.movie-category3{
+.movie-category3 {
   display: flex;
   width: 100%;
   position: relative;
@@ -1642,7 +1668,7 @@ input.check {
   scroll-behavior: smooth;
 }
 
-.movie-category4{
+.movie-category4 {
   display: flex;
   width: 100%;
   position: relative;
@@ -1653,7 +1679,7 @@ input.check {
   scroll-behavior: smooth;
 }
 
-.movie-category5{
+.movie-category5 {
   display: flex;
   width: 100%;
   position: relative;
@@ -1664,7 +1690,7 @@ input.check {
   scroll-behavior: smooth;
 }
 
-.search-data{
+.search-data {
   display: none;
   grid-template-columns: repeat(4, 20vw);
   grid-template-rows: repeat(5, 14vw);
@@ -1680,7 +1706,7 @@ input.check {
   scroll-behavior: smooth;
 }
 
-.my-list{
+.my-list {
   display: none;
   grid-template-columns: repeat(4, 20vw);
   grid-template-rows: repeat(5, 14vw);
@@ -1696,211 +1722,222 @@ input.check {
   scroll-behavior: smooth;
 }
 
-.movie-category1::-webkit-scrollbar{
+.movie-category1::-webkit-scrollbar {
   width: 0;
 }
 
-.movie-category2::-webkit-scrollbar{
+.movie-category2::-webkit-scrollbar {
   width: 0;
 }
 
-.movie-category3::-webkit-scrollbar{
+.movie-category3::-webkit-scrollbar {
   width: 0;
 }
 
-.movie-category4::-webkit-scrollbar{
+.movie-category4::-webkit-scrollbar {
   width: 0;
 }
 
-.movie-category5::-webkit-scrollbar{
+.movie-category5::-webkit-scrollbar {
   width: 0;
 }
 
-.movies-category-01::-webkit-scrollbar{
+.movies-category-01::-webkit-scrollbar {
   width: 0;
 }
 
-.movies-category-02::-webkit-scrollbar{
+.movies-category-02::-webkit-scrollbar {
   width: 0;
 }
 
-.movies-category-03::-webkit-scrollbar{
+.movies-category-03::-webkit-scrollbar {
   width: 0;
 }
 
-.movies-category-04::-webkit-scrollbar{
+.movies-category-04::-webkit-scrollbar {
   width: 0;
 }
 
-.search-data::-webkit-scrollbar{
+.search-data::-webkit-scrollbar {
   width: 0;
 }
 
-.my-list::-webkit-scrollbar{
+.my-list::-webkit-scrollbar {
   width: 0;
 }
 
-
-.now-playing>img, .trending-movies>img,.top-movies>img, .anime1-movies>img,.top-india-movies>img{
-  border-radius: .3vw;
+.now-playing > img,
+.trending-movies > img,
+.top-movies > img,
+.anime1-movies > img,
+.top-india-movies > img {
+  border-radius: 0.3vw;
   margin-left: 0.25vw;
   margin-right: 0.25vw;
   margin-top: 3.55vw;
   margin-bottom: 2.25vw;
   cursor: pointer;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   width: 16vw;
 }
 
-.search-movies>img{
-  
-  border-radius: .3vw;
+.search-movies > img {
+  border-radius: 0.3vw;
   margin-left: 0.25vw;
   margin-right: 0.25vw;
   margin-top: 3.55vw;
   margin-bottom: 2.25vw;
   cursor: pointer;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   width: 18.8vw;
 }
 
-.list-movies>img{
-  
-  border-radius: .3vw;
+.list-movies > img {
+  border-radius: 0.3vw;
   margin-left: 0.25vw;
   margin-right: 0.25vw;
   margin-top: 3.55vw;
   margin-bottom: 2.25vw;
   cursor: pointer;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   width: 18.8vw;
 }
 
-
-.now-playing,.top-movies,.trending-movies,.anime1-movies,.top-india-movies, .search-movies, .list-movies{
+.now-playing,
+.top-movies,
+.trending-movies,
+.anime1-movies,
+.top-india-movies,
+.search-movies,
+.list-movies {
   cursor: pointer;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-
-.now-playing:hover ,.trending-movies:hover,.top-movies:hover, .anime1-movies:hover, .top-india-movies:hover, .search-movies:hover,.list-movies:hover {
+.now-playing:hover,
+.trending-movies:hover,
+.top-movies:hover,
+.anime1-movies:hover,
+.top-india-movies:hover,
+.search-movies:hover,
+.list-movies:hover {
   position: relative;
   z-index: 40;
   transform: scale(1.3);
 }
 
-.now-playing:hover .movie-all-data,.trending-movies:hover .movie-all-data,.top-movies:hover .movie-all-data, .anime1-movies:hover .movie-all-data, .top-india-movies:hover .movie-all-data, .search-movies:hover .movie-all-data2, .list-movies:hover .movie-all-data2{
-opacity: 1;
+.now-playing:hover .movie-all-data,
+.trending-movies:hover .movie-all-data,
+.top-movies:hover .movie-all-data,
+.anime1-movies:hover .movie-all-data,
+.top-india-movies:hover .movie-all-data,
+.search-movies:hover .movie-all-data2,
+.list-movies:hover .movie-all-data2 {
+  opacity: 1;
   visibility: visible;
 }
 
-
-.left-btn{
+.left-btn {
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: -4.5vw;
-  left: .5vw;
+  left: 0.5vw;
   width: 2.5vw;
   z-index: 50;
 }
 
-.left-btn2{
+.left-btn2 {
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: 13vw;
-  left: .5vw;
+  left: 0.5vw;
   width: 2.5vw;
   z-index: 50;
-
 }
 
-.left-btn3{
+.left-btn3 {
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: 30.8vw;
-  left: .5vw;
+  left: 0.5vw;
   width: 2.5vw;
   z-index: 50;
-
 }
 
-.left-btn4{
+.left-btn4 {
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: 48.6vw;
-  left: .5vw;
+  left: 0.5vw;
   width: 2.5vw;
   z-index: 50;
-
 }
 
-.left-btn5{
+.left-btn5 {
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: 66vw;
-  left: .5vw;
+  left: 0.5vw;
   width: 2.5vw;
   z-index: 50;
-
 }
 
-
-.right-btn{
+.right-btn {
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: -3.7vw;
-  right: .5vw;
+  right: 0.5vw;
   width: 1.6vw;
   z-index: 50;
 }
 
-.right-btn2{
+.right-btn2 {
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: 13.8vw;
-  right: .5vw;
+  right: 0.5vw;
   width: 1.6vw;
   z-index: 50;
 }
 
-.right-btn3{
+.right-btn3 {
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: 31.4vw;
-  right: .5vw;
+  right: 0.5vw;
   width: 1.6vw;
   z-index: 50;
 }
 
-.right-btn4{
+.right-btn4 {
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: 49.3vw;
-  right: .5vw;
+  right: 0.5vw;
   width: 1.6vw;
   z-index: 50;
 }
 
-.right-btn5{
+.right-btn5 {
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: 66.8vw;
-  right: .5vw;
+  right: 0.5vw;
   width: 1.6vw;
   z-index: 50;
 }
 
-.search-white{
+.search-white {
   cursor: pointer;
   position: relative;
   cursor: pointer;
@@ -1909,25 +1946,28 @@ opacity: 1;
   width: 1.2vw;
   height: 100%;
   margin-right: 2vw;
-  transition: all .25s;
-
+  transition: all 0.25s;
 }
 
-
-.app4{
+.app4 {
   overflow-x: hidden;
-background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(20, 20, 20, 1) 63%
+  );
 }
 
-.c-title{
+.c-title {
   position: relative;
   z-index: 10;
   color: white;
   width: 25vw;
 }
 
-.category-title1{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.category-title1 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
   font-size: 1.4vw;
   text-align: left;
@@ -1935,8 +1975,9 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   left: 3.5vw;
 }
 
-.category-title2{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.category-title2 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
   font-size: 1.4vw;
   text-align: left;
@@ -1944,8 +1985,9 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   left: 3.5vw;
 }
 
-.category-title3{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.category-title3 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
   font-size: 1.4vw;
   text-align: left;
@@ -1953,8 +1995,9 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   left: 3.5vw;
 }
 
-.category-title4{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.category-title4 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
   font-size: 1.4vw;
   text-align: left;
@@ -1962,8 +2005,9 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   left: 3.5vw;
 }
 
-.category-title5{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.category-title5 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
   font-size: 1.4vw;
   text-align: left;
@@ -1971,196 +2015,223 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 63%);
   left: 3.5vw;
 }
 
-.movie-title{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.movie-title {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 700;
-  font-size:.8vw;
+  font-size: 0.8vw;
   color: white;
 }
 
-.movie-all-data{
+.movie-all-data {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items:flex-start;
+  align-items: flex-start;
   background-color: #1f1f1f;
-  border-bottom-right-radius: .3vw;
-  border-bottom-left-radius: .3vw;
-  font-size: .68vw;
-  padding: .4vw;
+  border-bottom-right-radius: 0.3vw;
+  border-bottom-left-radius: 0.3vw;
+  font-size: 0.68vw;
+  padding: 0.4vw;
   bottom: 4.7vw;
   opacity: 0;
-  transition: all .28s;
+  transition: all 0.28s;
   transform: scale(0.969);
   visibility: hidden;
-
 }
-.movie-all-data2{
+.movie-all-data2 {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items:flex-start;
+  align-items: flex-start;
   background-color: #1f1f1f;
-  border-bottom-right-radius: .3vw;
-  border-bottom-left-radius: .3vw;
-  font-size: .68vw;
-  padding: .4vw;
+  border-bottom-right-radius: 0.3vw;
+  border-bottom-left-radius: 0.3vw;
+  font-size: 0.68vw;
+  padding: 0.4vw;
   bottom: 4.7vw;
   left: 0.25vw;
-    width: 18.7vw;
+  width: 18.7vw;
   opacity: 0;
-  transition: all .28s;
+  transition: all 0.28s;
   transform: scale(0.969);
   visibility: hidden;
-
 }
 
-.extra-data{
+.extra-data {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.match{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.match {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: bolder;
   color: rgb(6, 190, 6);
 }
 
-.rating{
+.rating {
   color: white;
-  padding: .2vw;
-  font-size: .6vw;
-  border-radius: .1vw;
-  margin-left: .7vw;
-  margin-right: .3vw;
+  padding: 0.2vw;
+  font-size: 0.6vw;
+  border-radius: 0.1vw;
+  margin-left: 0.7vw;
+  margin-right: 0.3vw;
   height: 100%;
-  
+
   border: 1px solid white;
 }
 
-.HD{
+.HD {
   width: 1.3vw;
   color: white;
-  padding: .2vw;
-  font-size: .6vw;
-  border-radius: .1vw;
+  padding: 0.2vw;
+  font-size: 0.6vw;
+  border-radius: 0.1vw;
   font-weight: bolder;
-  margin-left: .3vw;
-  margin-right: .3vw;
+  margin-left: 0.3vw;
+  margin-right: 0.3vw;
   height: 100%;
 
   border: 1px solid white;
 }
 
-.movie-desc{
+.movie-desc {
   color: white;
   text-align: left;
   margin-top: 0;
 }
 
-.two-buttons{
+.two-buttons {
   display: flex;
   cursor: pointer;
 }
 
-.circle-play, .add-list{
-  margin-top: .4vw;
+.circle-play,
+.add-list {
+  margin-top: 0.4vw;
   width: 1.8vw;
 }
 
-
-.add-list{
-  margin-left: .4vw;
-
+.add-list {
+  margin-left: 0.4vw;
 }
 
-.search-bar{
+.search-bar {
   cursor: pointer;
   height: 1.8vw;
-  border-radius: .18vw;
+  border-radius: 0.18vw;
   position: relative;
   width: 12vw;
   right: 4.3vw;
   opacity: 0;
-  transition: all .25s;
-  padding-left: .6vw;
-  padding-right: .6vw;
+  transition: all 0.25s;
+  padding-left: 0.6vw;
+  padding-right: 0.6vw;
   font-family: sans-serif;
-  font-size: .85vw;
+  font-size: 0.85vw;
   color: white;
   background-color: #5a5a5a54;
 }
 
-.search-icon{
+.search-icon {
   cursor: pointer;
   display: flex;
   align-items: center;
   width: 11vw;
 }
 
-.App::-webkit-scrollbar{
+.App::-webkit-scrollbar {
   display: none;
 }
 
-.movies-section, .all-dataa{
+.movies-section,
+.all-dataa {
   height: 100vh;
 }
 
-.category-lists>li{
-color: rgba(255, 255, 255, 0.742);
+.category-lists > li {
+  color: rgba(255, 255, 255, 0.742);
 }
 
-.category-lists>li:hover{
-  color: white !important;
-
-}
-
-.home{
+.category-lists > li:hover {
   color: white !important;
 }
 
-.list-name{
+.home {
+  color: white !important;
+}
+
+.list-name {
   display: none;
   color: white;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 2.2vw;
   position: relative;
   top: 8vw;
   text-align: left;
-  left:9.5vw;
+  left: 9.5vw;
 }
 
-.empty{
-color: white;
-font-size: 2vw;
-text-align: center;
-position: relative;
-left: 26vw;
-top: 12vw;
-width: 30vw;
+.empty {
+  color: white;
+  font-size: 2vw;
+  text-align: center;
+  position: relative;
+  left: 26vw;
+  top: 12vw;
+  width: 30vw;
 }
 
-.movie-category1,.movie-category2,.movie-category3,.movie-category4,.movie-category5,.left-scroll,.right-scroll,.left-scroll2,.right-scroll2,.left-scroll3,.right-scroll3,.left-scroll4,.right-scroll4,.left-scroll5,.right-scroll5,.c-title,.movies-category-01,.movies-category-02,.new-leftbtn-01,.new-leftbtn-02,.new-leftbtn-03,.new-leftbtn-04,.new-rightbtn-01,.new-rightbtn-02,.new-rightbtn-03,.new-rightbtn-04,.new-title01,.new-title02,.new-title03,.movies-category-03,.movies-category-04{
-  animation: newfade .32s;
+.movie-category1,
+.movie-category2,
+.movie-category3,
+.movie-category4,
+.movie-category5,
+.left-scroll,
+.right-scroll,
+.left-scroll2,
+.right-scroll2,
+.left-scroll3,
+.right-scroll3,
+.left-scroll4,
+.right-scroll4,
+.left-scroll5,
+.right-scroll5,
+.c-title,
+.movies-category-01,
+.movies-category-02,
+.new-leftbtn-01,
+.new-leftbtn-02,
+.new-leftbtn-03,
+.new-leftbtn-04,
+.new-rightbtn-01,
+.new-rightbtn-02,
+.new-rightbtn-03,
+.new-rightbtn-04,
+.new-title01,
+.new-title02,
+.new-title03,
+.movies-category-03,
+.movies-category-04 {
+  animation: newfade 0.32s;
 }
 
 @keyframes newfade {
-  0%{
+  0% {
     opacity: 0;
   }
 
-  100%{
+  100% {
     opacity: 1;
   }
 }
 
-
 /* Button Adjust  */
 
-
-
-.movies-category-01{
+.movies-category-01 {
   display: none;
   width: 100%;
   position: relative;
@@ -2171,7 +2242,7 @@ width: 30vw;
   scroll-behavior: smooth;
 }
 
-.movies-category-02{
+.movies-category-02 {
   display: none;
   width: 100%;
   position: relative;
@@ -2182,7 +2253,7 @@ width: 30vw;
   scroll-behavior: smooth;
 }
 
-.movies-category-03{
+.movies-category-03 {
   display: none;
   width: 100%;
   position: relative;
@@ -2193,7 +2264,7 @@ width: 30vw;
   scroll-behavior: smooth;
 }
 
-.movies-category-04{
+.movies-category-04 {
   display: none;
   width: 100%;
   position: relative;
@@ -2204,102 +2275,95 @@ width: 30vw;
   scroll-behavior: smooth;
 }
 
-.new-leftbtn-01{
+.new-leftbtn-01 {
   display: none;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: -4vw;
-  left: .5vw;
+  left: 0.5vw;
   width: 2.5vw;
   z-index: 50;
-
 }
 
-.new-leftbtn-02{
+.new-leftbtn-02 {
   display: none;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: 12.2vw;
-  left: .5vw;
+  left: 0.5vw;
   width: 2.5vw;
   z-index: 50;
-
 }
 
-.new-leftbtn-03{
+.new-leftbtn-03 {
   display: none;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: 29.2vw;
-  left: .5vw;
+  left: 0.5vw;
   width: 2.5vw;
   z-index: 50;
-
 }
 
-.new-leftbtn-04{
+.new-leftbtn-04 {
   display: none;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: 47.8vw;
-  left: .5vw;
+  left: 0.5vw;
   width: 2.5vw;
   z-index: 50;
-
 }
-.new-rightbtn-01{
+.new-rightbtn-01 {
   display: none;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: -3.2vw;
-  right: .5vw;
+  right: 0.5vw;
   width: 1.6vw;
   z-index: 50;
-
 }
-.new-rightbtn-02{
+.new-rightbtn-02 {
   display: none;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: 13vw;
-  right: .5vw;
+  right: 0.5vw;
   width: 1.6vw;
   z-index: 50;
-
 }
-.new-rightbtn-03{
+.new-rightbtn-03 {
   display: none;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: 30.5vw;
-  right: .5vw;
+  right: 0.5vw;
   width: 1.6vw;
   z-index: 50;
-
 }
-.new-rightbtn-04{
+.new-rightbtn-04 {
   display: none;
   cursor: pointer;
   filter: invert(1);
   position: absolute;
   top: 48.5vw;
-  right: .5vw;
+  right: 0.5vw;
   width: 1.6vw;
   z-index: 50;
-
 }
 
-.new-title01{
+.new-title01 {
   display: none;
   position: relative;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
   font-size: 1.4vw;
   text-align: left;
@@ -2309,10 +2373,11 @@ width: 30vw;
   color: white;
 }
 
-.new-title02{
+.new-title02 {
   display: none;
   position: relative;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
   font-size: 1.4vw;
   text-align: left;
@@ -2322,10 +2387,11 @@ width: 30vw;
   color: white;
 }
 
-.new-title03{
+.new-title03 {
   display: none;
   position: relative;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
   font-size: 1.4vw;
   text-align: left;
@@ -2335,10 +2401,11 @@ width: 30vw;
   color: white;
 }
 
-.new-title04{
+.new-title04 {
   display: none;
   position: relative;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
   font-size: 1.4vw;
   text-align: left;
@@ -2348,220 +2415,323 @@ width: 30vw;
   color: white;
 }
 
-.user-data{
+.user-data {
   display: none;
   background-color: #252525ce;
   color: white;
   position: absolute;
   right: -2vw;
   top: 2.3vw;
-  border-radius: .1vw;
+  border-radius: 0.1vw;
   width: 5vw;
   z-index: 500;
   font-weight: 600;
-  font-size: .9vw;
+  font-size: 0.9vw;
 }
 
-
-.signout{
+.signout {
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
-.signout:hover{
+.signout:hover {
   color: rgb(255, 0, 0);
 }
 
-hr{
+hr {
   opacity: 0.5;
 }
-
 
 /* FINAL MEDIA QUERIES */
 
 /* HOME */
 
 @media (max-width: 1025px) {
-.left-btn2{
-  top: 14.3vw;
-}
-.right-btn2{
-  top: 14.3vw;
+  .left-btn2 {
+    top: 14.3vw;
+  }
+  .right-btn2 {
+    top: 14.3vw;
+  }
+  .left-btn3 {
+    top: 33vw;
+  }
+  .right-btn3 {
+    top: 33.5vw;
+  }
+  .left-btn4 {
+    top: 50.3vw;
+  }
+  .right-btn4 {
+    top: 50.3vw;
+  }
+  .left-btn5 {
+    top: 69vw;
+  }
+  .right-btn5 {
+    top: 69.5vw;
+  }
 
-}
-.left-btn3{
-  top: 33vw;
-}
-.right-btn3{
-  top: 33.5vw;
+  .new-leftbtn-02 {
+    top: 13.6vw;
+  }
 
-}
-.left-btn4{
-  top: 50.3vw;
-}
-.right-btn4{
-  top: 50.3vw;
+  .new-rightbtn-02 {
+    top: 14.2vw;
+  }
 
-}
-.left-btn5{
-  top: 69vw;
-}
-.right-btn5{
-  top: 69.5vw;
+  .new-leftbtn-03 {
+    top: 32.2vw;
+  }
 
-}
-  
+  .new-rightbtn-03 {
+    top: 32.8vw;
+  }
+
+  .new-leftbtn-04 {
+    top: 50.8vw;
+  }
+
+  .new-rightbtn-04 {
+    top: 51.3vw;
+  }
 }
 
 @media (max-width: 768px) {
-  .left-btn2{
+  .left-btn2 {
     top: 15.3vw;
   }
-  .right-btn2{
+  .right-btn2 {
     top: 15.5vw;
   }
-  .left-btn3{
+  .left-btn3 {
     top: 35.3vw;
   }
-  .right-btn3{
+  .right-btn3 {
     top: 36vw;
   }
-  .left-btn4{
+  .left-btn4 {
     top: 53.8vw;
   }
-  .right-btn4{
+  .right-btn4 {
     top: 54vw;
   }
-  .left-btn5{
+  .left-btn5 {
     top: 73vw;
   }
-  .right-btn5{
+  .right-btn5 {
     top: 73.5vw;
+  }
+
+  .new-leftbtn-03 {
+    top: 33.8vw;
+  }
+  .new-rightbtn-03 {
+    top: 34vw;
+  }
+
+  .new-leftbtn-04 {
+    top: 52.8vw;
+  }
+  .new-rightbtn-04 {
+    top: 53.6vw;
   }
 }
 
 @media (max-width: 555px) {
-
-  .category-lists{
+  .category-lists {
     position: relative;
-    top: .3vw;
+    top: 0.3vw;
   }
 
-  .search-white{
-    top: .25vw;
+  .search-white {
+    top: 0.25vw;
   }
 
-  .search-bar{
-    top: .22vw;
+  .search-bar {
+    top: 0.22vw;
   }
 
-  .user-data{
+  .user-data {
     top: 3.5vw;
   }
 
-  .left-btn2{
+  .left-btn2 {
     top: 15.8vw;
   }
-  .right-btn2{
+  .right-btn2 {
     top: 16.5vw;
   }
-  .left-btn3{
+  .left-btn3 {
     top: 37.2vw;
   }
-  .right-btn3{
+  .right-btn3 {
     top: 37.8vw;
   }
-  .left-btn4{
+  .left-btn4 {
     top: 56.5vw;
   }
-  .right-btn4{
+  .right-btn4 {
     top: 56.55vw;
   }
-  .left-btn5{
+  .left-btn5 {
     top: 77vw;
   }
-  .right-btn5{
+  .right-btn5 {
     top: 77.25vw;
+  }
+
+  .new-leftbtn-02 {
+    top: 15vw;
+  }
+
+  .new-rightbtn-02 {
+    top: 15.5vw;
+  }
+
+  .new-leftbtn-03 {
+    top: 35.5vw;
+  }
+
+  .new-rightbtn-03 {
+    top: 36vw;
+  }
+
+  .new-leftbtn-04 {
+    top: 55.2vw;
+  }
+
+  .new-rightbtn-04 {
+    top: 56.4vw;
   }
 }
 
 @media (max-width: 400px) {
-
-  .category-lists{
-    top: .85vw;
+  .category-lists {
+    top: 0.85vw;
   }
-  .search-white{
+  .search-white {
     top: 1vw;
   }
 
-  .search-bar{
+  .search-bar {
     right: 6.2vw;
-    top: .8vw;
+    top: 0.8vw;
   }
-  .user-data{
+  .user-data {
     top: 5.2vw;
   }
 
-  .left-btn2{
+  .left-btn2 {
     top: 17.8vw;
   }
-  .right-btn2{
+  .right-btn2 {
     top: 18vw;
   }
-  .left-btn3{
+  .left-btn3 {
     top: 40.5vw;
   }
-  .right-btn3{
+  .right-btn3 {
     top: 41.2vw;
   }
-  .left-btn4{
-    top: 61vw;
+  .left-btn4 {
+    top: 63vw;
   }
-  .right-btn4{
-    top: 61.6vw;
+  .right-btn4 {
+    top: 63.6vw;
   }
-  .left-btn5{
+  .left-btn5 {
     top: 83.6vw;
   }
-  .right-btn5{
+  .right-btn5 {
     top: 84.3vw;
+  }
+
+  .new-leftbtn-02 {
+    top: 16.6vw;
+  }
+
+  .new-rightbtn-02 {
+    top: 17.7vw;
+
+  }
+  .new-leftbtn-03 {
+    top: 39.3vw;
+  }
+
+  .new-rightbtn-03 {
+    top: 39.7vw;
+
+  }
+  .new-leftbtn-04{
+    top: 60.2vw;
+  }
+
+  .new-rightbtn-04 {
+    top: 61.3vw;
+
   }
 }
 
 @media (max-width: 350px) {
-
-  .category-lists{
+  .category-lists {
     top: 1.1vw;
   }
-  .search-bar{
+  .search-bar {
     right: 5vw;
     top: 1vw;
   }
-  .user-data{
+  .user-data {
     top: 5.6vw;
   }
-  .left-btn2{
+  .left-btn2 {
     top: 18.8vw;
   }
-  .right-btn2{
+  .right-btn2 {
     top: 19vw;
   }
-  .left-btn3{
+  .left-btn3 {
     top: 43vw;
   }
-  .right-btn3{
+  .right-btn3 {
     top: 43.5vw;
   }
-  .left-btn4{
+  .left-btn4 {
     top: 64.5vw;
   }
-  .right-btn4{
+  .right-btn4 {
     top: 65vw;
   }
-  .left-btn5{
+  .left-btn5 {
     top: 88.2vw;
   }
-  .right-btn5{
+  .right-btn5 {
     top: 90vw;
   }
+
+
+  .new-leftbtn-02{
+    top: 17.6vw;
+  }
+
+  .new-rightbtn-02{
+    top: 18.4vw;
+  }
+
+  .new-leftbtn-03{
+    top: 41vw;
+  }
+
+  .new-rightbtn-03{
+    top: 41.2vw;
+  }
+
+  .new-leftbtn-04{
+    top: 64vw;
+  }
+
+  .new-rightbtn-04{
+    top: 64.5vw;
+  }
+
 }
