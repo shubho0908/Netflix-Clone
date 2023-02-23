@@ -4,6 +4,7 @@ import { app } from "../Firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { AddToList, RemoveList } from "../action/add";
 import Poster from "../img/movie/bg-poster.png";
+import Poster2 from "../img/movie/bg-2.gif";
 import avatar from "../img/avatar.png";
 import Logo from "../img/logo.png";
 import Search from "../img/search.png";
@@ -33,7 +34,6 @@ const Browsepage = (props) => {
   const [TrendingTV, setTrendingTV] = useState([]);
   const [Fiction, setFiction] = useState([]);
   const [isClicked, setClicked] = useState(false);
-  const [searchClicked, setsearchClicked] = useState(false);
 
   const [isHome, setHome] = useState(true);
   const [isList, setList] = useState(false);
@@ -51,15 +51,8 @@ const Browsepage = (props) => {
   window.addEventListener("scroll", changeBG);
 
   const SearchChange = () => {
-    setsearchClicked(!searchClicked)
-    if (!searchClicked) {
       document.querySelector(".search-white").style.opacity = "0";
       document.querySelector(".search-bar").style.opacity = "1";
-       }
-       else{
-        document.querySelector(".search-white").style.opacity = "1";
-        document.querySelector(".search-bar").style.opacity = "0";
-       }
   };
 
   const OnSearch = async (e) => {
@@ -474,7 +467,7 @@ const Browsepage = (props) => {
           </div>
         </div>
         <div className="bg-main-data">
-          <img src={Poster} className="poster" />
+          <img src={Poster2} className="poster" />
           <button className="play1">&#9654; Play</button>
         </div>
         <div className="movies-section">
@@ -548,7 +541,7 @@ const Browsepage = (props) => {
                           <p className="HD">HD</p>
                         </div>
                         <p className="movie-desc">
-                          {items.overview.slice(0, 80) + "..."}
+                          {items.overview && items.overview.slice(0, 80) + "..."}
                         </p>
                       </div>
                     </div>
@@ -624,7 +617,7 @@ const Browsepage = (props) => {
                         <p className="HD">HD</p>
                       </div>
                       <p className="movie-desc">
-                        {items.overview.slice(0, 80) + "..."}
+                        {items.overview && items.overview.slice(0, 80) + "..."}
                       </p>
                     </div>
                   </div>
@@ -699,7 +692,7 @@ const Browsepage = (props) => {
                         <p className="HD">HD</p>
                       </div>
                       <p className="movie-desc">
-                        {items.overview.slice(0, 80) + "..."}
+                        {items.overview && items.overview.slice(0, 80) + "..."}
                       </p>
                     </div>
                   </div>
@@ -774,7 +767,7 @@ const Browsepage = (props) => {
                         <p className="HD">HD</p>
                       </div>
                       <p className="movie-desc">
-                        {items.overview.slice(0, 80) + "..."}
+                        {items.overview && items.overview.slice(0, 80) + "..."}
                       </p>
                     </div>
                   </div>
@@ -849,7 +842,7 @@ const Browsepage = (props) => {
                         <p className="HD">HD</p>
                       </div>
                       <p className="movie-desc">
-                        {items.overview.slice(0, 80) + "..."}
+                        {items.overview && items.overview.slice(0, 80) + "..."}
                       </p>
                     </div>
                   </div>
@@ -961,7 +954,7 @@ const Browsepage = (props) => {
                           <p className="HD">HD</p>
                         </div>
                         <p className="movie-desc">
-                          {items.overview.slice(0, 80) + "..."}
+                          {items.overview && items.overview.slice(0, 80) + "..."}
                         </p>
                       </div>
                     </div>
@@ -1042,7 +1035,7 @@ const Browsepage = (props) => {
                           <p className="HD">HD</p>
                         </div>
                         <p className="movie-desc">
-                          {items.overview.slice(0, 80) + "..."}
+                          {items.overview && items.overview.slice(0, 80) + "..."}
                         </p>
                       </div>
                     </div>
@@ -1123,7 +1116,7 @@ const Browsepage = (props) => {
                           <p className="HD">HD</p>
                         </div>
                         <p className="movie-desc">
-                          {items.overview.slice(0, 80) + "..."}
+                          {items.overview && items.overview.slice(0, 80) + "..."}
                         </p>
                       </div>
                     </div>
@@ -1204,7 +1197,7 @@ const Browsepage = (props) => {
                           <p className="HD">HD</p>
                         </div>
                         <p className="movie-desc">
-                          {items.overview.slice(0, 80) + "..."}
+                          {items.overview && items.overview.slice(0, 80) + "..."}
                         </p>
                       </div>
                     </div>
@@ -1285,7 +1278,7 @@ const Browsepage = (props) => {
                           <p className="HD">HD</p>
                         </div>
                         <p className="movie-desc">
-                          {items.overview.slice(0, 80) + "..."}
+                          {items.overview && items.overview.slice(0, 80) + "..."}
                         </p>
                       </div>
                     </div>
