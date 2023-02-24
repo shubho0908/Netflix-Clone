@@ -36,11 +36,11 @@ Firebase
 
 Clone the repository
 
-Install dependencies using npm install
+Install dependencies using `npm install`
 
-Start the development server using npm start
+Start the development server using `npm start`
 
-Open localhost:3000 in your web browser to view the app.
+Open `localhost:3000` in your web browser to view the app.
 
 
 ## Firebase Configuration
@@ -53,7 +53,7 @@ Go to the Firebase console and create a new project.
 
 Enable Authentication using Email/Password.
 
-Copy the Firebase config object and replace the values in src/firebase.js.
+Copy the Firebase config object and replace the values in `src/firebase.js`.
 
 Enable Firestore for your Firebase project.
 
