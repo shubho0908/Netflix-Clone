@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Netflix Clone with React JS, Redux and Firebase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This project is a Netflix clone made using React JS, Redux and Firebase for authentication. It has all the amazing animations and UI as the original Netflix site. Additionally, it also features sections like Movies and TV shows where users can find a variety of content.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Netflix-like animations and UI
+Signup and Signin using Firebase Authentication
+Movies and TV Shows sections
+Wishlist/My List functionality
+User authentication with Firebase
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+React JS
+Redux
+Firebase
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Clone the repository
+Install dependencies using npm install
+Start the development server using npm start
+Open localhost:3000 in your web browser to view the app.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Firebase Configuration
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This app uses Firebase Authentication for user signup and signin. To configure your Firebase app, follow these steps:
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Go to the Firebase console and create a new project.
+Enable Authentication using Email/Password.
+Copy the Firebase config object and replace the values in src/firebase.js.
+Enable Firestore for your Firebase project.
+In Firestore, create a new collection called users and add a new document for each user with the following fields: displayName (string), email (string), photoURL (string), wishlist (array).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Sign In Page
 
-### Analyzing the Bundle Size
+![image](https://user-images.githubusercontent.com/81776711/221105156-f6f6cc34-5992-4743-878b-461fe3837b86.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+Sign Up Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![image](https://user-images.githubusercontent.com/81776711/221105292-60256fee-7d7c-40e2-91b5-70eaf4fababe.png)
 
-### Advanced Configuration
+![image](https://user-images.githubusercontent.com/81776711/221105334-5e838f20-ccdb-445f-a006-33d64150d80e.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![image](https://user-images.githubusercontent.com/81776711/221105378-b12aa92a-0c6b-4545-85e4-85149ce30589.png)
 
-### Deployment
+![image](https://user-images.githubusercontent.com/81776711/221105420-931a94e0-a4cf-4aba-bf23-4df9c5bb65af.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## Acknowledgements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[TMDB API](https://www.themoviedb.org/documentation/api)
+
+
+## Conclusion
+
+
+This Netflix clone is a great example of a React JS application that uses Firebase Authentication for user management. It has all the features of the original Netflix site and provides a great user experience. The project can be further enhanced by adding more sections and integrating other APIs.
