@@ -1,13 +1,27 @@
 import React from "react";
 import avatar from "../img/avatar.png";
 import Browsepage from "./Browsepage";
+import swal from "sweetalert";
+
 
 const Main = (props) => {
   const Redirect = () => {
     const insideData = document.querySelector(".bg-back3");
     const Browse = document.querySelector(".browse");
-    insideData.style.display = "none";
-    Browse.style.display = "block";
+
+    if (window.innerWidth < 500) {
+      swal({
+        title: "Warning!",
+        text: "It's highly recommended to use this website on larger screen (PC/Laptop) for better user experience.",
+        icon: "warning",
+        button: "Ok!",
+      });
+      insideData.style.display = "none";
+      Browse.style.display = "block";
+    } else {
+      insideData.style.display = "none";
+      Browse.style.display = "block";
+    }
   };
 
   return (
