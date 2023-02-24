@@ -9,7 +9,7 @@ const Main = (props) => {
     const insideData = document.querySelector(".bg-back3");
     const Browse = document.querySelector(".browse");
 
-    if (window.innerWidth < 500) {
+    if (window.innerWidth < 620) {
       swal({
         title: "Warning!",
         text: "It's highly recommended to use this website on larger screen (PC/Laptop) for better user experience.",
