@@ -9,10 +9,15 @@ Live Demo link: [Netflix Clone](https://shubho-netflix.netlify.app/)
 
 
 Netflix-like animations and UI
+
 Signup and Signin using Firebase Authentication
+
 Movies and TV Shows sections
+
 Search your favourite shows & add to your list
+
 Wishlist/My List functionality
+
 User authentication with Firebase
 
 
@@ -20,7 +25,9 @@ User authentication with Firebase
 
 
 React JS
+
 Redux
+
 Firebase
 
 
