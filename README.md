@@ -43,22 +43,6 @@ Start the development server using `npm start`
 Open `localhost:3000` in your web browser to view the app.
 
 
-## Firebase Configuration
-
-
-This app uses Firebase Authentication for user signup and signin. To configure your Firebase app, follow these steps:
-
-
-Go to the Firebase console and create a new project.
-
-Enable Authentication using Email/Password.
-
-Copy the Firebase config object and replace the values in `src/firebase.js`.
-
-Enable Firestore for your Firebase project.
-
-In Firestore, create a new collection called users and add a new document for each user with the following fields: displayName (string), email (string), photoURL (string), wishlist (array).
-
 
 ## Screenshots
 
