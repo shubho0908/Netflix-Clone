@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# Netflix Clone with React JS, Redux and Firebase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This project is a Netflix clone made using React JS, Redux and Firebase for authentication. It has all the amazing animations and UI as the original Netflix site. Additionally, it also features sections like Movies and TV shows where users can find a variety of content.
 
-In the project directory, you can run:
+Website link: [Netflix Clone](https://shubho-netflix.netlify.app/)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Netflix-like animations and UI
 
-### `npm test`
+Signup and Signin using Firebase Authentication
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Movies and TV Shows sections
 
-### `npm run build`
+Search your favourite shows & add to your list
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Wishlist/My List functionality
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+User authentication with Firebase
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Technologies Used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+React JS
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Redux
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Firebase
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+Clone the repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Install dependencies using `npm install`
 
-### Analyzing the Bundle Size
+Start the development server using `npm start`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Open `localhost:3000` in your web browser to view the app.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Sign In Page**
 
-### Deployment
+![image](https://user-images.githubusercontent.com/81776711/221105156-f6f6cc34-5992-4743-878b-461fe3837b86.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+**Sign Up Page**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![image](https://user-images.githubusercontent.com/81776711/221105292-60256fee-7d7c-40e2-91b5-70eaf4fababe.png)
+
+![image](https://user-images.githubusercontent.com/81776711/221105334-5e838f20-ccdb-445f-a006-33d64150d80e.png)
+
+![image](https://user-images.githubusercontent.com/81776711/221105378-b12aa92a-0c6b-4545-85e4-85149ce30589.png)
+
+![image](https://user-images.githubusercontent.com/81776711/221105420-931a94e0-a4cf-4aba-bf23-4df9c5bb65af.png)
+
+![image](https://user-images.githubusercontent.com/81776711/221106171-b2ff50f8-23c2-4055-a6ea-b886b843c3a6.png)
+
+![image](https://user-images.githubusercontent.com/81776711/221106263-4ee290bf-ff89-4632-a136-de3ab70e5469.png)
+
+
+
+**Welcome Page**
+
+![image](https://user-images.githubusercontent.com/81776711/221106332-29e86ed8-c380-4102-a2c6-a523d9dad3b8.png)
+
+
+**Netflix Clone's Home Page**
+
+![image](https://user-images.githubusercontent.com/81776711/221106495-f2894dfd-1afc-43df-8d3b-3a827b5f308e.png)
+
+
+**Movies/Shows Panel**
+
+![image](https://user-images.githubusercontent.com/81776711/221106612-d5f2e37f-90c5-457d-95d8-a8bac360b9ee.png)
+
+![Netflix and 5 more pages - Personal - Microsoft​ Edge 24-02-2023 11_50_16 (2)](https://user-images.githubusercontent.com/81776711/221107398-729a9e4b-5b50-4a5a-bc56-6ca069fe6ee7.png)
+
+
+**My List section**
+
+![image](https://user-images.githubusercontent.com/81776711/221107112-75e048ff-0bf6-4d19-8222-1da9d2af85e3.png)
+
+
+**Search section**
+
+![Netflix and 5 more pages - Personal - Microsoft​ Edge 24-02-2023 11_53_24 (2)](https://user-images.githubusercontent.com/81776711/221107567-6ddf37c9-ce45-4002-b9dc-3e1fe55c864a.png)
+
+
+## Acknowledgements
+
+[TMDB API](https://www.themoviedb.org/documentation/api)
+
+
+## Conclusion
+
+
+This Netflix clone is a great example of a React JS application that uses Firebase Authentication for user management. It has all the features of the original Netflix site and provides a great user experience. The project can be further enhanced by adding more sections and integrating other APIs.
