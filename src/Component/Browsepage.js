@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { app } from "../Firebase";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { AddToList, RemoveList } from "../action/add";
 import Poster2 from "../img/movie/bg-2.gif";
@@ -19,6 +20,7 @@ const auth = getAuth(app);
 const Browsepage = (props) => {
   const ListItems = useSelector((state) => state.MoviesAdded.ListItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const [movies, setMovies] = useState([]);
   const [movies2, setMovies2] = useState([]);
@@ -457,7 +459,7 @@ const Browsepage = (props) => {
                 className="signout"
                 onClick={() => {
                   signOut(auth);
-                  window.location.href = "/"
+                  navigate("/")
                 }}
               >
                 Sign out

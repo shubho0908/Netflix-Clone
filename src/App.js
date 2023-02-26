@@ -1,14 +1,13 @@
 import "./App.css";
 import Signin from "./auth/Signin";
 import Signup from "./auth/Signup";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import CreatePass from "./auth/CreatePass";
 import CreatePass2 from "./auth/CreatePass2";
 import Main from "./Component/Main";
 import { useState, useEffect } from "react";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "./Firebase";
-import Browsepage from "./Component/Browsepage";
 
 const auth = getAuth(app);
 
@@ -35,7 +34,6 @@ function App() {
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/welcome" element={<CreatePass />} />
             <Route exact path="/welcome-2" element={<CreatePass2 />} />
-            <Route exact path="/browse" element={<Browsepage />} />
           </Routes>
       </div>
     );
