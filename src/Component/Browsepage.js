@@ -35,7 +35,7 @@ const Browsepage = (props) => {
   const [TrendingTV, setTrendingTV] = useState([]);
   const [Fiction, setFiction] = useState([]);
   const [isClicked, setClicked] = useState(false);
-
+  const [AddedIds, setAddedIds] = useState([]);
   const [isHome, setHome] = useState(true);
   const [isList, setList] = useState(false);
   const [isMovies, setisMovies] = useState(false);
@@ -400,6 +400,17 @@ const Browsepage = (props) => {
     Fictional();
   }, []);
 
+  useEffect(() => {
+    // Update the added ids whenever the list items change
+    const ids = ListItems.map((item) => item.id);
+    setAddedIds(ids);
+  }, [ListItems]);
+
+  const isAdded = (itemId) => {
+    // Check if the item id is in the added ids
+    return AddedIds.includes(itemId);
+  };
+
   return (
     <>
       <div className="App app4">
@@ -516,18 +527,14 @@ const Browsepage = (props) => {
                           <img src={play} className="circle-play" />
                           <img
                             onClick={() => {
-                              setAdded(!Added);
-                              if (Added) {
-                                dispatch(RemoveList(items.id));
-                              } else {
+                              if (!isAdded(items.id)) {
                                 dispatch(AddToList(items));
+                              } else {
+                                dispatch(RemoveList(items.id));
                               }
                             }}
                             src={
-                              ListItems.filter((ele) => ele.id === items.id)
-                                .length > 0
-                                ? added
-                                : add
+                              isAdded(items.id) ? added : add
                             }
                             className="add-list"
                           />
@@ -592,18 +599,14 @@ const Browsepage = (props) => {
                         <img src={play} className="circle-play" />
                         <img
                           onClick={() => {
-                            setAdded(!Added);
-                            if (Added) {
-                              dispatch(RemoveList(items.id));
-                            } else {
+                            if (!isAdded(items.id)) {
                               dispatch(AddToList(items));
+                            } else {
+                              dispatch(RemoveList(items.id));
                             }
                           }}
                           src={
-                            ListItems.filter((ele) => ele.id === items.id)
-                              .length > 0
-                              ? added
-                              : add
+                            isAdded(items.id) ? added : add
                           }
                           className="add-list"
                         />
@@ -667,18 +670,14 @@ const Browsepage = (props) => {
                         <img src={play} className="circle-play" />
                         <img
                           onClick={() => {
-                            setAdded(!Added);
-                            if (Added) {
-                              dispatch(RemoveList(items.id));
-                            } else {
+                            if (!isAdded(items.id)) {
                               dispatch(AddToList(items));
+                            } else {
+                              dispatch(RemoveList(items.id));
                             }
                           }}
                           src={
-                            ListItems.filter((ele) => ele.id === items.id)
-                              .length > 0
-                              ? added
-                              : add
+                            isAdded(items.id) ? added : add
                           }
                           className="add-list"
                         />
@@ -742,18 +741,14 @@ const Browsepage = (props) => {
                         <img src={play} className="circle-play" />
                         <img
                           onClick={() => {
-                            setAdded(!Added);
-                            if (Added) {
-                              dispatch(RemoveList(items.id));
-                            } else {
+                            if (!isAdded(items.id)) {
                               dispatch(AddToList(items));
+                            } else {
+                              dispatch(RemoveList(items.id));
                             }
                           }}
                           src={
-                            ListItems.filter((ele) => ele.id === items.id)
-                              .length > 0
-                              ? added
-                              : add
+                            isAdded(items.id) ? added : add
                           }
                           className="add-list"
                         />
@@ -819,18 +814,14 @@ const Browsepage = (props) => {
                         <img src={play} className="circle-play" />
                         <img
                           onClick={() => {
-                            setAdded(!Added);
-                            if (Added) {
-                              dispatch(RemoveList(items.id));
-                            } else {
+                            if (!isAdded(items.id)) {
                               dispatch(AddToList(items));
+                            } else {
+                              dispatch(RemoveList(items.id));
                             }
                           }}
                           src={
-                            ListItems.filter((ele) => ele.id === items.id)
-                              .length > 0
-                              ? added
-                              : add
+                            isAdded(items.id) ? added : add
                           }
                           className="add-list"
                         />
@@ -873,18 +864,14 @@ const Browsepage = (props) => {
                           <img src={play} className="circle-play" />
                           <img
                             onClick={() => {
-                              setAdded(!Added);
-                              if (Added) {
-                                dispatch(RemoveList(items.id));
-                              } else {
+                              if (!isAdded(items.id)) {
                                 dispatch(AddToList(items));
+                              } else {
+                                dispatch(RemoveList(items.id));
                               }
                             }}
                             src={
-                              ListItems.filter((ele) => ele.id === items.id)
-                                .length > 0
-                                ? added
-                                : add
+                              isAdded(items.id) ? added : add
                             }
                             className="add-list"
                           />
@@ -931,18 +918,14 @@ const Browsepage = (props) => {
                           <img src={play} className="circle-play" />
                           <img
                             onClick={() => {
-                              setAdded(Added);
-                              if (Added) {
-                                dispatch(RemoveList(items.id));
-                              } else {
+                              if (!isAdded(items.id)) {
                                 dispatch(AddToList(items));
+                              } else {
+                                dispatch(RemoveList(items.id));
                               }
                             }}
                             src={
-                              ListItems.filter((ele) => ele.id === items.id)
-                                .length > 0
-                                ? added
-                                : add
+                              isAdded(items.id) ? added : add
                             }
                             className="add-list"
                           />
@@ -1010,18 +993,14 @@ const Browsepage = (props) => {
                           <img src={play} className="circle-play" />
                           <img
                             onClick={() => {
-                              setAdded(!Added);
-                              if (Added) {
-                                dispatch(RemoveList(items.id));
-                              } else {
+                              if (!isAdded(items.id)) {
                                 dispatch(AddToList(items));
+                              } else {
+                                dispatch(RemoveList(items.id));
                               }
                             }}
                             src={
-                              ListItems.filter((ele) => ele.id === items.id)
-                                .length > 0
-                                ? added
-                                : add
+                              isAdded(items.id) ? added : add
                             }
                             className="add-list"
                           />
@@ -1091,18 +1070,14 @@ const Browsepage = (props) => {
                           <img src={play} className="circle-play" />
                           <img
                             onClick={() => {
-                              setAdded(!Added);
-                              if (Added) {
-                                dispatch(RemoveList(items.id));
-                              } else {
+                              if (!isAdded(items.id)) {
                                 dispatch(AddToList(items));
+                              } else {
+                                dispatch(RemoveList(items.id));
                               }
                             }}
                             src={
-                              ListItems.filter((ele) => ele.id === items.id)
-                                .length > 0
-                                ? added
-                                : add
+                              isAdded(items.id) ? added : add
                             }
                             className="add-list"
                           />
@@ -1172,18 +1147,14 @@ const Browsepage = (props) => {
                           <img src={play} className="circle-play" />
                           <img
                             onClick={() => {
-                              setAdded(!Added);
-                              if (Added) {
-                                dispatch(RemoveList(items.id));
-                              } else {
+                              if (!isAdded(items.id)) {
                                 dispatch(AddToList(items));
+                              } else {
+                                dispatch(RemoveList(items.id));
                               }
                             }}
                             src={
-                              ListItems.filter((ele) => ele.id === items.id)
-                                .length > 0
-                                ? added
-                                : add
+                              isAdded(items.id) ? added : add
                             }
                             className="add-list"
                           />
@@ -1252,20 +1223,16 @@ const Browsepage = (props) => {
                         <div className="two-buttons">
                           <img src={play} className="circle-play" />
                           <img
-                            onClick={() => {
-                              setAdded(!Added);
-                              if (Added) {
-                                dispatch(RemoveList(items.id));
-                              } else {
-                                dispatch(AddToList(items));
-                              }
-                            }}
-                            src={
-                              ListItems.filter((ele) => ele.id === items.id)
-                                .length > 0
-                                ? added
-                                : add
+                           onClick={() => {
+                            if (!isAdded(items.id)) {
+                              dispatch(AddToList(items));
+                            } else {
+                              dispatch(RemoveList(items.id));
                             }
+                          }}
+                          src={
+                            isAdded(items.id) ? added : add
+                          }
                             className="add-list"
                           />
                         </div>
